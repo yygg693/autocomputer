@@ -1,0 +1,23 @@
+[workspace]
+members = [
+    "crates/ac-core",
+    "crates/ac-security",
+    "crates/ac-browser",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.7.0-dev"
+edition = "2024"
+rust-version = "1.97"
+license = "MIT"
+authors = ["autocomputer contributors"]
+repository = "https://github.com/autocomputer-rs/autocomputer"
+
+[workspace.dependencies]
+pyo3 = { version = "0.25", features = ["extension-module"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+thiserror = "2"
+log = "0.4"

@@ -1,0 +1,32 @@
+# Security policy template for autocomputer
+# Copy to ~/.autocomputer/security.toml to customize
+
+[global]
+fail_safe_corner = true
+max_clicks_same_position = 5
+rate_limit_ms = 100
+audit_enabled = true
+audit_retention_days = 90
+
+[[blocked_hotkeys]]
+keys = ["alt+f4", "win+l", "win+r", "ctrl+alt+del"]
+severity = "critical"
+
+[[blocked_hotkeys]]
+keys = ["ctrl+w", "ctrl+shift+w"]
+severity = "warning"
+
+[[app_permissions]]
+app = "QQ.exe"
+allow = ["send_message", "read_contacts"]
+deny = ["file_transfer", "delete_chat"]
+
+[[app_permissions]]
+app = "WeChat.exe"
+allow = ["send_message", "read_contacts"]
+deny = ["file_transfer"]
+
+[[app_permissions]]
+app = "chrome.exe"
+allow = ["navigate", "form_fill"]
+prompt = ["file_download"]

@@ -1,0 +1,45 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Maturin build artifacts
+.maturin/
+
+# Project-specific
+.pytest_cache/
+*.pdb
+Cargo.lock
+/autocomputer_screenshot.png
+/autocomputer_audit.db
+/audit_log
+*.pyc
+__pycache__/
+
+# Personal files
+.cargo/
+*.7z
+node_modules/
+autocomputer_audit.db

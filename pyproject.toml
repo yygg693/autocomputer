@@ -1,0 +1,64 @@
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "autocomputer"
+version = "0.7.0-dev"
+description = "AI-driven desktop GUI automation — Rust core + Python SDK"
+license = "MIT"
+requires-python = ">=3.9"
+readme = "README.md"
+authors = [{ name = "autocomputer contributors" }]
+
+dependencies = [
+    "typer>=0.15",
+    "rich>=13",
+    "pydantic>=2",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "paddleocr>=2.9",
+    "easyocr>=1.7",
+]
+llm = [
+    "litellm>=1.50",
+    "openai>=1.60",
+]
+browser = [
+    "playwright>=1.50",
+]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=6",
+    "pytest-benchmark>=5",
+    "ruff>=0.8",
+    "mypy>=1.14",
+]
+all = [
+    "autocomputer[ocr,llm,browser,dev]",
+]
+
+[project.scripts]
+ac = "autocomputer.cli.main:app"
+
+[tool.maturin]
+python-source = "python"
+module-name = "autocomputer.core._core"
+features = ["pyo3/extension-module"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM"]
+
+[tool.mypy]
+strict = true
+python_version = "3.9"
+
+[tool.pytest.ini_options]
+testpaths = ["python/tests"]
+pythonpath = ["python"]
