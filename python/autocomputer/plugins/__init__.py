@@ -56,6 +56,14 @@ class PluginRegistry:
     _actions: dict[str, PluginAction] = {}
     _hooks: dict[str, list[Callable[..., Any]]] = {}
 
+    _discovered: bool = False
+
+    @classmethod
+    def _ensure_discovered(cls) -> None:
+        if not cls._discovered:
+            cls.discover()
+            cls._discovered = True
+
     @classmethod
     def discover(cls) -> list[str]:
         """Discover plugins via entry_points and built-in registry."""
@@ -93,11 +101,13 @@ class PluginRegistry:
     @classmethod
     def get_action(cls, name: str) -> PluginAction | None:
         """Look up a registered action."""
+        cls._ensure_discovered()
         return cls._actions.get(name)
 
     @classmethod
     def list_actions(cls) -> list[str]:
         """List all registered action names."""
+        cls._ensure_discovered()
         return list(cls._actions.keys())
 
     @classmethod
@@ -108,7 +118,3 @@ class PluginRegistry:
                 cb(**kwargs)
             except Exception as e:
                 print(f"[autocomputer] Hook {hook_name} error: {e}", file=sys.stderr)
-
-
-# Auto-discover on import
-PluginRegistry.discover()

@@ -124,6 +124,8 @@ class FlowRecorder:
                 {
                     "action": s.action,
                     "params": s.params,
+                    "ocr_text": s.ocr_text,
+                    "window_title": s.window_title,
                     "description": s.description,
                     "screen_size": list(s.screen_size),
                     "step_index": s.step_index,
@@ -144,6 +146,10 @@ class FlowRecorder:
         """Load flow from JSON file."""
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
+        return cls.from_dict(data)
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "FlowRecorder":
 
         ver = data.get("version", "1.0")
         if ver != SCHEMA_VERSION:
@@ -161,6 +167,8 @@ class FlowRecorder:
             step = FlowStep(
                 action=s["action"],
                 params=s.get("params", {}),
+                ocr_text=s.get("ocr_text", ""),
+                window_title=s.get("window_title", ""),
                 screen_size=(ss2[0], ss2[1]),
                 description=s.get("description", ""),
                 timestamp=s.get("timestamp", 0.0),

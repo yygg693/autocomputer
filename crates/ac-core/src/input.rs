@@ -178,7 +178,7 @@ pub fn mouse_position() -> PyResult<(i32, i32)> {
 pub fn keyboard_type(text: &str, method: Option<String>) -> PyResult<()> {
     let method = method.as_deref().unwrap_or("auto");
     let needs_clipboard = method == "clipboard"
-        || (method == "auto" && text.chars().any(|c| !c.is_ascii() || c.is_control()));
+        || (method == "auto" && !text.is_ascii());
 
     if needs_clipboard {
         // Copy to clipboard and paste (Ctrl+V)

@@ -166,7 +166,7 @@ impl SecurityGuard {
             }
             // Cleanup old records lazily (~1% of writes)
             if unix_now().is_multiple_of(100) {
-                maybe_cleanup_audit(conn);
+                maybe_cleanup_audit(conn, self.config.audit_retention_days);
             }
         }
     }
@@ -180,30 +180,12 @@ fn unix_now() -> u64 {
 }
 
 fn iso_now() -> String {
-    // ISO-8601 for human-readable audit trails
-    let t = std::time::SystemTime::now()
-        .duration_since(std::time::SystemTime::UNIX_EPOCH)
-        .unwrap_or_default();
-    let secs = t.as_secs();
-    // Simple ISO-8601: YYYY-MM-DDTHH:MM:SS
-    let days = secs / 86400;
-    let time = secs % 86400;
-    let h = time / 3600;
-    let m = (time % 3600) / 60;
-    let s = time % 60;
-    // Days since Unix epoch 1970-01-01
-    let year = 1970 + (days / 365) as i32;
-    let doy = days % 365;
-    let month = (doy / 30) + 1;
-    let day = (doy % 30) + 1;
-    format!("{year:04}-{month:02}-{day:02}T{h:02}:{m:02}:{s:02}Z")
+    chrono::Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string()
 }
 
-const AUDIT_RETENTION_SECS: u64 = 90 * 86400; // 90 days
-
 /// Periodic cleanup of old audit entries (called lazily, ~1% probability per write).
-fn maybe_cleanup_audit(conn: &rusqlite::Connection) {
-    let cutoff = unix_now().saturating_sub(AUDIT_RETENTION_SECS);
+fn maybe_cleanup_audit(conn: &rusqlite::Connection, retention_days: u32) {
+    let cutoff = unix_now().saturating_sub(retention_days as u64 * 86400);
     let _ = conn.execute("DELETE FROM audit_log WHERE timestamp < ?1", rusqlite::params![cutoff]);
 }
 

@@ -142,9 +142,10 @@ class AgentExecutor:
                 x = step.params.get("x", 0)
                 y = step.params.get("y", 0)
                 bt = step.params.get("button", "left")
-                # Security check
+                # Security check — use actual screen size, not hardcoded
                 if AgentExecutor._security_enabled and AgentExecutor._guard_click:
-                    x, y = AgentExecutor._guard_click(x, y, 1920, 1080)
+                    sw, sh = screen_size()
+                    x, y = AgentExecutor._guard_click(x, y, sw, sh)
                 mouse_click_fn = _get_rust_attr("mouse_click")
                 if mouse_click_fn:
                     mouse_click_fn(x, y, bt)
