@@ -31,7 +31,7 @@
 
 ```bash
 # Clone & build
-git clone https://github.com/autocomputer-rs/autocomputer.git
+git clone https://github.com/yygg693/autocomputer.git
 cd autocomputer
 pip install maturin pytest typer rich pydantic
 maturin develop -m crates/ac-core/Cargo.toml

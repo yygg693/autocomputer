@@ -12,7 +12,7 @@ edition = "2024"
 rust-version = "1.97"
 license = "MIT"
 authors = ["autocomputer contributors"]
-repository = "https://github.com/autocomputer-rs/autocomputer"
+repository = "https://github.com/yygg693/autocomputer"
 
 [workspace.dependencies]
 pyo3 = { version = "0.25", features = ["extension-module"] }
