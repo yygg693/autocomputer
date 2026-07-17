@@ -1,0 +1,38 @@
+name: Update Repo Metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/repo-meta.json'
+
+permissions:
+  contents: read
+  metadata: write
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Repository Description & Topics
+        run: |
+          gh api repos/yygg693/autocomputer --method PATCH \
+            -f description="AI-driven desktop GUI automation — Rust core + Python SDK + HTML5 Dashboard" \
+            -f homepage="https://github.com/yygg693/autocomputer#readme" \
+            -f has_wiki=false
+          
+          gh api repos/yygg693/autocomputer/topics --method PUT \
+            -f names[]="rust" \
+            -f names[]="python" \
+            -f names[]="automation" \
+            -f names[]="desktop-automation" \
+            -f names[]="windows" \
+            -f names[]="gui" \
+            -f names[]="screenshot" \
+            -f names[]="keyboard" \
+            -f names[]="mouse" \
+            -f names[]="ocr"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
