@@ -1,1 +1,18 @@
-W3dvcmtzcGFjZV0KbWVtYmVycyA9IFsKICAgICJjcmF0ZXMvYWMtY29yZSIsCl0KcmVzb2x2ZXIgPSAiMiIKClt3b3Jrc3BhY2UucGFja2FnZV0KdmVyc2lvbiA9ICIwLjguMC1kZXYiCmVkaXRpb24gPSAiMjAyNCIKcnVzdC12ZXJzaW9uID0gIjEuOTciCmxpY2Vuc2UgPSAiTUlUIgphdXRob3JzID0gWyJhdXRvY29tcHV0ZXIgY29udHJpYnV0b3JzIl0KcmVwb3NpdG9yeSA9ICJodHRwczovL2dpdGh1Yi5jb20veXlnZzY5My9hdXRvY29tcHV0ZXIiCgpbd29ya3NwYWNlLmRlcGVuZGVuY2llc10KcHlvMyA9IHsgdmVyc2lvbiA9ICIwLjI1IiwgZmVhdHVyZXMgPSBbImV4dGVuc2lvbi1tb2R1bGUiXSB9CnNlcmRlID0geyB2ZXJzaW9uID0gIjEiLCBmZWF0dXJlcyA9IFsiZGVyaXZlIl0gfQp0b21sID0gIjAuOCIK
+[workspace]
+members = [
+    "crates/ac-core",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.8.0-dev"
+edition = "2024"
+rust-version = "1.97"
+license = "MIT"
+authors = ["autocomputer contributors"]
+repository = "https://github.com/yygg693/autocomputer"
+
+[workspace.dependencies]
+pyo3 = { version = "0.25", features = ["extension-module"] }
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"

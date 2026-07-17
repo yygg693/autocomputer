@@ -1,1 +1,63 @@
-W2J1aWxkLXN5c3RlbV0KcmVxdWlyZXMgPSBbIm1hdHVyaW4+PTEuOCw8Mi4wIl0KYnVpbGQtYmFja2VuZCA9ICJtYXR1cmluIgoKW3Byb2plY3RdCm5hbWUgPSAiYXV0b2NvbXB1dGVyIgp2ZXJzaW9uID0gIjAuOC4wLWRldiIKZGVzY3JpcHRpb24gPSAiQUktZHJpdmVuIGRlc2t0b3AgR1VJIGF1dG9tYXRpb24g4oCUIFJ1c3QgY29yZSArIFB5dGhvbiBTREsiCmxpY2Vuc2UgPSAiTUlUIgpyZXF1aXJlcy1weXRob24gPSAiPj0zLjkiCnJlYWRtZSA9ICJSRUFETUUubWQiCmF1dGhvcnMgPSBbeyBuYW1lID0gImF1dG9jb21wdXRlciBjb250cmlidXRvcnMiIH1dCgpkZXBlbmRlbmNpZXMgPSBbCiAgICAidHlwZXI+PTAuMTUiLAogICAgInJpY2g+PTEzIiwKXQoKW3Byb2plY3Qub3B0aW9uYWwtZGVwZW5kZW5jaWVzXQpvY3IgPSBbCiAgICAicGFkZGxlb2NyPj0yLjkiLAogICAgImVhc3lvY3I+PTEuNyIsCl0KbGxtID0gWwogICAgImxpdGVsbG0+PTEuNTAiLAogICAgIm9wZW5haT49MS42MCIsCl0KYnJvd3NlciA9IFsKICAgICJwbGF5d3JpZ2h0Pj0xLjUwIiwKXQpkZXYgPSBbCiAgICAicHl0ZXN0Pj04IiwKICAgICJweXRlc3QtY292Pj02IiwKICAgICJweXRlc3QtYmVuY2htYXJrPj01IiwKICAgICJydWZmPj0wLjgiLAogICAgIm15cHk+PTEuMTQiLApdCmFsbCA9IFsKICAgICJhdXRvY29tcHV0ZXJbb2NyLGxsbSxicm93c2VyLGRldl0iLApdCgpbcHJvamVjdC5zY3JpcHRzXQphYyA9ICJhdXRvY29tcHV0ZXIuY2xpOmFwcCIKClt0b29sLm1hdHVyaW5dCnB5dGhvbi1zb3VyY2UgPSAicHl0aG9uIgptb2R1bGUtbmFtZSA9ICJhdXRvY29tcHV0ZXIuY29yZS5fY29yZSIKZmVhdHVyZXMgPSBbInB5bzMvZXh0ZW5zaW9uLW1vZHVsZSJdCgpbdG9vbC5ydWZmXQpsaW5lLWxlbmd0aCA9IDEwMAp0YXJnZXQtdmVyc2lvbiA9ICJweTM5IgoKW3Rvb2wucnVmZi5saW50XQpzZWxlY3QgPSBbIkUiLCAiRiIsICJJIiwgIk4iLCAiVyIsICJVUCIsICJCIiwgIlNJTSJdCgpbdG9vbC5teXB5XQpzdHJpY3QgPSB0cnVlCnB5dGhvbl92ZXJzaW9uID0gIjMuOSIKClt0b29sLnB5dGVzdC5pbmlfb3B0aW9uc10KdGVzdHBhdGhzID0gWyJweXRob24vdGVzdHMiXQpweXRob25wYXRoID0gWyJweXRob24iXQo=
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "autocomputer"
+version = "0.8.0-dev"
+description = "AI-driven desktop GUI automation — Rust core + Python SDK"
+license = "MIT"
+requires-python = ">=3.9"
+readme = "README.md"
+authors = [{ name = "autocomputer contributors" }]
+
+dependencies = [
+    "typer>=0.15",
+    "rich>=13",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "paddleocr>=2.9",
+    "easyocr>=1.7",
+]
+llm = [
+    "litellm>=1.50",
+    "openai>=1.60",
+]
+browser = [
+    "playwright>=1.50",
+]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=6",
+    "pytest-benchmark>=5",
+    "ruff>=0.8",
+    "mypy>=1.14",
+]
+all = [
+    "autocomputer[ocr,llm,browser,dev]",
+]
+
+[project.scripts]
+ac = "autocomputer.cli:app"
+
+[tool.maturin]
+python-source = "python"
+module-name = "autocomputer.core._core"
+features = ["pyo3/extension-module"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM"]
+
+[tool.mypy]
+strict = true
+python_version = "3.9"
+
+[tool.pytest.ini_options]
+testpaths = ["python/tests"]
+pythonpath = ["python"]

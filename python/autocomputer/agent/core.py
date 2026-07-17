@@ -1,1 +1,408 @@
-IiIiCkNvVCAoQ2hhaW4tb2YtVGhvdWdodCkgQWdlbnQg4oCUIGNvbnRleHQgY29sbGVjdGlvbiwgcGxhbm5pbmcsIGV4ZWN1dGlvbiwgdHJhY2tpbmcuClBoYXNlIDE6IFdpcmVkIFBlcmNlcHRpb25NYW5hZ2VyIOKGkiBTY3JlZW5Db250ZXh0LCBMTE0gcGxhbm5pbmcgbG9vcCwgc2VsZi1jb3JyZWN0aW9uLgoiIiIKCmltcG9ydCBiYXNlNjQKaW1wb3J0IGlvCmltcG9ydCB0aW1lCmZyb20gZGF0YWNsYXNzZXMgaW1wb3J0IGRhdGFjbGFzcywgZmllbGQKZnJvbSB0eXBpbmcgaW1wb3J0IEFueSwgT3B0aW9uYWwKCmZyb20gYXV0b2NvbXB1dGVyLmNvcmUgaW1wb3J0ICgKICAgIGNhcHR1cmVfc2NyZWVuLAogICAgbGlzdF9tb25pdG9ycywKICAgIHNjcmVlbl9zaXplLAopCmZyb20gYXV0b2NvbXB1dGVyLmNvcmUuX2JyaWRnZSBpbXBvcnQgX2dldF9ydXN0X2F0dHIKCgojIOKUgOKUgCBTY3JlZW4gY29udGV4dCAod2lyZWQgdG8gUGVyY2VwdGlvbk1hbmFnZXIpIOKUgOKUgAoKQGRhdGFjbGFzcwpjbGFzcyBTY3JlZW5Db250ZXh0OgogICAgIiIiU25hcHNob3Qgb2YgY3VycmVudCBzY3JlZW4gc3RhdGUgZm9yIEFJIGRlY2lzaW9uLW1ha2luZy4iIiIKCiAgICBtb25pdG9yX2NvdW50OiBpbnQgPSAxCiAgICByZXNvbHV0aW9uOiB0dXBsZVtpbnQsIGludF0gPSAoMTkyMCwgMTA4MCkKICAgIHNjcmVlbnNob3RfcG5nX2I2NDogc3RyID0gIiIKICAgIG9jcl90ZXh0OiBsaXN0W3N0cl0gPSBmaWVsZChkZWZhdWx0X2ZhY3Rvcnk9bGlzdCkKICAgIGFjdGl2ZV93aW5kb3c6IHN0ciA9ICIiCiAgICB0aW1lc3RhbXA6IGZsb2F0ID0gMC4wCgogICAgQGNsYXNzbWV0aG9kCiAgICBkZWYgY2FwdHVyZShjbHMsIHdpdGhfb2NyOiBib29sID0gRmFsc2UpIC0+ICJTY3JlZW5Db250ZXh0IjoKICAgICAgICAiIiJDYXB0dXJlIGN1cnJlbnQgc2NyZWVuIGNvbnRleHQsIG9wdGlvbmFsbHkgd2l0aCBPQ1IgdGV4dCBleHRyYWN0aW9uLiIiIgogICAgICAgIG1vbml0b3JzID0gbGlzdF9tb25pdG9ycygpCiAgICAgICAgc2l6ZSA9IHNjcmVlbl9zaXplKCkKICAgICAgICByZXN1bHQgPSBjYXB0dXJlX3NjcmVlbigwKQoKICAgICAgICBjdHggPSBTY3JlZW5Db250ZXh0KAogICAgICAgICAgICBtb25pdG9yX2NvdW50PWxlbihtb25pdG9ycyksCiAgICAgICAgICAgIHJlc29sdXRpb249c2l6ZSwKICAgICAgICAgICAgc2NyZWVuc2hvdF9wbmdfYjY0PWJhc2U2NC5iNjRlbmNvZGUocmVzdWx0LnBuZykuZGVjb2RlKCksCiAgICAgICAgICAgIHRpbWVzdGFtcD10aW1lLnRpbWUoKSwKICAgICAgICApCgogICAgICAgICMg4pSA4pSAIE9DUiBpbnRlZ3JhdGlvbiAoUGhhc2UgMSkg4pSA4pSACiAgICAgICAgaWYgd2l0aF9vY3I6CiAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgIGZyb20gYXV0b2NvbXB1dGVyLnBlcmNlcHRpb24uZW5naW5lIGltcG9ydCBQZXJjZXB0aW9uTWFuYWdlcgogICAgICAgICAgICAgICAgcG0gPSBQZXJjZXB0aW9uTWFuYWdlcigpCiAgICAgICAgICAgICAgICBhdmFpbGFibGUgPSBwbS5saXN0X2F2YWlsYWJsZSgpCiAgICAgICAgICAgICAgICBpZiBhdmFpbGFibGU6CiAgICAgICAgICAgICAgICAgICAgcHIgPSBwbS5yZWNvZ25pemUocmVzdWx0LnBuZykKICAgICAgICAgICAgICAgICAgICBjdHgub2NyX3RleHQgPSBbci50ZXh0IGZvciByIGluIHByLnJlZ2lvbnNdIGlmIHByLnJlZ2lvbnMgZWxzZSBbcHIuZnVsbF90ZXh0XQogICAgICAgICAgICBleGNlcHQgSW1wb3J0RXJyb3I6CiAgICAgICAgICAgICAgICBwYXNzICAjIHBlcmNlcHRpb24gZXh0cmFzIG5vdCBpbnN0YWxsZWQKCiAgICAgICAgIyBEZXRlY3QgYWN0aXZlIHdpbmRvdwogICAgICAgIHRyeToKICAgICAgICAgICAgd2luZG93X2xpc3RfZm4gPSBfZ2V0X3J1c3RfYXR0cigid2luZG93X2xpc3QiKQogICAgICAgICAgICBpZiB3aW5kb3dfbGlzdF9mbjoKICAgICAgICAgICAgICAgIHdpbmRvd3MgPSB3aW5kb3dfbGlzdF9mbihOb25lKQogICAgICAgICAgICAgICAgZm9yIHcgaW4gd2luZG93czoKICAgICAgICAgICAgICAgICAgICBpZiBnZXRhdHRyKHcsICJpc192aXNpYmxlIiwgRmFsc2UpOgogICAgICAgICAgICAgICAgICAgICAgICBjdHguYWN0aXZlX3dpbmRvdyA9IGdldGF0dHIodywgInRpdGxlIiwgIiIpCiAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrCiAgICAgICAgZXhjZXB0IEV4Y2VwdGlvbjoKICAgICAgICAgICAgcGFzcwoKICAgICAgICByZXR1cm4gY3R4CgogICAgZGVmIHRvX3Byb21wdChzZWxmKSAtPiBzdHI6CiAgICAgICAgIiIiRm9ybWF0IGNvbnRleHQgZm9yIExMTSBwcm9tcHQuIiIiCiAgICAgICAgbGluZXMgPSBbCiAgICAgICAgICAgIGYiU2NyZWVuOiB7c2VsZi5yZXNvbHV0aW9uWzBdfXh7c2VsZi5yZXNvbHV0aW9uWzFdfSIsCiAgICAgICAgICAgIGYiTW9uaXRvcnM6IHtzZWxmLm1vbml0b3JfY291bnR9IiwKICAgICAgICAgICAgZiJXaW5kb3c6IHtzZWxmLmFjdGl2ZV93aW5kb3cgb3IgJ3Vua25vd24nfSIsCiAgICAgICAgXQogICAgICAgIGlmIHNlbGYub2NyX3RleHQ6CiAgICAgICAgICAgIGxpbmVzLmFwcGVuZChmIk9DUiB0ZXh0IG9uIHNjcmVlbjogeycsICcuam9pbihzZWxmLm9jcl90ZXh0WzoyMF0pfSIpCiAgICAgICAgcmV0dXJuICJcbiIuam9pbihsaW5lcykKCgojIOKUgOKUgCBQbGFuIHR5cGVzIOKUgOKUgAoKQGRhdGFjbGFzcwpjbGFzcyBBY3Rpb25TdGVwOgogICAgIiIiQSBzaW5nbGUgc3RlcCBpbiBhbiBhY3Rpb24gcGxhbi4iIiIKCiAgICBhY3Rpb246IHN0ciAgIyAiY2xpY2siLCAidHlwZSIsICJwcmVzcyIsICJ3YWl0IiwgInNlZSIsICJzY3JvbGwiLCAibW92ZSIKICAgIHBhcmFtczogZGljdFtzdHIsIEFueV0gPSBmaWVsZChkZWZhdWx0X2ZhY3Rvcnk9ZGljdCkKICAgIHJlYXNvbmluZzogc3RyID0gIiIKCgpAZGF0YWNsYXNzCmNsYXNzIEFjdGlvblBsYW46CiAgICAiIiJTZXF1ZW5jZSBvZiBzdGVwcyB0byBleGVjdXRlLiIiIgoKICAgIGdvYWw6IHN0cgogICAgc3RlcHM6IGxpc3RbQWN0aW9uU3RlcF0gPSBmaWVsZChkZWZhdWx0X2ZhY3Rvcnk9bGlzdCkKICAgIGNvbnRleHQ6IE9wdGlvbmFsW1NjcmVlbkNvbnRleHRdID0gTm9uZQoKICAgIGRlZiBhZGQoc2VsZiwgYWN0aW9uOiBzdHIsIHBhcmFtczogZGljdFtzdHIsIEFueV0gfCBOb25lID0gTm9uZSwgcmVhc29uaW5nOiBzdHIgPSAiIikgLT4gIkFjdGlvblBsYW4iOgogICAgICAgIHNlbGYuc3RlcHMuYXBwZW5kKEFjdGlvblN0ZXAoYWN0aW9uPWFjdGlvbiwgcGFyYW1zPXBhcmFtcyBvciB7fSwgcmVhc29uaW5nPXJlYXNvbmluZykpCiAgICAgICAgcmV0dXJuIHNlbGYKCgojIOKUgOKUgCBFeGVjdXRvciDilIDilIAKCmNsYXNzIEFnZW50RXhlY3V0b3I6CiAgICAiIiJFeGVjdXRlIGFjdGlvbiBwbGFucyB1c2luZyB0aGUgUnVzdCBjb3JlIGVuZ2luZS4KCiAgICBDYWxsIGVuYWJsZV9zZWN1cml0eSgpIG9uY2UgYXQgc3RhcnR1cCB0byBlbmFibGUgc2FmZXR5IGNoZWNrcyBnbG9iYWxseS4KICAgIEFsbCBleGVjdXRlXyogbWV0aG9kcyB3aWxsIHRoZW4gcGFzcyB0aHJvdWdoIHRoZSBzZWN1cml0eSBndWFyZCBhdXRvbWF0aWNhbGx5LgogICAgIiIiCgogICAgX3NlY3VyaXR5X2VuYWJsZWQ6IGJvb2wgPSBGYWxzZQogICAgX2d1YXJkX2NsaWNrOiBBbnkgPSBOb25lCiAgICBfZ3VhcmRfaG90a2V5OiBBbnkgPSBOb25lCgogICAgQGNsYXNzbWV0aG9kCiAgICBkZWYgZW5hYmxlX3NlY3VyaXR5KGNscywgY29uZmlnX3RvbWw6IE9wdGlvbmFsW3N0cl0gPSBOb25lKSAtPiBOb25lOgogICAgICAgICIiIkVuYWJsZSBzZWN1cml0eSBndWFyZC4gQ2FsbCBvbmNlIGF0IGFwcGxpY2F0aW9uIHN0YXJ0dXAuIiIiCiAgICAgICAgdHJ5OgogICAgICAgICAgICBpbml0X2ZuID0gX2dldF9ydXN0X2F0dHIoInNlY3VyaXR5X2luaXQiKQogICAgICAgICAgICBpZiBpbml0X2ZuOgogICAgICAgICAgICAgICAgaW5pdF9mbihjb25maWdfdG9tbCkKICAgICAgICAgICAgY2xzLl9ndWFyZF9jbGljayA9IF9nZXRfcnVzdF9hdHRyKCJndWFyZF9jbGljayIpCiAgICAgICAgICAgIGNscy5fZ3VhcmRfaG90a2V5ID0gX2dldF9ydXN0X2F0dHIoImd1YXJkX2hvdGtleSIpCiAgICAgICAgICAgIGNscy5fc2VjdXJpdHlfZW5hYmxlZCA9IGNscy5fZ3VhcmRfY2xpY2sgaXMgbm90IE5vbmUKICAgICAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgICAgICBjbHMuX3NlY3VyaXR5X2VuYWJsZWQgPSBGYWxzZQoKICAgIEBzdGF0aWNtZXRob2QKICAgIGRlZiBleGVjdXRlX3N0ZXAoc3RlcDogQWN0aW9uU3RlcCkgLT4gZGljdFtzdHIsIEFueV06CiAgICAgICAgIiIiRXhlY3V0ZSBhIHNpbmdsZSBhY3Rpb24gc3RlcC4gUmV0dXJucyByZXN1bHQgZGljdC4iIiIKICAgICAgICByZXN1bHQ6IGRpY3Rbc3RyLCBBbnldID0geyJhY3Rpb24iOiBzdGVwLmFjdGlvbiwgInN1Y2Nlc3MiOiBUcnVlfQoKICAgICAgICB0cnk6CiAgICAgICAgICAgIGlmIHN0ZXAuYWN0aW9uID09ICJjbGljayI6CiAgICAgICAgICAgICAgICB4ID0gc3RlcC5wYXJhbXMuZ2V0KCJ4IiwgMCkKICAgICAgICAgICAgICAgIHkgPSBzdGVwLnBhcmFtcy5nZXQoInkiLCAwKQogICAgICAgICAgICAgICAgYnQgPSBzdGVwLnBhcmFtcy5nZXQoImJ1dHRvbiIsICJsZWZ0IikKICAgICAgICAgICAgICAgICMgU2VjdXJpdHkgY2hlY2sKICAgICAgICAgICAgICAgIGlmIEFnZW50RXhlY3V0b3IuX3NlY3VyaXR5X2VuYWJsZWQgYW5kIEFnZW50RXhlY3V0b3IuX2d1YXJkX2NsaWNrOgogICAgICAgICAgICAgICAgICAgIHgsIHkgPSBBZ2VudEV4ZWN1dG9yLl9ndWFyZF9jbGljayh4LCB5LCAxOTIwLCAxMDgwKQogICAgICAgICAgICAgICAgbW91c2VfY2xpY2tfZm4gPSBfZ2V0X3J1c3RfYXR0cigibW91c2VfY2xpY2siKQogICAgICAgICAgICAgICAgaWYgbW91c2VfY2xpY2tfZm46CiAgICAgICAgICAgICAgICAgICAgbW91c2VfY2xpY2tfZm4oeCwgeSwgYnQpCiAgICAgICAgICAgICAgICByZXN1bHRbImRldGFpbCJdID0gZiJDbGlja2VkICh7eH0se3l9KSIKCiAgICAgICAgICAgIGVsaWYgc3RlcC5hY3Rpb24gPT0gInR5cGUiOgogICAgICAgICAgICAgICAgdGV4dCA9IHN0ZXAucGFyYW1zLmdldCgidGV4dCIsICIiKQogICAgICAgICAgICAgICAgbWV0aG9kID0gc3RlcC5wYXJhbXMuZ2V0KCJtZXRob2QiLCAiYXV0byIpCiAgICAgICAgICAgICAgICBrZXlib2FyZF90eXBlX2ZuID0gX2dldF9ydXN0X2F0dHIoImtleWJvYXJkX3R5cGUiKQogICAgICAgICAgICAgICAgaWYga2V5Ym9hcmRfdHlwZV9mbjoKICAgICAgICAgICAgICAgICAgICBrZXlib2FyZF90eXBlX2ZuKHRleHQsIG1ldGhvZCkKICAgICAgICAgICAgICAgIHByZXZpZXcgPSB0ZXh0WzozMF0gKyAiLi4uIiBpZiBsZW4odGV4dCkgPiAzMCBlbHNlIHRleHQKICAgICAgICAgICAgICAgIHJlc3VsdFsiZGV0YWlsIl0gPSBmIlR5cGVkICd7cHJldmlld30nIgoKICAgICAgICAgICAgZWxpZiBzdGVwLmFjdGlvbiA9PSAicHJlc3MiOgogICAgICAgICAgICAgICAga2V5ID0gc3RlcC5wYXJhbXMuZ2V0KCJrZXkiLCAiZW50ZXIiKQogICAgICAgICAgICAgICAgIyBTZWN1cml0eTogYmxvY2sgZGFuZ2Vyb3VzIGhvdGtleXMKICAgICAgICAgICAgICAgIGlmIEFnZW50RXhlY3V0b3IuX3NlY3VyaXR5X2VuYWJsZWQgYW5kIEFnZW50RXhlY3V0b3IuX2d1YXJkX2hvdGtleToKICAgICAgICAgICAgICAgICAgICBBZ2VudEV4ZWN1dG9yLl9ndWFyZF9ob3RrZXkoW2tleV0pCiAgICAgICAgICAgICAgICBrZXlib2FyZF9wcmVzc19mbiA9IF9nZXRfcnVzdF9hdHRyKCJrZXlib2FyZF9wcmVzcyIpCiAgICAgICAgICAgICAgICBpZiBrZXlib2FyZF9wcmVzc19mbjoKICAgICAgICAgICAgICAgICAgICBrZXlib2FyZF9wcmVzc19mbihrZXkpCiAgICAgICAgICAgICAgICByZXN1bHRbImRldGFpbCJdID0gZiJQcmVzc2VkICd7a2V5fSciCgogICAgICAgICAgICBlbGlmIHN0ZXAuYWN0aW9uID09ICJ3YWl0IjoKICAgICAgICAgICAgICAgIG1zID0gc3RlcC5wYXJhbXMuZ2V0KCJtcyIsIDEwMDApCiAgICAgICAgICAgICAgICB0aW1lLnNsZWVwKG1zIC8gMTAwMC4wKQogICAgICAgICAgICAgICAgcmVzdWx0WyJkZXRhaWwiXSA9IGYiV2FpdGVkIHttc31tcyIKCiAgICAgICAgICAgIGVsaWYgc3RlcC5hY3Rpb24gPT0gInNjcm9sbCI6CiAgICAgICAgICAgICAgICBjbGlja3MgPSBzdGVwLnBhcmFtcy5nZXQoImNsaWNrcyIsIDEpCiAgICAgICAgICAgICAgICBtb3VzZV9zY3JvbGxfZm4gPSBfZ2V0X3J1c3RfYXR0cigibW91c2Vfc2Nyb2xsIikKICAgICAgICAgICAgICAgIGlmIG1vdXNlX3Njcm9sbF9mbjoKICAgICAgICAgICAgICAgICAgICBtb3VzZV9zY3JvbGxfZm4oY2xpY2tzKQogICAgICAgICAgICAgICAgcmVzdWx0WyJkZXRhaWwiXSA9IGYiU2Nyb2xsZWQge2NsaWNrc30gY2xpY2tzIgoKICAgICAgICAgICAgZWxpZiBzdGVwLmFjdGlvbiA9PSAic2VlIjoKICAgICAgICAgICAgICAgIGN0eCA9IFNjcmVlbkNvbnRleHQuY2FwdHVyZSgpCiAgICAgICAgICAgICAgICByZXN1bHRbImRldGFpbCJdID0gZiJTY3JlZW5zaG90IHtjdHgucmVzb2x1dGlvbn0iCiAgICAgICAgICAgICAgICByZXN1bHRbImNvbnRleHQiXSA9IGN0eAoKICAgICAgICAgICAgZWxpZiBzdGVwLmFjdGlvbiA9PSAibW92ZSI6CiAgICAgICAgICAgICAgICB4ID0gc3RlcC5wYXJhbXMuZ2V0KCJ4IiwgMCkKICAgICAgICAgICAgICAgIHkgPSBzdGVwLnBhcmFtcy5nZXQoInkiLCAwKQogICAgICAgICAgICAgICAgbW91c2VfbW92ZV9mbiA9IF9nZXRfcnVzdF9hdHRyKCJtb3VzZV9tb3ZlIikKICAgICAgICAgICAgICAgIGlmIG1vdXNlX21vdmVfZm46CiAgICAgICAgICAgICAgICAgICAgbW91c2VfbW92ZV9mbih4LCB5LCBOb25lKQogICAgICAgICAgICAgICAgcmVzdWx0WyJkZXRhaWwiXSA9IGYiTW92ZWQgdG8gKHt4fSx7eX0pIgoKICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgIHJlc3VsdFsic3VjY2VzcyJdID0gRmFsc2UKICAgICAgICAgICAgICAgIHJlc3VsdFsiZXJyb3IiXSA9IGYiVW5rbm93biBhY3Rpb246IHtzdGVwLmFjdGlvbn0iCgogICAgICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICAgICAgcmVzdWx0WyJzdWNjZXNzIl0gPSBGYWxzZQogICAgICAgICAgICByZXN1bHRbImVycm9yIl0gPSBzdHIoZSkKCiAgICAgICAgcmV0dXJuIHJlc3VsdAoKICAgIEBzdGF0aWNtZXRob2QKICAgIGRlZiBleGVjdXRlX3BsYW4oCiAgICAgICAgcGxhbjogQWN0aW9uUGxhbiwKICAgICAgICB2ZXJpZnk6IGJvb2wgPSBUcnVlLAogICAgICAgIG1heF9yZXRyaWVzOiBpbnQgPSAzLAogICAgKSAtPiBkaWN0W3N0ciwgQW55XToKICAgICAgICAiIiJFeGVjdXRlIGFsbCBzdGVwcyBpbiBhIHBsYW4sIHdpdGggc2VsZi1jb3JyZWN0aW9uIG9uIGZhaWx1cmUuCgogICAgICAgIE9uIHN0ZXAgZmFpbHVyZTogcmUtY2FwdHVyZSBzY3JlZW4gY29udGV4dCwgYXR0ZW1wdCByZWNvdmVyeSAobWF4X3JldHJpZXMpLgogICAgICAgICIiIgogICAgICAgIHJlc3VsdHM6IGxpc3RbZGljdFtzdHIsIEFueV1dID0gW10KICAgICAgICBzdGFydCA9IHRpbWUudGltZSgpCiAgICAgICAgcmV0cmllcyA9IDAKCiAgICAgICAgaSA9IDAKICAgICAgICB3aGlsZSBpIDwgbGVuKHBsYW4uc3RlcHMpOgogICAgICAgICAgICBzdGVwID0gcGxhbi5zdGVwc1tpXQogICAgICAgICAgICByID0gQWdlbnRFeGVjdXRvci5leGVjdXRlX3N0ZXAoc3RlcCkKICAgICAgICAgICAgcmVzdWx0cy5hcHBlbmQocikKCiAgICAgICAgICAgIGlmIG5vdCByWyJzdWNjZXNzIl0gYW5kIHJldHJpZXMgPCBtYXhfcmV0cmllczoKICAgICAgICAgICAgICAgIHJldHJpZXMgKz0gMQogICAgICAgICAgICAgICAgIyBSZS1jYXB0dXJlIGNvbnRleHQgdG8gc2VlIHdoYXQgY2hhbmdlZAogICAgICAgICAgICAgICAgclsicmV0cnkiXSA9IHJldHJpZXMKICAgICAgICAgICAgICAgIHJbImNvbnRleHRfYWZ0ZXJfZXJyb3IiXSA9IFNjcmVlbkNvbnRleHQuY2FwdHVyZSgpCiAgICAgICAgICAgICAgICAjIEluc2VydCBhIHNtYWxsIHdhaXQgYmVmb3JlIHJldHJ5CiAgICAgICAgICAgICAgICB0aW1lLnNsZWVwKDAuNSkKICAgICAgICAgICAgICAgIGNvbnRpbnVlICAjIHJldHJ5IHNhbWUgc3RlcAogICAgICAgICAgICBlbGlmIG5vdCByWyJzdWNjZXNzIl06CiAgICAgICAgICAgICAgICBicmVhawoKICAgICAgICAgICAgcmV0cmllcyA9IDAgICMgcmVzZXQgb24gc3VjY2VzcwogICAgICAgICAgICBpICs9IDEKCiAgICAgICAgIyBGaW5hbCB2ZXJpZmljYXRpb24KICAgICAgICBmaW5hbF9jdHggPSBOb25lCiAgICAgICAgaWYgdmVyaWZ5IGFuZCByZXN1bHRzOgogICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICBmaW5hbF9jdHggPSBTY3JlZW5Db250ZXh0LmNhcHR1cmUoKQogICAgICAgICAgICAgICAgdHJhY2tlciA9IFN0YXRlVHJhY2tlcigpCiAgICAgICAgICAgICAgICBzdGF0ZSA9IHRyYWNrZXIuYmVmb3JlX2FjdGlvbigpCiAgICAgICAgICAgICAgICBzdGF0ZSA9IHRyYWNrZXIuYWZ0ZXJfYWN0aW9uKHN0YXRlKQogICAgICAgICAgICAgICAgaWYgbm90IHN0YXRlLmNoYW5nZWQ6CiAgICAgICAgICAgICAgICAgICAgIyBTb21ldGhpbmcgbWlnaHQgYmUgb2ZmLCBidXQgc3RpbGwgcmV0dXJuIHJlc3VsdHMKICAgICAgICAgICAgICAgICAgICBwYXNzCiAgICAgICAgICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgICAgICAgICBwYXNzCgogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICJzdWNjZXNzIjogYWxsKHJbInN1Y2Nlc3MiXSBmb3IgciBpbiByZXN1bHRzKSwKICAgICAgICAgICAgInN0ZXBzIjogcmVzdWx0cywKICAgICAgICAgICAgImVsYXBzZWRfbXMiOiAodGltZS50aW1lKCkgLSBzdGFydCkgKiAxMDAwLAogICAgICAgICAgICAicmV0cmllc191c2VkIjogcmV0cmllcywKICAgICAgICAgICAgImZpbmFsX2NvbnRleHQiOiBmaW5hbF9jdHgsCiAgICAgICAgfQoKCiMg4pSA4pSAIExMTS1kcml2ZW4gQWdlbnQg4pSA4pSACgpTWVNURU1fUFJPTVBUID0gIiIiWW91IGFyZSBhIGRlc2t0b3AgYXV0b21hdGlvbiBhZ2VudC4gR2l2ZW4gYSBnb2FsIGFuZCBjdXJyZW50IHNjcmVlbiBjb250ZXh0LCBvdXRwdXQgYSBzZXF1ZW5jZSBvZiBhY3Rpb25zLgoKQXZhaWxhYmxlIGFjdGlvbnM6Ci0gY2xpY2s6IHt4LCB5LCBidXR0b24/fSDigJQgY2xpY2sgYXQgcG9zaXRpb24gKHVzZSBPQ1IgY29vcmRpbmF0ZXMgaWYgYXZhaWxhYmxlKQotIHR5cGU6IHt0ZXh0LCBtZXRob2Q/fSDigJQgdHlwZSB0ZXh0IChtZXRob2Q6ICJhdXRvIiBmb3IgY2xpcGJvYXJkLWJhc2VkIENoaW5lc2UpCi0gcHJlc3M6IHtrZXl9IOKAlCBwcmVzcyBzaW5nbGUga2V5IChlbnRlciwgZXNjYXBlLCB0YWIsIGN0cmwrYywgZXRjLikKLSB3YWl0OiB7bXN9IOKAlCB3YWl0IG1pbGxpc2Vjb25kcwotIHNjcm9sbDoge2NsaWNrc30g4oCUIHBvc2l0aXZlPXVwLCBuZWdhdGl2ZT1kb3duCi0gbW92ZToge3gsIHl9IOKAlCBtb3ZlIG1vdXNlCi0gc2VlOiB7fSDigJQgdGFrZSBzY3JlZW5zaG90IChmb3IgdmlzaW9uLWJhc2VkIHZlcmlmaWNhdGlvbikKClJlc3BvbmQgT05MWSB3aXRoIGEgSlNPTiBhcnJheSBvZiBhY3Rpb24gb2JqZWN0cy4gRWFjaCBvYmplY3Q6IHsiYWN0aW9uIjogIi4uLiIsICJwYXJhbXMiOiB7Li4ufSwgInJlYXNvbmluZyI6ICJ3aHkgdGhpcyBzdGVwIn0iIiIKCgpjbGFzcyBBZ2VudDoKICAgICIiIkxMTS1kcml2ZW4gZGVza3RvcCBhdXRvbWF0aW9uIGFnZW50LgoKICAgIFVzZXMgc2NyZWVuIGNvbnRleHQgKyBvcHRpb25hbCBMTE0gdG8gY3JlYXRlIGFuZCBleGVjdXRlIGFjdGlvbiBwbGFucy4KICAgICIiIgoKICAgIGRlZiBfX2luaXRfXyhzZWxmLCBtb2RlbDogc3RyID0gIm9wZW5haS9ncHQtNG8iLCBtYXhfcmV0cmllczogaW50ID0gMyk6CiAgICAgICAgc2VsZi5tb2RlbCA9IG1vZGVsCiAgICAgICAgc2VsZi5tYXhfcmV0cmllcyA9IG1heF9yZXRyaWVzCgogICAgZGVmIHBsYW4oc2VsZiwgZ29hbDogc3RyLCBjb250ZXh0OiBPcHRpb25hbFtTY3JlZW5Db250ZXh0XSA9IE5vbmUpIC0+IEFjdGlvblBsYW46CiAgICAgICAgIiIiR2VuZXJhdGUgYW4gYWN0aW9uIHBsYW4gZnJvbSBhIG5hdHVyYWwtbGFuZ3VhZ2UgZ29hbC4KCiAgICAgICAgV2l0aG91dCBhbiBMTE0gY29uZmlndXJlZCwgZmFsbHMgYmFjayB0byBzaW5nbGUtc3RlcCBjYXB0dXJlLWFuZC1yZXBvcnQuCiAgICAgICAgIiIiCiAgICAgICAgaWYgY29udGV4dCBpcyBOb25lOgogICAgICAgICAgICBjb250ZXh0ID0gU2NyZWVuQ29udGV4dC5jYXB0dXJlKHdpdGhfb2NyPVRydWUpCgogICAgICAgIHBsYW4gPSBBY3Rpb25QbGFuKGdvYWw9Z29hbCwgY29udGV4dD1jb250ZXh0KQoKICAgICAgICAjIFRyeSBMTE0tYmFzZWQgcGxhbm5pbmcgZmlyc3QKICAgICAgICB0cnk6CiAgICAgICAgICAgIHN0ZXBzID0gc2VsZi5fbGxtX3BsYW4oY29udGV4dCwgZ29hbCkKICAgICAgICAgICAgZm9yIHMgaW4gc3RlcHM6CiAgICAgICAgICAgICAgICBwbGFuLmFkZChzWyJhY3Rpb24iXSwgcy5nZXQoInBhcmFtcyIsIHt9KSwgcy5nZXQoInJlYXNvbmluZyIsICIiKSkKICAgICAgICAgICAgcmV0dXJuIHBsYW4KICAgICAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgICAgICAjIEZhbGxiYWNrOiBhdCBtaW5pbXVtLCBjYXB0dXJlIGNvbnRleHQKICAgICAgICAgICAgcGxhbi5hZGQoInNlZSIsIHt9LCAiTExNIHVuYXZhaWxhYmxlIOKAlCBjYXB0dXJlZCBzY3JlZW4gY29udGV4dCBvbmx5IikKICAgICAgICAgICAgcmV0dXJuIHBsYW4KCiAgICBkZWYgX2xsbV9wbGFuKHNlbGYsIGNvbnRleHQ6IFNjcmVlbkNvbnRleHQsIGdvYWw6IHN0cikgLT4gbGlzdFtkaWN0W3N0ciwgQW55XV06CiAgICAgICAgIiIiVXNlIGxpdGVsbG0gdG8gZ2VuZXJhdGUgYWN0aW9uIHN0ZXBzIGZyb20gZ29hbCArIGNvbnRleHQuIiIiCiAgICAgICAgaW1wb3J0IGpzb24KCiAgICAgICAgdXNlcl9wcm9tcHQgPSBmIkdvYWw6IHtnb2FsfVxuXG57Y29udGV4dC50b19wcm9tcHQoKX0iCiAgICAgICAgbWVzc2FnZXMgPSBbCiAgICAgICAgICAgIHsicm9sZSI6ICJzeXN0ZW0iLCAiY29udGVudCI6IFNZU1RFTV9QUk9NUFR9LAogICAgICAgICAgICB7InJvbGUiOiAidXNlciIsICJjb250ZW50IjogdXNlcl9wcm9tcHR9LAogICAgICAgIF0KCiAgICAgICAgdHJ5OgogICAgICAgICAgICBpbXBvcnQgbGl0ZWxsbSAgIyB0eXBlOiBpZ25vcmUKICAgICAgICAgICAgcmVzcG9uc2UgPSBsaXRlbGxtLmNvbXBsZXRpb24oCiAgICAgICAgICAgICAgICBtb2RlbD1zZWxmLm1vZGVsLAogICAgICAgICAgICAgICAgbWVzc2FnZXM9bWVzc2FnZXMsCiAgICAgICAgICAgICAgICBtYXhfdG9rZW5zPTIwMDAsCiAgICAgICAgICAgICAgICB0ZW1wZXJhdHVyZT0wLjMsCiAgICAgICAgICAgICkKICAgICAgICAgICAgcmF3ID0gcmVzcG9uc2UuY2hvaWNlc1swXS5tZXNzYWdlLmNvbnRlbnQgb3IgIltdIgogICAgICAgICAgICAjIFN0cmlwIG1hcmtkb3duIGZlbmNlcyBpZiBwcmVzZW50CiAgICAgICAgICAgIGlmIHJhdy5zdGFydHN3aXRoKCJgYGAiKToKICAgICAgICAgICAgICAgIHJhdyA9IHJhdy5zcGxpdCgiXG4iLCAxKVsxXQogICAgICAgICAgICAgICAgaWYgcmF3LmVuZHN3aXRoKCJgYGAiKToKICAgICAgICAgICAgICAgICAgICByYXcgPSByYXdbOi0zXQogICAgICAgICAgICByZXR1cm4ganNvbi5sb2FkcyhyYXcpCiAgICAgICAgZXhjZXB0IEltcG9ydEVycm9yOgogICAgICAgICAgICByYWlzZSBSdW50aW1lRXJyb3IoImxpdGVsbG0gbm90IGluc3RhbGxlZCDigJQgcGlwIGluc3RhbGwgYXV0b2NvbXB1dGVyW2xsbV0iKQogICAgICAgIGV4Y2VwdCBqc29uLkpTT05EZWNvZGVFcnJvciBhcyBlOgogICAgICAgICAgICByYWlzZSBSdW50aW1lRXJyb3IoZiJMTE0gcmV0dXJuZWQgaW52YWxpZCBKU09OOiB7ZX0iKQoKICAgIGRlZiBydW4oc2VsZiwgZ29hbDogc3RyKSAtPiBkaWN0W3N0ciwgQW55XToKICAgICAgICAiIiJQbGFuICsgZXhlY3V0ZSBmb3IgYSBuYXR1cmFsLWxhbmd1YWdlIGdvYWwuIEFsbC1pbi1vbmUuIiIiCiAgICAgICAgcGxhbiA9IHNlbGYucGxhbihnb2FsKQogICAgICAgIHJldHVybiBBZ2VudEV4ZWN1dG9yLmV4ZWN1dGVfcGxhbihwbGFuLCB2ZXJpZnk9VHJ1ZSwgbWF4X3JldHJpZXM9c2VsZi5tYXhfcmV0cmllcykKCgojIOKUgOKUgCBTdGF0ZSB0cmFja2VyIChlbmhhbmNlZCkg4pSA4pSACgpAZGF0YWNsYXNzCmNsYXNzIFRyYWNrZXJTdGF0ZToKICAgICIiIlRyYWNrcyBzY3JlZW4gY2hhbmdlcyBiZXR3ZWVuIGFjdGlvbiBzdGVwcy4iIiIKCiAgICBiZWZvcmU6IE9wdGlvbmFsW1NjcmVlbkNvbnRleHRdID0gTm9uZQogICAgYWZ0ZXI6IE9wdGlvbmFsW1NjcmVlbkNvbnRleHRdID0gTm9uZQogICAgY2hhbmdlZDogYm9vbCA9IEZhbHNlCiAgICBjaGFuZ2VfcGVyY2VudDogZmxvYXQgPSAwLjAgICMgUGhhc2UgMTogYWN0dWFsbHkgY29tcHV0ZWQKCgpjbGFzcyBTdGF0ZVRyYWNrZXI6CiAgICAiIiJUcmFja3Mgc2NyZWVuIHN0YXRlIGNoYW5nZXMgdG8gdmVyaWZ5IGFjdGlvbnMgaGFkIGludGVuZGVkIGVmZmVjdC4iIiIKCiAgICBAc3RhdGljbWV0aG9kCiAgICBkZWYgYmVmb3JlX2FjdGlvbigpIC0+IFRyYWNrZXJTdGF0ZToKICAgICAgICByZXR1cm4gVHJhY2tlclN0YXRlKGJlZm9yZT1TY3JlZW5Db250ZXh0LmNhcHR1cmUod2l0aF9vY3I9VHJ1ZSkpCgogICAgQHN0YXRpY21ldGhvZAogICAgZGVmIGFmdGVyX2FjdGlvbihzdGF0ZTogVHJhY2tlclN0YXRlKSAtPiBUcmFja2VyU3RhdGU6CiAgICAgICAgc3RhdGUuYWZ0ZXIgPSBTY3JlZW5Db250ZXh0LmNhcHR1cmUoKQogICAgICAgIGlmIHN0YXRlLmJlZm9yZSBhbmQgc3RhdGUuYWZ0ZXI6CiAgICAgICAgICAgIGhhc19jaGFuZ2VkX2ZuID0gX2dldF9ydXN0X2F0dHIoImhhc19jaGFuZ2VkIikKICAgICAgICAgICAgaWYgaGFzX2NoYW5nZWRfZm4gYW5kIHN0YXRlLmJlZm9yZS5zY3JlZW5zaG90X3BuZ19iNjQgYW5kIHN0YXRlLmFmdGVyLnNjcmVlbnNob3RfcG5nX2I2NDoKICAgICAgICAgICAgICAgIGJlZm9yZV9yYXcgPSBiYXNlNjQuYjY0ZGVjb2RlKHN0YXRlLmJlZm9yZS5zY3JlZW5zaG90X3BuZ19iNjQpCiAgICAgICAgICAgICAgICBhZnRlcl9yYXcgPSBiYXNlNjQuYjY0ZGVjb2RlKHN0YXRlLmFmdGVyLnNjcmVlbnNob3RfcG5nX2I2NCkKICAgICAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgICAgICBzdGF0ZS5jaGFuZ2VkID0gaGFzX2NoYW5nZWRfZm4oCiAgICAgICAgICAgICAgICAgICAgICAgIGJlZm9yZV9yYXcsIGFmdGVyX3JhdywKICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUuYmVmb3JlLnJlc29sdXRpb25bMF0sCiAgICAgICAgICAgICAgICAgICAgICAgIHN0YXRlLmJlZm9yZS5yZXNvbHV0aW9uWzFdLAogICAgICAgICAgICAgICAgICAgICAgICAxMCwgICMgdGhyZXNob2xkCiAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgICMgQWxzbyBnZXQgZGlmZiBwZXJjZW50YWdlCiAgICAgICAgICAgICAgICAgICAgZGlmZl9mbiA9IF9nZXRfcnVzdF9hdHRyKCJpbWFnZV9kaWZmIikKICAgICAgICAgICAgICAgICAgICBpZiBkaWZmX2ZuOgogICAgICAgICAgICAgICAgICAgICAgICBkaWZmX3Jlc3VsdCA9IGRpZmZfZm4oCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZWZvcmVfcmF3LCBhZnRlcl9yYXcsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdGF0ZS5iZWZvcmUucmVzb2x1dGlvblswXSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0YXRlLmJlZm9yZS5yZXNvbHV0aW9uWzFdLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgMTAsCiAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICAgICAgc3RhdGUuY2hhbmdlX3BlcmNlbnQgPSBnZXRhdHRyKGRpZmZfcmVzdWx0LCAicGVyY2VudCIsIDAuMCkKICAgICAgICAgICAgICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgICAgICAgICAgICAgc3RhdGUuY2hhbmdlZCA9IFRydWUKICAgICAgICAgICAgICAgICAgICBzdGF0ZS5jaGFuZ2VfcGVyY2VudCA9IDEwMC4wCiAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICBzdGF0ZS5jaGFuZ2VkID0gVHJ1ZQogICAgICAgICAgICAgICAgc3RhdGUuY2hhbmdlX3BlcmNlbnQgPSAxMDAuMAogICAgICAgIHJldHVybiBzdGF0ZQoKICAgIEBzdGF0aWNtZXRob2QKICAgIGRlZiBkZXNjcmliZShzdGF0ZTogVHJhY2tlclN0YXRlKSAtPiBzdHI6CiAgICAgICAgIiIiSHVtYW4tcmVhZGFibGUgY2hhbmdlIGRlc2NyaXB0aW9uLiIiIgogICAgICAgIGlmIG5vdCBzdGF0ZS5jaGFuZ2VkOgogICAgICAgICAgICByZXR1cm4gIk5vIHNjcmVlbiBjaGFuZ2UgZGV0ZWN0ZWQiCiAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgZiJTY3JlZW4gY2hhbmdlZDoge3N0YXRlLmNoYW5nZV9wZXJjZW50Oi4xZn0lIHBpeGVscyBhZmZlY3RlZCB8ICIKICAgICAgICAgICAgZiJCZWZvcmU6IHtzdGF0ZS5iZWZvcmUucmVzb2x1dGlvbiBpZiBzdGF0ZS5iZWZvcmUgZWxzZSAnPyd9IHwgIgogICAgICAgICAgICBmIkFmdGVyOiB7c3RhdGUuYWZ0ZXIucmVzb2x1dGlvbiBpZiBzdGF0ZS5hZnRlciBlbHNlICc/J30iCiAgICAgICAgKQo=
+"""
+CoT (Chain-of-Thought) Agent — context collection, planning, execution, tracking.
+Phase 1: Wired PerceptionManager → ScreenContext, LLM planning loop, self-correction.
+"""
+
+import base64
+import io
+import time
+from dataclasses import dataclass, field
+from typing import Any, Optional
+
+from autocomputer.core import (
+    capture_screen,
+    list_monitors,
+    screen_size,
+)
+from autocomputer.core._bridge import _get_rust_attr
+
+
+# ── Screen context (wired to PerceptionManager) ──
+
+@dataclass
+class ScreenContext:
+    """Snapshot of current screen state for AI decision-making."""
+
+    monitor_count: int = 1
+    resolution: tuple[int, int] = (1920, 1080)
+    screenshot_png_b64: str = ""
+    ocr_text: list[str] = field(default_factory=list)
+    active_window: str = ""
+    timestamp: float = 0.0
+
+    @classmethod
+    def capture(cls, with_ocr: bool = False) -> "ScreenContext":
+        """Capture current screen context, optionally with OCR text extraction."""
+        monitors = list_monitors()
+        size = screen_size()
+        result = capture_screen(0)
+
+        ctx = ScreenContext(
+            monitor_count=len(monitors),
+            resolution=size,
+            screenshot_png_b64=base64.b64encode(result.png).decode(),
+            timestamp=time.time(),
+        )
+
+        # ── OCR integration (Phase 1) ──
+        if with_ocr:
+            try:
+                from autocomputer.perception.engine import PerceptionManager
+                pm = PerceptionManager()
+                available = pm.list_available()
+                if available:
+                    pr = pm.recognize(result.png)
+                    ctx.ocr_text = [r.text for r in pr.regions] if pr.regions else [pr.full_text]
+            except ImportError:
+                pass  # perception extras not installed
+
+        # Detect active window
+        try:
+            window_list_fn = _get_rust_attr("window_list")
+            if window_list_fn:
+                windows = window_list_fn(None)
+                for w in windows:
+                    if getattr(w, "is_visible", False):
+                        ctx.active_window = getattr(w, "title", "")
+                        break
+        except Exception:
+            pass
+
+        return ctx
+
+    def to_prompt(self) -> str:
+        """Format context for LLM prompt."""
+        lines = [
+            f"Screen: {self.resolution[0]}x{self.resolution[1]}",
+            f"Monitors: {self.monitor_count}",
+            f"Window: {self.active_window or 'unknown'}",
+        ]
+        if self.ocr_text:
+            lines.append(f"OCR text on screen: {', '.join(self.ocr_text[:20])}")
+        return "\n".join(lines)
+
+
+# ── Plan types ──
+
+@dataclass
+class ActionStep:
+    """A single step in an action plan."""
+
+    action: str  # "click", "type", "press", "wait", "see", "scroll", "move"
+    params: dict[str, Any] = field(default_factory=dict)
+    reasoning: str = ""
+
+
+@dataclass
+class ActionPlan:
+    """Sequence of steps to execute."""
+
+    goal: str
+    steps: list[ActionStep] = field(default_factory=list)
+    context: Optional[ScreenContext] = None
+
+    def add(self, action: str, params: dict[str, Any] | None = None, reasoning: str = "") -> "ActionPlan":
+        self.steps.append(ActionStep(action=action, params=params or {}, reasoning=reasoning))
+        return self
+
+
+# ── Executor ──
+
+class AgentExecutor:
+    """Execute action plans using the Rust core engine.
+
+    Call enable_security() once at startup to enable safety checks globally.
+    All execute_* methods will then pass through the security guard automatically.
+    """
+
+    _security_enabled: bool = False
+    _guard_click: Any = None
+    _guard_hotkey: Any = None
+
+    @classmethod
+    def enable_security(cls, config_toml: Optional[str] = None) -> None:
+        """Enable security guard. Call once at application startup."""
+        try:
+            init_fn = _get_rust_attr("security_init")
+            if init_fn:
+                init_fn(config_toml)
+            cls._guard_click = _get_rust_attr("guard_click")
+            cls._guard_hotkey = _get_rust_attr("guard_hotkey")
+            cls._security_enabled = cls._guard_click is not None
+        except Exception:
+            cls._security_enabled = False
+
+    @staticmethod
+    def execute_step(step: ActionStep) -> dict[str, Any]:
+        """Execute a single action step. Returns result dict."""
+        result: dict[str, Any] = {"action": step.action, "success": True}
+
+        try:
+            if step.action == "click":
+                x = step.params.get("x", 0)
+                y = step.params.get("y", 0)
+                bt = step.params.get("button", "left")
+                # Security check
+                if AgentExecutor._security_enabled and AgentExecutor._guard_click:
+                    x, y = AgentExecutor._guard_click(x, y, 1920, 1080)
+                mouse_click_fn = _get_rust_attr("mouse_click")
+                if mouse_click_fn:
+                    mouse_click_fn(x, y, bt)
+                result["detail"] = f"Clicked ({x},{y})"
+
+            elif step.action == "type":
+                text = step.params.get("text", "")
+                method = step.params.get("method", "auto")
+                keyboard_type_fn = _get_rust_attr("keyboard_type")
+                if keyboard_type_fn:
+                    keyboard_type_fn(text, method)
+                preview = text[:30] + "..." if len(text) > 30 else text
+                result["detail"] = f"Typed '{preview}'"
+
+            elif step.action == "press":
+                key = step.params.get("key", "enter")
+                # Security: block dangerous hotkeys
+                if AgentExecutor._security_enabled and AgentExecutor._guard_hotkey:
+                    AgentExecutor._guard_hotkey([key])
+                keyboard_press_fn = _get_rust_attr("keyboard_press")
+                if keyboard_press_fn:
+                    keyboard_press_fn(key)
+                result["detail"] = f"Pressed '{key}'"
+
+            elif step.action == "wait":
+                ms = step.params.get("ms", 1000)
+                time.sleep(ms / 1000.0)
+                result["detail"] = f"Waited {ms}ms"
+
+            elif step.action == "scroll":
+                clicks = step.params.get("clicks", 1)
+                mouse_scroll_fn = _get_rust_attr("mouse_scroll")
+                if mouse_scroll_fn:
+                    mouse_scroll_fn(clicks)
+                result["detail"] = f"Scrolled {clicks} clicks"
+
+            elif step.action == "see":
+                ctx = ScreenContext.capture()
+                result["detail"] = f"Screenshot {ctx.resolution}"
+                result["context"] = ctx
+
+            elif step.action == "move":
+                x = step.params.get("x", 0)
+                y = step.params.get("y", 0)
+                mouse_move_fn = _get_rust_attr("mouse_move")
+                if mouse_move_fn:
+                    mouse_move_fn(x, y, None)
+                result["detail"] = f"Moved to ({x},{y})"
+
+            else:
+                result["success"] = False
+                result["error"] = f"Unknown action: {step.action}"
+
+        except Exception as e:
+            result["success"] = False
+            result["error"] = str(e)
+
+        return result
+
+    @staticmethod
+    def execute_plan(
+        plan: ActionPlan,
+        verify: bool = True,
+        max_retries: int = 3,
+    ) -> dict[str, Any]:
+        """Execute all steps in a plan, with self-correction on failure.
+
+        On step failure: re-capture screen context, attempt recovery (max_retries).
+        """
+        results: list[dict[str, Any]] = []
+        start = time.time()
+        retries = 0
+
+        i = 0
+        while i < len(plan.steps):
+            step = plan.steps[i]
+            r = AgentExecutor.execute_step(step)
+            results.append(r)
+
+            if not r["success"] and retries < max_retries:
+                retries += 1
+                # Re-capture context to see what changed
+                r["retry"] = retries
+                r["context_after_error"] = ScreenContext.capture()
+                # Insert a small wait before retry
+                time.sleep(0.5)
+                continue  # retry same step
+            elif not r["success"]:
+                break
+
+            retries = 0  # reset on success
+            i += 1
+
+        # Final verification
+        final_ctx = None
+        if verify and results:
+            try:
+                final_ctx = ScreenContext.capture()
+                tracker = StateTracker()
+                state = tracker.before_action()
+                state = tracker.after_action(state)
+                if not state.changed:
+                    # Something might be off, but still return results
+                    pass
+            except Exception:
+                pass
+
+        return {
+            "success": all(r["success"] for r in results),
+            "steps": results,
+            "elapsed_ms": (time.time() - start) * 1000,
+            "retries_used": retries,
+            "final_context": final_ctx,
+        }
+
+
+# ── LLM-driven Agent ──
+
+SYSTEM_PROMPT = """You are a desktop automation agent. Given a goal and current screen context, output a sequence of actions.
+
+Available actions:
+- click: {x, y, button?} — click at position (use OCR coordinates if available)
+- type: {text, method?} — type text (method: "auto" for clipboard-based Chinese)
+- press: {key} — press single key (enter, escape, tab, ctrl+c, etc.)
+- wait: {ms} — wait milliseconds
+- scroll: {clicks} — positive=up, negative=down
+- move: {x, y} — move mouse
+- see: {} — take screenshot (for vision-based verification)
+
+Respond ONLY with a JSON array of action objects. Each object: {"action": "...", "params": {...}, "reasoning": "why this step"}"""
+
+
+class Agent:
+    """LLM-driven desktop automation agent.
+
+    Uses screen context + optional LLM to create and execute action plans.
+    """
+
+    def __init__(self, model: str = "openai/gpt-4o", max_retries: int = 3):
+        self.model = model
+        self.max_retries = max_retries
+
+    def plan(self, goal: str, context: Optional[ScreenContext] = None) -> ActionPlan:
+        """Generate an action plan from a natural-language goal.
+
+        Without an LLM configured, falls back to single-step capture-and-report.
+        """
+        if context is None:
+            context = ScreenContext.capture(with_ocr=True)
+
+        plan = ActionPlan(goal=goal, context=context)
+
+        # Try LLM-based planning first
+        try:
+            steps = self._llm_plan(context, goal)
+            for s in steps:
+                plan.add(s["action"], s.get("params", {}), s.get("reasoning", ""))
+            return plan
+        except Exception:
+            # Fallback: at minimum, capture context
+            plan.add("see", {}, "LLM unavailable — captured screen context only")
+            return plan
+
+    def _llm_plan(self, context: ScreenContext, goal: str) -> list[dict[str, Any]]:
+        """Use litellm to generate action steps from goal + context."""
+        import json
+
+        user_prompt = f"Goal: {goal}\n\n{context.to_prompt()}"
+        messages = [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ]
+
+        try:
+            import litellm  # type: ignore
+            response = litellm.completion(
+                model=self.model,
+                messages=messages,
+                max_tokens=2000,
+                temperature=0.3,
+            )
+            raw = response.choices[0].message.content or "[]"
+            # Strip markdown fences if present
+            if raw.startswith("```"):
+                raw = raw.split("\n", 1)[1]
+                if raw.endswith("```"):
+                    raw = raw[:-3]
+            return json.loads(raw)
+        except ImportError:
+            raise RuntimeError("litellm not installed — pip install autocomputer[llm]")
+        except json.JSONDecodeError as e:
+            raise RuntimeError(f"LLM returned invalid JSON: {e}")
+
+    def run(self, goal: str) -> dict[str, Any]:
+        """Plan + execute for a natural-language goal. All-in-one."""
+        plan = self.plan(goal)
+        return AgentExecutor.execute_plan(plan, verify=True, max_retries=self.max_retries)
+
+
+# ── State tracker (enhanced) ──
+
+@dataclass
+class TrackerState:
+    """Tracks screen changes between action steps."""
+
+    before: Optional[ScreenContext] = None
+    after: Optional[ScreenContext] = None
+    changed: bool = False
+    change_percent: float = 0.0  # Phase 1: actually computed
+
+
+class StateTracker:
+    """Tracks screen state changes to verify actions had intended effect."""
+
+    @staticmethod
+    def before_action() -> TrackerState:
+        return TrackerState(before=ScreenContext.capture(with_ocr=True))
+
+    @staticmethod
+    def after_action(state: TrackerState) -> TrackerState:
+        state.after = ScreenContext.capture()
+        if state.before and state.after:
+            has_changed_fn = _get_rust_attr("has_changed")
+            if has_changed_fn and state.before.screenshot_png_b64 and state.after.screenshot_png_b64:
+                before_raw = base64.b64decode(state.before.screenshot_png_b64)
+                after_raw = base64.b64decode(state.after.screenshot_png_b64)
+                try:
+                    state.changed = has_changed_fn(
+                        before_raw, after_raw,
+                        state.before.resolution[0],
+                        state.before.resolution[1],
+                        10,  # threshold
+                    )
+                    # Also get diff percentage
+                    diff_fn = _get_rust_attr("image_diff")
+                    if diff_fn:
+                        diff_result = diff_fn(
+                            before_raw, after_raw,
+                            state.before.resolution[0],
+                            state.before.resolution[1],
+                            10,
+                        )
+                        state.change_percent = getattr(diff_result, "percent", 0.0)
+                except Exception:
+                    state.changed = True
+                    state.change_percent = 100.0
+            else:
+                state.changed = True
+                state.change_percent = 100.0
+        return state
+
+    @staticmethod
+    def describe(state: TrackerState) -> str:
+        """Human-readable change description."""
+        if not state.changed:
+            return "No screen change detected"
+        return (
+            f"Screen changed: {state.change_percent:.1f}% pixels affected | "
+            f"Before: {state.before.resolution if state.before else '?'} | "
+            f"After: {state.after.resolution if state.after else '?'}"
+        )

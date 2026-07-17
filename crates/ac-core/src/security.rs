@@ -1,1 +1,305 @@
-Ly8hIFNlY3VyaXR5IGd1YXJkIOKAlCBib3VuZHMsIGxvb3AsIHJhdGUsIGhvdGtleXMsIGFwcCBwZXJtaXNzaW9ucywgU1FMaXRlIGF1ZGl0LgoKdXNlIHB5bzM6OnByZWx1ZGU6Oio7CnVzZSBydXNxbGl0ZTo6Q29ubmVjdGlvbjsKdXNlIHNlcmRlOjp7RGVzZXJpYWxpemUsIFNlcmlhbGl6ZX07CnVzZSBzdGQ6OnN5bmM6Ok11dGV4Owp1c2Ugc3RkOjp0aW1lOjpJbnN0YW50OwoKI1tkZXJpdmUoRGVidWcsIENsb25lLCBTZXJpYWxpemUsIERlc2VyaWFsaXplKV0KcHViIHN0cnVjdCBTZWN1cml0eUNvbmZpZyB7CiAgICAjW3NlcmRlKGRlZmF1bHQgPSAiZGVmYXVsdF90cnVlIildCiAgICBwdWIgZmFpbF9zYWZlX2Nvcm5lcjogYm9vbCwKICAgICNbc2VyZGUoZGVmYXVsdCA9ICJkZWZhdWx0X21heF9jbGlja3MiKV0KICAgIHB1YiBtYXhfY2xpY2tzX3NhbWVfcG9zaXRpb246IHUzMiwKICAgICNbc2VyZGUoZGVmYXVsdCA9ICJkZWZhdWx0X3JhdGVfbGltaXQiKV0KICAgIHB1YiByYXRlX2xpbWl0X21zOiB1NjQsCiAgICAjW3NlcmRlKGRlZmF1bHQpXQogICAgcHViIGJsb2NrZWRfaG90a2V5czogVmVjPEhvdGtleVJ1bGU+LAogICAgI1tzZXJkZShkZWZhdWx0KV0KICAgIHB1YiBhcHBfcGVybWlzc2lvbnM6IFZlYzxBcHBQZXJtaXNzaW9uPiwKICAgICNbc2VyZGUoZGVmYXVsdCA9ICJkZWZhdWx0X3RydWUiKV0KICAgIHB1YiBhdWRpdF9lbmFibGVkOiBib29sLAogICAgI1tzZXJkZShkZWZhdWx0ID0gImRlZmF1bHRfcmV0ZW50aW9uIildCiAgICBwdWIgYXVkaXRfcmV0ZW50aW9uX2RheXM6IHUzMiwKfQoKZm4gZGVmYXVsdF90cnVlKCkgLT4gYm9vbCB7IHRydWUgfQpmbiBkZWZhdWx0X21heF9jbGlja3MoKSAtPiB1MzIgeyA1IH0KZm4gZGVmYXVsdF9yYXRlX2xpbWl0KCkgLT4gdTY0IHsgMTAwIH0KZm4gZGVmYXVsdF9yZXRlbnRpb24oKSAtPiB1MzIgeyA5MCB9CgojW2Rlcml2ZShEZWJ1ZywgQ2xvbmUsIFNlcmlhbGl6ZSwgRGVzZXJpYWxpemUpXQpwdWIgc3RydWN0IEhvdGtleVJ1bGUgewogICAgcHViIGtleXM6IFZlYzxTdHJpbmc+LAogICAgI1tzZXJkZShkZWZhdWx0KV0KICAgIHB1YiBzZXZlcml0eTogU2V2ZXJpdHksCiAgICAjW3NlcmRlKGRlZmF1bHQpXQogICAgcHViIG1lc3NhZ2U6IE9wdGlvbjxTdHJpbmc+LAp9CgojW2Rlcml2ZShEZWJ1ZywgQ2xvbmUsIFNlcmlhbGl6ZSwgRGVzZXJpYWxpemUsIFBhcnRpYWxFcSwgRGVmYXVsdCldCnB1YiBlbnVtIFNldmVyaXR5IHsKICAgICNbZGVmYXVsdF0KICAgIENyaXRpY2FsLAogICAgV2FybmluZywKfQoKI1tkZXJpdmUoRGVidWcsIENsb25lLCBTZXJpYWxpemUsIERlc2VyaWFsaXplKV0KcHViIHN0cnVjdCBBcHBQZXJtaXNzaW9uIHsKICAgIHB1YiBhcHA6IFN0cmluZywKICAgICNbc2VyZGUoZGVmYXVsdCldCiAgICBwdWIgYWxsb3c6IFZlYzxTdHJpbmc+LAogICAgI1tzZXJkZShkZWZhdWx0KV0KICAgIHB1YiBkZW55OiBWZWM8U3RyaW5nPiwKICAgICNbc2VyZGUoZGVmYXVsdCldCiAgICBwdWIgcHJvbXB0OiBWZWM8U3RyaW5nPiwKfQoKaW1wbCBEZWZhdWx0IGZvciBTZWN1cml0eUNvbmZpZyB7CiAgICBmbiBkZWZhdWx0KCkgLT4gU2VsZiB7CiAgICAgICAgU2VjdXJpdHlDb25maWcgewogICAgICAgICAgICBmYWlsX3NhZmVfY29ybmVyOiB0cnVlLCBtYXhfY2xpY2tzX3NhbWVfcG9zaXRpb246IDUsIHJhdGVfbGltaXRfbXM6IDEwMCwKICAgICAgICAgICAgYmxvY2tlZF9ob3RrZXlzOiB2ZWMhWwogICAgICAgICAgICAgICAgSG90a2V5UnVsZSB7IGtleXM6IHZlYyFbImFsdCtmNCIuaW50bygpXSwgc2V2ZXJpdHk6IFNldmVyaXR5OjpDcml0aWNhbCwgbWVzc2FnZTogTm9uZSB9LAogICAgICAgICAgICAgICAgSG90a2V5UnVsZSB7IGtleXM6IHZlYyFbIndpbitsIi5pbnRvKCldLCBzZXZlcml0eTogU2V2ZXJpdHk6OkNyaXRpY2FsLCBtZXNzYWdlOiBOb25lIH0sCiAgICAgICAgICAgICAgICBIb3RrZXlSdWxlIHsga2V5czogdmVjIVsid2luK3IiLmludG8oKV0sIHNldmVyaXR5OiBTZXZlcml0eTo6Q3JpdGljYWwsIG1lc3NhZ2U6IE5vbmUgfSwKICAgICAgICAgICAgICAgIEhvdGtleVJ1bGUgeyBrZXlzOiB2ZWMhWyJjdHJsK2FsdCtkZWwiLmludG8oKV0sIHNldmVyaXR5OiBTZXZlcml0eTo6Q3JpdGljYWwsIG1lc3NhZ2U6IE5vbmUgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgICAgYXBwX3Blcm1pc3Npb25zOiBWZWM6Om5ldygpLCBhdWRpdF9lbmFibGVkOiB0cnVlLCBhdWRpdF9yZXRlbnRpb25fZGF5czogOTAsCiAgICAgICAgfQogICAgfQp9CgpwdWIgc3RydWN0IFNlY3VyaXR5R3VhcmQgewogICAgcHViIGNvbmZpZzogU2VjdXJpdHlDb25maWcsCiAgICBjbGlja19oaXN0b3J5OiBWZWM8KGkzMiwgaTMyLCBJbnN0YW50KT4sCiAgICBsYXN0X2FjdGlvbjogSW5zdGFudCwKICAgIGRiOiBPcHRpb248Q29ubmVjdGlvbj4sCn0KCmltcGwgU2VjdXJpdHlHdWFyZCB7CiAgICBwdWIgZm4gbmV3KGNvbmZpZzogU2VjdXJpdHlDb25maWcpIC0+IFNlbGYgewogICAgICAgIGxldCBkYiA9IGlmIGNvbmZpZy5hdWRpdF9lbmFibGVkIHsKICAgICAgICAgICAgbGV0IGNvbm4gPSBDb25uZWN0aW9uOjpvcGVuKCJhdXRvY29tcHV0ZXJfYXVkaXQuZGIiKS5vaygpOwogICAgICAgICAgICBpZiBsZXQgU29tZShyZWYgYykgPSBjb25uIHsKICAgICAgICAgICAgICAgIGxldCBfID0gYy5leGVjdXRlKAogICAgICAgICAgICAgICAgICAgICJDUkVBVEUgVEFCTEUgSUYgTk9UIEVYSVNUUyBhdWRpdF9sb2cgKAogICAgICAgICAgICAgICAgICAgICAgICBpZCBJTlRFR0VSIFBSSU1BUlkgS0VZIEFVVE9JTkNSRU1FTlQsCiAgICAgICAgICAgICAgICAgICAgICAgIHRpbWVzdGFtcCBJTlRFR0VSIE5PVCBOVUxMLAogICAgICAgICAgICAgICAgICAgICAgICBpc29fdGltZSBURVhUIE5PVCBOVUxMIERFRkFVTFQgJycsCiAgICAgICAgICAgICAgICAgICAgICAgIGFjdGlvbiBURVhUIE5PVCBOVUxMLAogICAgICAgICAgICAgICAgICAgICAgICBkZXRhaWwgVEVYVCwKICAgICAgICAgICAgICAgICAgICAgICAgcmVzdWx0IFRFWFQgTk9UIE5VTEwpIiwKICAgICAgICAgICAgICAgICAgICBbXSwKICAgICAgICAgICAgICAgICk7CiAgICAgICAgICAgICAgICAvLyBBZGQgaXNvX3RpbWUgaWYgdXBncmFkaW5nIGZyb20gb2xkZXIgc2NoZW1hCiAgICAgICAgICAgICAgICBsZXQgXyA9IGMuZXhlY3V0ZSgiQUxURVIgVEFCTEUgYXVkaXRfbG9nIEFERCBDT0xVTU4gaXNvX3RpbWUgVEVYVCBOT1QgTlVMTCBERUZBVUxUICcnIiwgW10pOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGNvbm4KICAgICAgICB9IGVsc2UgeyBOb25lIH07CgogICAgICAgIFNlY3VyaXR5R3VhcmQgeyBjb25maWcsIGNsaWNrX2hpc3Rvcnk6IFZlYzo6bmV3KCksIGxhc3RfYWN0aW9uOiBJbnN0YW50Ojpub3coKSAtIHN0ZDo6dGltZTo6RHVyYXRpb246OmZyb21fc2VjcygzNjAwKSwgZGIgfQogICAgfQoKICAgIHB1YiBmbiB3aXRoX2RlZmF1bHRzKCkgLT4gU2VsZiB7IFNlbGY6Om5ldyhTZWN1cml0eUNvbmZpZzo6ZGVmYXVsdCgpKSB9CgogICAgcHViIGZuIGd1YXJkX2NsaWNrKCZtdXQgc2VsZiwgeDogaTMyLCB5OiBpMzIsIHNjcmVlbl93OiBpMzIsIHNjcmVlbl9oOiBpMzIpIC0+IFJlc3VsdDwoaTMyLCBpMzIpLCBTdHJpbmc+IHsKICAgICAgICBpZiBzZWxmLmNvbmZpZy5mYWlsX3NhZmVfY29ybmVyICYmIHggPT0gMCAmJiB5ID09IDAgewogICAgICAgICAgICBzZWxmLmF1ZGl0KCJmYWlsX3NhZmUiLCAiKDAsMCkgYWJvcnQiKTsKICAgICAgICAgICAgcmV0dXJuIEVycigiRmFpbC1zYWZlOiAoMCwwKSIuaW50bygpKTsKICAgICAgICB9CiAgICAgICAgbGV0IGN4ID0geC5jbGFtcCgwLCBzY3JlZW5fdyAtIDEpOwogICAgICAgIGxldCBjeSA9IHkuY2xhbXAoMCwgc2NyZWVuX2ggLSAxKTsKICAgICAgICBpZiBjeCAhPSB4IHx8IGN5ICE9IHkgeyBzZWxmLmF1ZGl0KCJib3VuZHNfY2xhbXAiLCAmZm9ybWF0ISgiKHt4fSx7eX0pLT4oe2N4fSx7Y3l9KSIpKTsgfQoKICAgICAgICBsZXQgbm93ID0gSW5zdGFudDo6bm93KCk7CiAgICAgICAgbGV0IHNhbWUgPSBzZWxmLmNsaWNrX2hpc3RvcnkuaXRlcigpLmZpbHRlcih8KHB4LCBweSwgXyl8ICpweCA9PSBjeCAmJiAqcHkgPT0gY3kpLmNvdW50KCk7CiAgICAgICAgaWYgc2FtZSBhcyB1MzIgPj0gc2VsZi5jb25maWcubWF4X2NsaWNrc19zYW1lX3Bvc2l0aW9uIHsKICAgICAgICAgICAgc2VsZi5hdWRpdCgibG9vcF9ibG9ja2VkIiwgJmZvcm1hdCEoIntzYW1lfSBjbGlja3MiKSk7CiAgICAgICAgICAgIHJldHVybiBFcnIoZm9ybWF0ISgiTG9vcDoge3NhbWV9IGNsaWNrcyIpKTsKICAgICAgICB9CiAgICAgICAgc2VsZi5jbGlja19oaXN0b3J5LnB1c2goKGN4LCBjeSwgbm93KSk7CiAgICAgICAgc2VsZi5jbGlja19oaXN0b3J5LnJldGFpbih8KF8sIF8sIHQpfCBub3cuZHVyYXRpb25fc2luY2UoKnQpLmFzX3NlY3MoKSA8IDUpOwoKICAgICAgICBsZXQgZWxhcHNlZCA9IG5vdy5kdXJhdGlvbl9zaW5jZShzZWxmLmxhc3RfYWN0aW9uKS5hc19taWxsaXMoKSBhcyB1NjQ7CiAgICAgICAgaWYgZWxhcHNlZCA8IHNlbGYuY29uZmlnLnJhdGVfbGltaXRfbXMgewogICAgICAgICAgICBzZWxmLmF1ZGl0KCJyYXRlX2xpbWl0ZWQiLCAmZm9ybWF0ISgie2VsYXBzZWR9bXMiKSk7CiAgICAgICAgICAgIHJldHVybiBFcnIoZm9ybWF0ISgiUmF0ZSBsaW1pdDoge2VsYXBzZWR9bXMiKSk7CiAgICAgICAgfQogICAgICAgIHNlbGYubGFzdF9hY3Rpb24gPSBub3c7CiAgICAgICAgc2VsZi5hdWRpdCgiY2xpY2siLCAmZm9ybWF0ISgiKHtjeH0se2N5fSkiKSk7CiAgICAgICAgT2soKGN4LCBjeSkpCiAgICB9CgogICAgcHViIGZuIGd1YXJkX2hvdGtleSgmc2VsZiwga2V5czogJltTdHJpbmddKSAtPiBSZXN1bHQ8KCksIFN0cmluZz4gewogICAgICAgIGxldCBjb21ibyA9IGtleXMuam9pbigiKyIpLnRvX2xvd2VyY2FzZSgpOwogICAgICAgIGZvciBydWxlIGluICZzZWxmLmNvbmZpZy5ibG9ja2VkX2hvdGtleXMgewogICAgICAgICAgICBsZXQgYmxvY2tlZCA9IHJ1bGUua2V5cy5pdGVyKCkubWFwKHxrfCBrLnRvX2xvd2VyY2FzZSgpKS5jb2xsZWN0Ojo8VmVjPF8+PigpLmpvaW4oIisiKTsKICAgICAgICAgICAgaWYgY29tYm8gPT0gYmxvY2tlZCB7CiAgICAgICAgICAgICAgICBzZWxmLmF1ZGl0KCJob3RrZXlfYmxvY2tlZCIsICZjb21ibyk7CiAgICAgICAgICAgICAgICByZXR1cm4gRXJyKHJ1bGUubWVzc2FnZS5jbG9uZSgpLnVud3JhcF9vcl9lbHNlKHx8IGZvcm1hdCEoIkJsb2NrZWQ6IHtjb21ib30iKSkpOwogICAgICAgICAgICB9CiAgICAgICAgfQogICAgICAgIE9rKCgpKQogICAgfQoKICAgIHB1YiBmbiBndWFyZF9hcHBfYWN0aW9uKCZzZWxmLCBhcHA6ICZzdHIsIGFjdGlvbjogJnN0cikgLT4gUmVzdWx0PCgpLCBTdHJpbmc+IHsKICAgICAgICBmb3IgcGVybSBpbiAmc2VsZi5jb25maWcuYXBwX3Blcm1pc3Npb25zIHsKICAgICAgICAgICAgaWYgcGVybS5hcHAudG9fbG93ZXJjYXNlKCkgPT0gYXBwLnRvX2xvd2VyY2FzZSgpIHsKICAgICAgICAgICAgICAgIGlmIHBlcm0uZGVueS5pdGVyKCkuYW55KHxhfCBhID09IGFjdGlvbikgeyByZXR1cm4gRXJyKGZvcm1hdCEoIkRlbmllZCB7YWN0aW9ufSBvbiB7YXBwfSIpKTsgfQogICAgICAgICAgICAgICAgaWYgcGVybS5wcm9tcHQuaXRlcigpLmFueSh8YXwgYSA9PSBhY3Rpb24pIHsgcmV0dXJuIEVycihmb3JtYXQhKCJQcm9tcHQgcmVxdWlyZWQ6IHthY3Rpb259IikpOyB9CiAgICAgICAgICAgICAgICBpZiBwZXJtLmFsbG93Lml0ZXIoKS5hbnkofGF8IGEgPT0gYWN0aW9uKSB8fCBwZXJtLmFsbG93LmlzX2VtcHR5KCkgeyByZXR1cm4gT2soKCkpOyB9CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgT2soKCkpCiAgICB9CgogICAgZm4gYXVkaXQoJnNlbGYsIGFjdGlvbjogJnN0ciwgZGV0YWlsOiAmc3RyKSB7CiAgICAgICAgaWYgbGV0IFNvbWUocmVmIGNvbm4pID0gc2VsZi5kYiB7CiAgICAgICAgICAgIC8vIExvZyBlcnJvcnMgaW5zdGVhZCBvZiBzaWxlbnRseSBzd2FsbG93aW5nCiAgICAgICAgICAgIGlmIGxldCBFcnIoZSkgPSBjb25uLmV4ZWN1dGUoCiAgICAgICAgICAgICAgICAiSU5TRVJUIElOVE8gYXVkaXRfbG9nICh0aW1lc3RhbXAsIGlzb190aW1lLCBhY3Rpb24sIGRldGFpbCwgcmVzdWx0KSBWQUxVRVMgKD8xLCA/MiwgPzMsID80LCAnb2snKSIsCiAgICAgICAgICAgICAgICBydXNxbGl0ZTo6cGFyYW1zIVt1bml4X25vdygpLCBpc29fbm93KCksIGFjdGlvbiwgZGV0YWlsXSwKICAgICAgICAgICAgKSB7CiAgICAgICAgICAgICAgICBlcHJpbnRsbiEoIlthdXRvY29tcHV0ZXJdIGF1ZGl0IHdyaXRlIGZhaWxlZDoge2V9Iik7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgLy8gQ2xlYW51cCBvbGQgcmVjb3JkcyBsYXppbHkgKH4xJSBvZiB3cml0ZXMpCiAgICAgICAgICAgIGlmIHVuaXhfbm93KCkuaXNfbXVsdGlwbGVfb2YoMTAwKSB7CiAgICAgICAgICAgICAgICBtYXliZV9jbGVhbnVwX2F1ZGl0KGNvbm4pOwogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9CgpmbiB1bml4X25vdygpIC0+IHU2NCB7CiAgICBzdGQ6OnRpbWU6OlN5c3RlbVRpbWU6Om5vdygpCiAgICAgICAgLmR1cmF0aW9uX3NpbmNlKHN0ZDo6dGltZTo6U3lzdGVtVGltZTo6VU5JWF9FUE9DSCkKICAgICAgICAubWFwKHxkfCBkLmFzX3NlY3MoKSkKICAgICAgICAudW53cmFwX29yKDApCn0KCmZuIGlzb19ub3coKSAtPiBTdHJpbmcgewogICAgLy8gSVNPLTg2MDEgZm9yIGh1bWFuLXJlYWRhYmxlIGF1ZGl0IHRyYWlscwogICAgbGV0IHQgPSBzdGQ6OnRpbWU6OlN5c3RlbVRpbWU6Om5vdygpCiAgICAgICAgLmR1cmF0aW9uX3NpbmNlKHN0ZDo6dGltZTo6U3lzdGVtVGltZTo6VU5JWF9FUE9DSCkKICAgICAgICAudW53cmFwX29yX2RlZmF1bHQoKTsKICAgIGxldCBzZWNzID0gdC5hc19zZWNzKCk7CiAgICAvLyBTaW1wbGUgSVNPLTg2MDE6IFlZWVktTU0tRERUSEg6TU06U1MKICAgIGxldCBkYXlzID0gc2VjcyAvIDg2NDAwOwogICAgbGV0IHRpbWUgPSBzZWNzICUgODY0MDA7CiAgICBsZXQgaCA9IHRpbWUgLyAzNjAwOwogICAgbGV0IG0gPSAodGltZSAlIDM2MDApIC8gNjA7CiAgICBsZXQgcyA9IHRpbWUgJSA2MDsKICAgIC8vIERheXMgc2luY2UgVW5peCBlcG9jaCAxOTcwLTAxLTAxCiAgICBsZXQgeWVhciA9IDE5NzAgKyAoZGF5cyAvIDM2NSkgYXMgaTMyOwogICAgbGV0IGRveSA9IGRheXMgJSAzNjU7CiAgICBsZXQgbW9udGggPSAoZG95IC8gMzApICsgMTsKICAgIGxldCBkYXkgPSAoZG95ICUgMzApICsgMTsKICAgIGZvcm1hdCEoInt5ZWFyOjA0fS17bW9udGg6MDJ9LXtkYXk6MDJ9VHtoOjAyfTp7bTowMn06e3M6MDJ9WiIpCn0KCmNvbnN0IEFVRElUX1JFVEVOVElPTl9TRUNTOiB1NjQgPSA5MCAqIDg2NDAwOyAvLyA5MCBkYXlzCgovLy8gUGVyaW9kaWMgY2xlYW51cCBvZiBvbGQgYXVkaXQgZW50cmllcyAoY2FsbGVkIGxhemlseSwgfjElIHByb2JhYmlsaXR5IHBlciB3cml0ZSkuCmZuIG1heWJlX2NsZWFudXBfYXVkaXQoY29ubjogJnJ1c3FsaXRlOjpDb25uZWN0aW9uKSB7CiAgICBsZXQgY3V0b2ZmID0gdW5peF9ub3coKS5zYXR1cmF0aW5nX3N1YihBVURJVF9SRVRFTlRJT05fU0VDUyk7CiAgICBsZXQgXyA9IGNvbm4uZXhlY3V0ZSgiREVMRVRFIEZST00gYXVkaXRfbG9nIFdIRVJFIHRpbWVzdGFtcCA8ID8xIiwgcnVzcWxpdGU6OnBhcmFtcyFbY3V0b2ZmXSk7Cn0KCi8vIOKUgOKUgCBQeU8zIHdyYXBwZXIg4pSA4pSACgpzdGF0aWMgR1VBUkQ6IE11dGV4PE9wdGlvbjxTZWN1cml0eUd1YXJkPj4gPSBNdXRleDo6bmV3KE5vbmUpOwoKZm4gd2l0aF9ndWFyZDxGLCBSPihmOiBGKSAtPiBQeVJlc3VsdDxSPgp3aGVyZSBGOiBGbk9uY2UoJm11dCBTZWN1cml0eUd1YXJkKSAtPiBSZXN1bHQ8UiwgU3RyaW5nPiwKewogICAgbGV0IG11dCBndWFyZCA9IEdVQVJELmxvY2soKS5tYXBfZXJyKHxlfCBQeUVycjo6bmV3Ojo8cHlvMzo6ZXhjZXB0aW9uczo6UHlSdW50aW1lRXJyb3IsIF8+KGUudG9fc3RyaW5nKCkpKT87CiAgICBsZXQgZyA9IGd1YXJkLmdldF9vcl9pbnNlcnRfd2l0aChTZWN1cml0eUd1YXJkOjp3aXRoX2RlZmF1bHRzKTsKICAgIGYoZykubWFwX2VycihQeUVycjo6bmV3Ojo8cHlvMzo6ZXhjZXB0aW9uczo6UHlSdW50aW1lRXJyb3IsIF8+KQp9CgojW3B5ZnVuY3Rpb25dCnB1YiBmbiBzZWN1cml0eV9pbml0KGNvbmZpZ190b21sOiBPcHRpb248U3RyaW5nPikgLT4gUHlSZXN1bHQ8KCk+IHsKICAgIGxldCBjb25maWcgPSBjb25maWdfdG9tbC5tYXBfb3JfZWxzZSgKICAgICAgICB8fCBPayhTZWN1cml0eUNvbmZpZzo6ZGVmYXVsdCgpKSwKICAgICAgICB8c3wgdG9tbDo6ZnJvbV9zdHIoJnMpLm1hcF9lcnIofGV8IFB5RXJyOjpuZXc6OjxweW8zOjpleGNlcHRpb25zOjpQeVZhbHVlRXJyb3IsIF8+KGUudG9fc3RyaW5nKCkpKSwKICAgICk/OwogICAgbGV0IG11dCBndWFyZCA9IEdVQVJELmxvY2soKS5tYXBfZXJyKHxlfCBQeUVycjo6bmV3Ojo8cHlvMzo6ZXhjZXB0aW9uczo6UHlSdW50aW1lRXJyb3IsIF8+KGUudG9fc3RyaW5nKCkpKT87CiAgICAqZ3VhcmQgPSBTb21lKFNlY3VyaXR5R3VhcmQ6Om5ldyhjb25maWcpKTsKICAgIE9rKCgpKQp9CgojW3B5ZnVuY3Rpb25dIHB1YiBmbiBndWFyZF9jbGljayh4OiBpMzIsIHk6IGkzMiwgc3c6IGkzMiwgc2g6IGkzMikgLT4gUHlSZXN1bHQ8KGkzMiwgaTMyKT4geyB3aXRoX2d1YXJkKHxnfCBnLmd1YXJkX2NsaWNrKHgsIHksIHN3LCBzaCkpIH0KI1tweWZ1bmN0aW9uXSBwdWIgZm4gZ3VhcmRfaG90a2V5KGtleXM6IFZlYzxTdHJpbmc+KSAtPiBQeVJlc3VsdDwoKT4geyB3aXRoX2d1YXJkKHxnfCBnLmd1YXJkX2hvdGtleSgma2V5cykpIH0KI1tweWZ1bmN0aW9uXSBwdWIgZm4gZ3VhcmRfYXBwX2FjdGlvbihhcHA6ICZzdHIsIGFjdGlvbjogJnN0cikgLT4gUHlSZXN1bHQ8KCk+IHsgd2l0aF9ndWFyZCh8Z3wgZy5ndWFyZF9hcHBfYWN0aW9uKGFwcCwgYWN0aW9uKSkgfQojW3B5ZnVuY3Rpb25dIHB1YiBmbiBzZWN1cml0eV9yZXNldCgpIC0+IFB5UmVzdWx0PCgpPiB7CiAgICBsZXQgbXV0IGd1YXJkID0gR1VBUkQubG9jaygpLm1hcF9lcnIofGV8IFB5RXJyOjpuZXc6OjxweW8zOjpleGNlcHRpb25zOjpQeVJ1bnRpbWVFcnJvciwgXz4oZS50b19zdHJpbmcoKSkpPzsKICAgICpndWFyZCA9IFNvbWUoU2VjdXJpdHlHdWFyZDo6d2l0aF9kZWZhdWx0cygpKTsKICAgIE9rKCgpKQp9CgojW2NmZyh0ZXN0KV0KbW9kIHRlc3RzIHsKICAgIHVzZSBzdXBlcjo6KjsKCiAgICAjW3Rlc3RdCiAgICBmbiB0ZXN0X2NoZWNrX2NsaWNrX29rKCkgewogICAgICAgIGxldCBtdXQgZyA9IFNlY3VyaXR5R3VhcmQ6OndpdGhfZGVmYXVsdHMoKTsKICAgICAgICBsZXQgKHgsIHkpID0gZy5ndWFyZF9jbGljaygxMDAsIDIwMCwgMTkyMCwgMTA4MCkuZXhwZWN0KCJjbGljayBvayIpOwogICAgICAgIGFzc2VydF9lcSEoeCwgMTAwKTsKICAgICAgICBhc3NlcnRfZXEhKHksIDIwMCk7CiAgICB9CgogICAgI1t0ZXN0XQogICAgZm4gdGVzdF9jaGVja19jbGlja19mYWlsX3NhZmUoKSB7CiAgICAgICAgbGV0IG11dCBnID0gU2VjdXJpdHlHdWFyZDo6d2l0aF9kZWZhdWx0cygpOwogICAgICAgIGFzc2VydCEoZy5ndWFyZF9jbGljaygwLCAwLCAxOTIwLCAxMDgwKS5pc19lcnIoKSk7CiAgICB9CgogICAgI1t0ZXN0XQogICAgZm4gdGVzdF9jaGVja19jbGlja19ib3VuZHNfY2xhbXAoKSB7CiAgICAgICAgbGV0IG11dCBnID0gU2VjdXJpdHlHdWFyZDo6d2l0aF9kZWZhdWx0cygpOwogICAgICAgIGxldCAoeCwgeSkgPSBnLmd1YXJkX2NsaWNrKC0xMCwgMjAwMCwgMTkyMCwgMTA4MCkuZXhwZWN0KCJjbGFtcGVkIik7CiAgICAgICAgYXNzZXJ0X2VxISh4LCAwKTsKICAgICAgICBhc3NlcnRfZXEhKHksIDEwNzkpOwogICAgfQoKICAgICNbdGVzdF0KICAgIGZuIHRlc3RfY2hlY2tfY2xpY2tfbG9vcCgpIHsgbGV0IG11dCBnID0gU2VjdXJpdHlHdWFyZDo6bmV3KFNlY3VyaXR5Q29uZmlnIHsgcmF0ZV9saW1pdF9tczogMCwgLi5TZWN1cml0eUNvbmZpZzo6ZGVmYXVsdCgpIH0pOwogICAgICAgIGZvciBfIGluIDAuLjUgeyBnLmd1YXJkX2NsaWNrKDUwMCwgNTAwLCAxOTIwLCAxMDgwKS5leHBlY3QoIm9rIik7IH0KICAgICAgICBhc3NlcnQhKGcuZ3VhcmRfY2xpY2soNTAwLCA1MDAsIDE5MjAsIDEwODApLmlzX2VycigpKTsKICAgIH0KCiAgICAjW3Rlc3RdCiAgICBmbiB0ZXN0X2hvdGtleV9ibG9jaygpIHsKICAgICAgICBsZXQgZyA9IFNlY3VyaXR5R3VhcmQ6OndpdGhfZGVmYXVsdHMoKTsKICAgICAgICBhc3NlcnQhKGcuZ3VhcmRfaG90a2V5KCZbImFsdCIuaW50bygpLCAiZjQiLmludG8oKV0pLmlzX2VycigpKTsKICAgICAgICBhc3NlcnQhKGcuZ3VhcmRfaG90a2V5KCZbImVudGVyIi5pbnRvKCldKS5pc19vaygpKTsKICAgIH0KCiAgICAjW3Rlc3RdCiAgICBmbiB0ZXN0X2hvdGtleV9jdXN0b20oKSB7CiAgICAgICAgbGV0IGNvbmZpZyA9IFNlY3VyaXR5Q29uZmlnIHsKICAgICAgICAgICAgYmxvY2tlZF9ob3RrZXlzOiB2ZWMhW0hvdGtleVJ1bGUgeyBrZXlzOiB2ZWMhWyJjdHJsK3EiLmludG8oKV0sIHNldmVyaXR5OiBTZXZlcml0eTo6Q3JpdGljYWwsIG1lc3NhZ2U6IE5vbmUgfV0sCiAgICAgICAgICAgIC4uU2VjdXJpdHlDb25maWc6OmRlZmF1bHQoKQogICAgICAgIH07CiAgICAgICAgbGV0IGcgPSBTZWN1cml0eUd1YXJkOjpuZXcoY29uZmlnKTsKICAgICAgICBhc3NlcnQhKGcuZ3VhcmRfaG90a2V5KCZbImN0cmwiLmludG8oKSwgInEiLmludG8oKV0pLmlzX2VycigpKTsKICAgIH0KCiAgICAjW3Rlc3RdCiAgICBmbiB0ZXN0X2NvbmZpZ19mcm9tX3RvbWwoKSB7CiAgICAgICAgbGV0IHRvbWwgPSByIyIKZmFpbF9zYWZlX2Nvcm5lciA9IHRydWUKbWF4X2NsaWNrc19zYW1lX3Bvc2l0aW9uID0gMwpyYXRlX2xpbWl0X21zID0gNTAKW1tibG9ja2VkX2hvdGtleXNdXQprZXlzID0gWyJjdHJsK3giXQpzZXZlcml0eSA9ICJXYXJuaW5nIgoiIzsKICAgICAgICBsZXQgZyA9IFNlY3VyaXR5R3VhcmQ6Om5ldyh0b21sOjpmcm9tX3N0cih0b21sKS5leHBlY3QoInBhcnNlIikpOwogICAgICAgIGFzc2VydF9lcSEoZy5jb25maWcubWF4X2NsaWNrc19zYW1lX3Bvc2l0aW9uLCAzKTsKICAgICAgICBhc3NlcnQhKGcuZ3VhcmRfaG90a2V5KCZbImN0cmwiLmludG8oKSwgIngiLmludG8oKV0pLmlzX2VycigpKTsKICAgIH0KfQo=
+//! Security guard — bounds, loop, rate, hotkeys, app permissions, SQLite audit.
+
+use pyo3::prelude::*;
+use rusqlite::Connection;
+use serde::{Deserialize, Serialize};
+use std::sync::Mutex;
+use std::time::Instant;
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SecurityConfig {
+    #[serde(default = "default_true")]
+    pub fail_safe_corner: bool,
+    #[serde(default = "default_max_clicks")]
+    pub max_clicks_same_position: u32,
+    #[serde(default = "default_rate_limit")]
+    pub rate_limit_ms: u64,
+    #[serde(default)]
+    pub blocked_hotkeys: Vec<HotkeyRule>,
+    #[serde(default)]
+    pub app_permissions: Vec<AppPermission>,
+    #[serde(default = "default_true")]
+    pub audit_enabled: bool,
+    #[serde(default = "default_retention")]
+    pub audit_retention_days: u32,
+}
+
+fn default_true() -> bool { true }
+fn default_max_clicks() -> u32 { 5 }
+fn default_rate_limit() -> u64 { 100 }
+fn default_retention() -> u32 { 90 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct HotkeyRule {
+    pub keys: Vec<String>,
+    #[serde(default)]
+    pub severity: Severity,
+    #[serde(default)]
+    pub message: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Default)]
+pub enum Severity {
+    #[default]
+    Critical,
+    Warning,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AppPermission {
+    pub app: String,
+    #[serde(default)]
+    pub allow: Vec<String>,
+    #[serde(default)]
+    pub deny: Vec<String>,
+    #[serde(default)]
+    pub prompt: Vec<String>,
+}
+
+impl Default for SecurityConfig {
+    fn default() -> Self {
+        SecurityConfig {
+            fail_safe_corner: true, max_clicks_same_position: 5, rate_limit_ms: 100,
+            blocked_hotkeys: vec![
+                HotkeyRule { keys: vec!["alt+f4".into()], severity: Severity::Critical, message: None },
+                HotkeyRule { keys: vec!["win+l".into()], severity: Severity::Critical, message: None },
+                HotkeyRule { keys: vec!["win+r".into()], severity: Severity::Critical, message: None },
+                HotkeyRule { keys: vec!["ctrl+alt+del".into()], severity: Severity::Critical, message: None },
+            ],
+            app_permissions: Vec::new(), audit_enabled: true, audit_retention_days: 90,
+        }
+    }
+}
+
+pub struct SecurityGuard {
+    pub config: SecurityConfig,
+    click_history: Vec<(i32, i32, Instant)>,
+    last_action: Instant,
+    db: Option<Connection>,
+}
+
+impl SecurityGuard {
+    pub fn new(config: SecurityConfig) -> Self {
+        let db = if config.audit_enabled {
+            let conn = Connection::open("autocomputer_audit.db").ok();
+            if let Some(ref c) = conn {
+                let _ = c.execute(
+                    "CREATE TABLE IF NOT EXISTS audit_log (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        timestamp INTEGER NOT NULL,
+                        iso_time TEXT NOT NULL DEFAULT '',
+                        action TEXT NOT NULL,
+                        detail TEXT,
+                        result TEXT NOT NULL)",
+                    [],
+                );
+                // Add iso_time if upgrading from older schema
+                let _ = c.execute("ALTER TABLE audit_log ADD COLUMN iso_time TEXT NOT NULL DEFAULT ''", []);
+            }
+            conn
+        } else { None };
+
+        SecurityGuard { config, click_history: Vec::new(), last_action: Instant::now() - std::time::Duration::from_secs(3600), db }
+    }
+
+    pub fn with_defaults() -> Self { Self::new(SecurityConfig::default()) }
+
+    pub fn guard_click(&mut self, x: i32, y: i32, screen_w: i32, screen_h: i32) -> Result<(i32, i32), String> {
+        if self.config.fail_safe_corner && x == 0 && y == 0 {
+            self.audit("fail_safe", "(0,0) abort");
+            return Err("Fail-safe: (0,0)".into());
+        }
+        let cx = x.clamp(0, screen_w - 1);
+        let cy = y.clamp(0, screen_h - 1);
+        if cx != x || cy != y { self.audit("bounds_clamp", &format!("({x},{y})->({cx},{cy})")); }
+
+        let now = Instant::now();
+        let same = self.click_history.iter().filter(|(px, py, _)| *px == cx && *py == cy).count();
+        if same as u32 >= self.config.max_clicks_same_position {
+            self.audit("loop_blocked", &format!("{same} clicks"));
+            return Err(format!("Loop: {same} clicks"));
+        }
+        self.click_history.push((cx, cy, now));
+        self.click_history.retain(|(_, _, t)| now.duration_since(*t).as_secs() < 5);
+
+        let elapsed = now.duration_since(self.last_action).as_millis() as u64;
+        if elapsed < self.config.rate_limit_ms {
+            self.audit("rate_limited", &format!("{elapsed}ms"));
+            return Err(format!("Rate limit: {elapsed}ms"));
+        }
+        self.last_action = now;
+        self.audit("click", &format!("({cx},{cy})"));
+        Ok((cx, cy))
+    }
+
+    pub fn guard_hotkey(&self, keys: &[String]) -> Result<(), String> {
+        let combo = keys.join("+").to_lowercase();
+        for rule in &self.config.blocked_hotkeys {
+            let blocked = rule.keys.iter().map(|k| k.to_lowercase()).collect::<Vec<_>>().join("+");
+            if combo == blocked {
+                self.audit("hotkey_blocked", &combo);
+                return Err(rule.message.clone().unwrap_or_else(|| format!("Blocked: {combo}")));
+            }
+        }
+        Ok(())
+    }
+
+    pub fn guard_app_action(&self, app: &str, action: &str) -> Result<(), String> {
+        for perm in &self.config.app_permissions {
+            if perm.app.to_lowercase() == app.to_lowercase() {
+                if perm.deny.iter().any(|a| a == action) { return Err(format!("Denied {action} on {app}")); }
+                if perm.prompt.iter().any(|a| a == action) { return Err(format!("Prompt required: {action}")); }
+                if perm.allow.iter().any(|a| a == action) || perm.allow.is_empty() { return Ok(()); }
+            }
+        }
+        Ok(())
+    }
+
+    fn audit(&self, action: &str, detail: &str) {
+        if let Some(ref conn) = self.db {
+            // Log errors instead of silently swallowing
+            if let Err(e) = conn.execute(
+                "INSERT INTO audit_log (timestamp, iso_time, action, detail, result) VALUES (?1, ?2, ?3, ?4, 'ok')",
+                rusqlite::params![unix_now(), iso_now(), action, detail],
+            ) {
+                eprintln!("[autocomputer] audit write failed: {e}");
+            }
+            // Cleanup old records lazily (~1% of writes)
+            if unix_now().is_multiple_of(100) {
+                maybe_cleanup_audit(conn);
+            }
+        }
+    }
+}
+
+fn unix_now() -> u64 {
+    std::time::SystemTime::now()
+        .duration_since(std::time::SystemTime::UNIX_EPOCH)
+        .map(|d| d.as_secs())
+        .unwrap_or(0)
+}
+
+fn iso_now() -> String {
+    // ISO-8601 for human-readable audit trails
+    let t = std::time::SystemTime::now()
+        .duration_since(std::time::SystemTime::UNIX_EPOCH)
+        .unwrap_or_default();
+    let secs = t.as_secs();
+    // Simple ISO-8601: YYYY-MM-DDTHH:MM:SS
+    let days = secs / 86400;
+    let time = secs % 86400;
+    let h = time / 3600;
+    let m = (time % 3600) / 60;
+    let s = time % 60;
+    // Days since Unix epoch 1970-01-01
+    let year = 1970 + (days / 365) as i32;
+    let doy = days % 365;
+    let month = (doy / 30) + 1;
+    let day = (doy % 30) + 1;
+    format!("{year:04}-{month:02}-{day:02}T{h:02}:{m:02}:{s:02}Z")
+}
+
+const AUDIT_RETENTION_SECS: u64 = 90 * 86400; // 90 days
+
+/// Periodic cleanup of old audit entries (called lazily, ~1% probability per write).
+fn maybe_cleanup_audit(conn: &rusqlite::Connection) {
+    let cutoff = unix_now().saturating_sub(AUDIT_RETENTION_SECS);
+    let _ = conn.execute("DELETE FROM audit_log WHERE timestamp < ?1", rusqlite::params![cutoff]);
+}
+
+// ── PyO3 wrapper ──
+
+static GUARD: Mutex<Option<SecurityGuard>> = Mutex::new(None);
+
+fn with_guard<F, R>(f: F) -> PyResult<R>
+where F: FnOnce(&mut SecurityGuard) -> Result<R, String>,
+{
+    let mut guard = GUARD.lock().map_err(|e| PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string()))?;
+    let g = guard.get_or_insert_with(SecurityGuard::with_defaults);
+    f(g).map_err(PyErr::new::<pyo3::exceptions::PyRuntimeError, _>)
+}
+
+#[pyfunction]
+pub fn security_init(config_toml: Option<String>) -> PyResult<()> {
+    let config = config_toml.map_or_else(
+        || Ok(SecurityConfig::default()),
+        |s| toml::from_str(&s).map_err(|e| PyErr::new::<pyo3::exceptions::PyValueError, _>(e.to_string())),
+    )?;
+    let mut guard = GUARD.lock().map_err(|e| PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string()))?;
+    *guard = Some(SecurityGuard::new(config));
+    Ok(())
+}
+
+#[pyfunction] pub fn guard_click(x: i32, y: i32, sw: i32, sh: i32) -> PyResult<(i32, i32)> { with_guard(|g| g.guard_click(x, y, sw, sh)) }
+#[pyfunction] pub fn guard_hotkey(keys: Vec<String>) -> PyResult<()> { with_guard(|g| g.guard_hotkey(&keys)) }
+#[pyfunction] pub fn guard_app_action(app: &str, action: &str) -> PyResult<()> { with_guard(|g| g.guard_app_action(app, action)) }
+#[pyfunction] pub fn security_reset() -> PyResult<()> {
+    let mut guard = GUARD.lock().map_err(|e| PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string()))?;
+    *guard = Some(SecurityGuard::with_defaults());
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_check_click_ok() {
+        let mut g = SecurityGuard::with_defaults();
+        let (x, y) = g.guard_click(100, 200, 1920, 1080).expect("click ok");
+        assert_eq!(x, 100);
+        assert_eq!(y, 200);
+    }
+
+    #[test]
+    fn test_check_click_fail_safe() {
+        let mut g = SecurityGuard::with_defaults();
+        assert!(g.guard_click(0, 0, 1920, 1080).is_err());
+    }
+
+    #[test]
+    fn test_check_click_bounds_clamp() {
+        let mut g = SecurityGuard::with_defaults();
+        let (x, y) = g.guard_click(-10, 2000, 1920, 1080).expect("clamped");
+        assert_eq!(x, 0);
+        assert_eq!(y, 1079);
+    }
+
+    #[test]
+    fn test_check_click_loop() { let mut g = SecurityGuard::new(SecurityConfig { rate_limit_ms: 0, ..SecurityConfig::default() });
+        for _ in 0..5 { g.guard_click(500, 500, 1920, 1080).expect("ok"); }
+        assert!(g.guard_click(500, 500, 1920, 1080).is_err());
+    }
+
+    #[test]
+    fn test_hotkey_block() {
+        let g = SecurityGuard::with_defaults();
+        assert!(g.guard_hotkey(&["alt".into(), "f4".into()]).is_err());
+        assert!(g.guard_hotkey(&["enter".into()]).is_ok());
+    }
+
+    #[test]
+    fn test_hotkey_custom() {
+        let config = SecurityConfig {
+            blocked_hotkeys: vec![HotkeyRule { keys: vec!["ctrl+q".into()], severity: Severity::Critical, message: None }],
+            ..SecurityConfig::default()
+        };
+        let g = SecurityGuard::new(config);
+        assert!(g.guard_hotkey(&["ctrl".into(), "q".into()]).is_err());
+    }
+
+    #[test]
+    fn test_config_from_toml() {
+        let toml = r#"
+fail_safe_corner = true
+max_clicks_same_position = 3
+rate_limit_ms = 50
+[[blocked_hotkeys]]
+keys = ["ctrl+x"]
+severity = "Warning"
+"#;
+        let g = SecurityGuard::new(toml::from_str(toml).expect("parse"));
+        assert_eq!(g.config.max_clicks_same_position, 3);
+        assert!(g.guard_hotkey(&["ctrl".into(), "x".into()]).is_err());
+    }
+}

@@ -1,1 +1,216 @@
-Ly8hIFNjcmVlbnNob3QgY2FwdHVyZSB2aWEgeGNhcCDigJQgc3ViLTEwbXMgb24gV2luZG93cyBEWEdJLgoKdXNlIHB5bzM6OnByZWx1ZGU6Oio7CgpmbiB4Y2FwX2VycihlOiBpbXBsIHN0ZDo6Zm10OjpEaXNwbGF5KSAtPiBQeUVyciB7CiAgICBQeUVycjo6bmV3Ojo8cHlvMzo6ZXhjZXB0aW9uczo6UHlSdW50aW1lRXJyb3IsIF8+KGUudG9fc3RyaW5nKCkpCn0KCiNbcHljbGFzc10KI1tkZXJpdmUoQ2xvbmUpXQpwdWIgc3RydWN0IENhcHR1cmVSZXN1bHQgewogICAgI1tweW8zKGdldCldCiAgICBwdWIgd2lkdGg6IHUzMiwKICAgICNbcHlvMyhnZXQpXQogICAgcHViIGhlaWdodDogdTMyLAogICAgI1tweW8zKGdldCldCiAgICBwdWIgcmF3OiBWZWM8dTg+LAogICAgI1tweW8zKGdldCldCiAgICBwdWIgcG5nOiBWZWM8dTg+LAp9CgojW3B5bWV0aG9kc10KaW1wbCBDYXB0dXJlUmVzdWx0IHsKICAgICNbbmV3XQogICAgZm4gbmV3KCkgLT4gU2VsZiB7CiAgICAgICAgQ2FwdHVyZVJlc3VsdCB7CiAgICAgICAgICAgIHdpZHRoOiAwLAogICAgICAgICAgICBoZWlnaHQ6IDAsCiAgICAgICAgICAgIHJhdzogVmVjOjpuZXcoKSwKICAgICAgICAgICAgcG5nOiBWZWM6Om5ldygpLAogICAgICAgIH0KICAgIH0KfQoKI1tweWNsYXNzXQojW2Rlcml2ZShDbG9uZSldCnB1YiBzdHJ1Y3QgTW9uaXRvckluZm8gewogICAgI1tweW8zKGdldCldCiAgICBwdWIgaW5kZXg6IHVzaXplLAogICAgI1tweW8zKGdldCldCiAgICBwdWIgbmFtZTogU3RyaW5nLAogICAgI1tweW8zKGdldCldCiAgICBwdWIgd2lkdGg6IHUzMiwKICAgICNbcHlvMyhnZXQpXQogICAgcHViIGhlaWdodDogdTMyLAogICAgI1tweW8zKGdldCldCiAgICBwdWIgeDogaTMyLAogICAgI1tweW8zKGdldCldCiAgICBwdWIgeTogaTMyLAogICAgI1tweW8zKGdldCldCiAgICBwdWIgaXNfcHJpbWFyeTogYm9vbCwKICAgICNbcHlvMyhnZXQpXQogICAgcHViIHNjYWxlX2ZhY3RvcjogZjY0LAp9CgojW3B5bWV0aG9kc10KaW1wbCBNb25pdG9ySW5mbyB7CiAgICAjW25ld10KICAgIGZuIG5ldygpIC0+IFNlbGYgewogICAgICAgIE1vbml0b3JJbmZvIHsKICAgICAgICAgICAgaW5kZXg6IDAsCiAgICAgICAgICAgIG5hbWU6IFN0cmluZzo6bmV3KCksCiAgICAgICAgICAgIHdpZHRoOiAwLAogICAgICAgICAgICBoZWlnaHQ6IDAsCiAgICAgICAgICAgIHg6IDAsCiAgICAgICAgICAgIHk6IDAsCiAgICAgICAgICAgIGlzX3ByaW1hcnk6IGZhbHNlLAogICAgICAgICAgICBzY2FsZV9mYWN0b3I6IDEuMCwKICAgICAgICB9CiAgICB9Cn0KCiNbcHlmdW5jdGlvbl0KcHViIGZuIGxpc3RfbW9uaXRvcnMoKSAtPiBQeVJlc3VsdDxWZWM8TW9uaXRvckluZm8+PiB7CiAgICBsZXQgbW9uaXRvcnMgPSB4Y2FwOjpNb25pdG9yOjphbGwoKS5tYXBfZXJyKHhjYXBfZXJyKT87CgogICAgbGV0IG11dCByZXN1bHQgPSBWZWM6Om5ldygpOwogICAgZm9yIChpLCBtKSBpbiBtb25pdG9ycy5pbnRvX2l0ZXIoKS5lbnVtZXJhdGUoKSB7CiAgICAgICAgcmVzdWx0LnB1c2goTW9uaXRvckluZm8gewogICAgICAgICAgICBpbmRleDogaSwKICAgICAgICAgICAgbmFtZTogbS5uYW1lKCkubWFwX2Vycih4Y2FwX2Vycik/LAogICAgICAgICAgICB3aWR0aDogbS53aWR0aCgpLm1hcF9lcnIoeGNhcF9lcnIpPywKICAgICAgICAgICAgaGVpZ2h0OiBtLmhlaWdodCgpLm1hcF9lcnIoeGNhcF9lcnIpPywKICAgICAgICAgICAgeDogbS54KCkubWFwX2Vycih4Y2FwX2Vycik/LAogICAgICAgICAgICB5OiBtLnkoKS5tYXBfZXJyKHhjYXBfZXJyKT8sCiAgICAgICAgICAgIGlzX3ByaW1hcnk6IG0uaXNfcHJpbWFyeSgpLm1hcF9lcnIoeGNhcF9lcnIpPywKICAgICAgICAgICAgc2NhbGVfZmFjdG9yOiBtLnNjYWxlX2ZhY3RvcigpLm1hcF9lcnIoeGNhcF9lcnIpPyBhcyBmNjQsCiAgICAgICAgfSk7CiAgICB9CiAgICBPayhyZXN1bHQpCn0KCiNbcHlmdW5jdGlvbl0KcHViIGZuIGNhcHR1cmVfc2NyZWVuKG1vbml0b3JfaW5kZXg6IE9wdGlvbjx1c2l6ZT4pIC0+IFB5UmVzdWx0PENhcHR1cmVSZXN1bHQ+IHsKICAgIGxldCBtb25pdG9ycyA9IHhjYXA6Ok1vbml0b3I6OmFsbCgpLm1hcF9lcnIoeGNhcF9lcnIpPzsKICAgIGxldCBpZHggPSBtb25pdG9yX2luZGV4LnVud3JhcF9vcigwKTsKCiAgICBsZXQgbW9uaXRvciA9IG1vbml0b3JzLmludG9faXRlcigpLm50aChpZHgpLm9rX29yX2Vsc2UofHwgewogICAgICAgIFB5RXJyOjpuZXc6OjxweW8zOjpleGNlcHRpb25zOjpQeUluZGV4RXJyb3IsIF8+KGZvcm1hdCEoIk1vbml0b3IgaW5kZXgge2lkeH0gb3V0IG9mIHJhbmdlIikpCiAgICB9KT87CgogICAgbGV0IGltYWdlID0gbW9uaXRvci5jYXB0dXJlX2ltYWdlKCkubWFwX2Vycih4Y2FwX2Vycik/OwogICAgbGV0ICh3aWR0aCwgaGVpZ2h0KSA9IChpbWFnZS53aWR0aCgpLCBpbWFnZS5oZWlnaHQoKSk7CiAgICBsZXQgcmF3ID0gaW1hZ2UuYXNfcmF3KCkudG9fdmVjKCk7CgogICAgbGV0IG11dCBwbmdfYnVmID0gc3RkOjppbzo6Q3Vyc29yOjpuZXcoVmVjOjpuZXcoKSk7CiAgICBpbWFnZQogICAgICAgIC53cml0ZV90bygmbXV0IHBuZ19idWYsIGltYWdlOjpJbWFnZUZvcm1hdDo6UG5nKQogICAgICAgIC5tYXBfZXJyKHhjYXBfZXJyKT87CgogICAgT2soQ2FwdHVyZVJlc3VsdCB7CiAgICAgICAgd2lkdGgsCiAgICAgICAgaGVpZ2h0LAogICAgICAgIHJhdywKICAgICAgICBwbmc6IHBuZ19idWYuaW50b19pbm5lcigpLAogICAgfSkKfQoKI1tweWZ1bmN0aW9uXQpwdWIgZm4gY2FwdHVyZV9yZWdpb24oeDogdTMyLCB5OiB1MzIsIHc6IHUzMiwgaDogdTMyKSAtPiBQeVJlc3VsdDxDYXB0dXJlUmVzdWx0PiB7CiAgICBsZXQgbW9uaXRvcnMgPSB4Y2FwOjpNb25pdG9yOjphbGwoKS5tYXBfZXJyKHhjYXBfZXJyKT87CiAgICBsZXQgbW9uaXRvciA9IG1vbml0b3JzLmludG9faXRlcigpLm5leHQoKS5va19vcl9lbHNlKHx8IHsKICAgICAgICBQeUVycjo6bmV3Ojo8cHlvMzo6ZXhjZXB0aW9uczo6UHlSdW50aW1lRXJyb3IsIF8+KCJObyBtb25pdG9ycyBmb3VuZCIpCiAgICB9KT87CgogICAgbGV0IGltYWdlID0gbW9uaXRvci5jYXB0dXJlX2ltYWdlKCkubWFwX2Vycih4Y2FwX2Vycik/OwogICAgbGV0IGNyb3BwZWQgPSBpbWFnZTo6aW1hZ2VvcHM6OmNyb3BfaW1tKCZpbWFnZSwgeCwgeSwgdywgaCkudG9faW1hZ2UoKTsKICAgIGxldCByYXcgPSBjcm9wcGVkLmFzX3JhdygpLnRvX3ZlYygpOwoKICAgIGxldCBtdXQgcG5nX2J1ZiA9IHN0ZDo6aW86OkN1cnNvcjo6bmV3KFZlYzo6bmV3KCkpOwogICAgY3JvcHBlZAogICAgICAgIC53cml0ZV90bygmbXV0IHBuZ19idWYsIGltYWdlOjpJbWFnZUZvcm1hdDo6UG5nKQogICAgICAgIC5tYXBfZXJyKHhjYXBfZXJyKT87CgogICAgT2soQ2FwdHVyZVJlc3VsdCB7CiAgICAgICAgd2lkdGg6IHcsCiAgICAgICAgaGVpZ2h0OiBoLAogICAgICAgIHJhdywKICAgICAgICBwbmc6IHBuZ19idWYuaW50b19pbm5lcigpLAogICAgfSkKfQoKI1tweWZ1bmN0aW9uXQpwdWIgZm4gc2F2ZV9zY3JlZW5zaG90KG1vbml0b3JfaW5kZXg6IE9wdGlvbjx1c2l6ZT4sIHBhdGg6ICZzdHIpIC0+IFB5UmVzdWx0PFN0cmluZz4gewogICAgbGV0IHJlc3VsdCA9IGNhcHR1cmVfc2NyZWVuKG1vbml0b3JfaW5kZXgpPzsKICAgIHN0ZDo6ZnM6OndyaXRlKHBhdGgsICZyZXN1bHQucG5nKS5tYXBfZXJyKHxlfCB7CiAgICAgICAgUHlFcnI6Om5ldzo6PHB5bzM6OmV4Y2VwdGlvbnM6OlB5SU9FcnJvciwgXz4oZm9ybWF0ISgiRmFpbGVkIHRvIHdyaXRlIGZpbGU6IHtlfSIpKQogICAgfSk/OwogICAgT2socGF0aC50b19zdHJpbmcoKSkKfQoKI1tweWZ1bmN0aW9uXQpwdWIgZm4gc2NyZWVuX3NpemUoKSAtPiBQeVJlc3VsdDwodTMyLCB1MzIpPiB7CiAgICBsZXQgbW9uaXRvcnMgPSB4Y2FwOjpNb25pdG9yOjphbGwoKS5tYXBfZXJyKHhjYXBfZXJyKT87CiAgICBsZXQgbSA9IG1vbml0b3JzLmludG9faXRlcigpLm5leHQoKS5va19vcl9lbHNlKHx8IHsKICAgICAgICBQeUVycjo6bmV3Ojo8cHlvMzo6ZXhjZXB0aW9uczo6UHlSdW50aW1lRXJyb3IsIF8+KCJObyBtb25pdG9ycyBmb3VuZCIpCiAgICB9KT87CiAgICBPaygobS53aWR0aCgpLm1hcF9lcnIoeGNhcF9lcnIpPywgbS5oZWlnaHQoKS5tYXBfZXJyKHhjYXBfZXJyKT8pKQp9CgovLy8gRmFzdCByYXctb25seSBzY3JlZW5zaG90IOKAlCBza2lwcyBQTkcgZW5jb2RpbmcgKH42MC04MCUgZmFzdGVyIHRoYW4gY2FwdHVyZV9zY3JlZW4pLgovLy8gUmV0dXJucyByYXcgUkdCQSBieXRlcyBhbmQgZGltZW5zaW9ucyBvbmx5LiBVc2Ugd2hlbiB5b3UgZG9uJ3QgbmVlZCBQTkcuCiNbcHlmdW5jdGlvbl0KcHViIGZuIGNhcHR1cmVfcmF3KG1vbml0b3JfaW5kZXg6IE9wdGlvbjx1MzI+KSAtPiBQeVJlc3VsdDwoVmVjPHU4PiwgdTMyLCB1MzIpPiB7CiAgICBsZXQgbW9uaXRvcnMgPSB4Y2FwOjpNb25pdG9yOjphbGwoKS5tYXBfZXJyKHhjYXBfZXJyKT87CiAgICBsZXQgaWR4ID0gbW9uaXRvcl9pbmRleC51bndyYXBfb3IoMCkgYXMgdXNpemU7CiAgICBsZXQgbW9uaXRvciA9IG1vbml0b3JzLmdldChpZHgpLm9rX29yX2Vsc2UofHwgewogICAgICAgIFB5RXJyOjpuZXc6OjxweW8zOjpleGNlcHRpb25zOjpQeVZhbHVlRXJyb3IsIF8+KGZvcm1hdCEoIk1vbml0b3IgaW5kZXgge2lkeH0gbm90IGZvdW5kIikpCiAgICB9KT87CiAgICBsZXQgaW1hZ2UgPSBtb25pdG9yLmNhcHR1cmVfaW1hZ2UoKS5tYXBfZXJyKHhjYXBfZXJyKT87CiAgICBsZXQgdyA9IGltYWdlLndpZHRoKCk7CiAgICBsZXQgaCA9IGltYWdlLmhlaWdodCgpOwogICAgT2soKGltYWdlLmludG9fcmF3KCksIHcsIGgpKQp9CgojW2NmZyh0ZXN0KV0KbW9kIHRlc3RzIHsKICAgIHVzZSBzdXBlcjo6KjsKCiAgICAjW3Rlc3RdCiAgICBmbiB0ZXN0X21vbml0b3JzKCkgewogICAgICAgIGxldCBtID0gbGlzdF9tb25pdG9ycygpLmV4cGVjdCgibGlzdF9tb25pdG9ycyIpOwogICAgICAgIGFzc2VydCEoIW0uaXNfZW1wdHkoKSk7CiAgICAgICAgYXNzZXJ0IShtWzBdLndpZHRoID4gMCAmJiBtWzBdLmhlaWdodCA+IDApOwogICAgfQoKICAgICNbdGVzdF0KICAgIGZuIHRlc3RfY2FwdHVyZV9zY3JlZW5fd29ya3MoKSB7CiAgICAgICAgbGV0IHIgPSBjYXB0dXJlX3NjcmVlbihTb21lKDApKS5leHBlY3QoImNhcHR1cmVfc2NyZWVuIik7CiAgICAgICAgYXNzZXJ0IShyLndpZHRoID4gMCAmJiByLmhlaWdodCA+IDApOwogICAgICAgIGFzc2VydCEoIXIucG5nLmlzX2VtcHR5KCkpOwogICAgICAgIGFzc2VydF9lcSEoci5yYXcubGVuKCksIChyLndpZHRoICogci5oZWlnaHQgKiA0KSBhcyB1c2l6ZSk7CiAgICAgICAgYXNzZXJ0IShyLnBuZy5sZW4oKSA8IHIucmF3LmxlbigpLCAiUE5HIHNob3VsZCBjb21wcmVzcyBSR0JBIik7CiAgICB9CgogICAgI1t0ZXN0XQogICAgZm4gdGVzdF9jYXB0dXJlX3JlZ2lvbl93b3JrcygpIHsKICAgICAgICBsZXQgciA9IGNhcHR1cmVfcmVnaW9uKDAsIDAsIDEwMCwgNTApLmV4cGVjdCgiY2FwdHVyZV9yZWdpb24iKTsKICAgICAgICBhc3NlcnRfZXEhKHIud2lkdGgsIDEwMCk7CiAgICAgICAgYXNzZXJ0X2VxIShyLmhlaWdodCwgNTApOwogICAgfQoKICAgICNbdGVzdF0KICAgIGZuIHRlc3Rfc2NyZWVuX3NpemVfd29ya3MoKSB7CiAgICAgICAgbGV0ICh3LCBoKSA9IHNjcmVlbl9zaXplKCkuZXhwZWN0KCJzY3JlZW5fc2l6ZSIpOwogICAgICAgIGFzc2VydCEodyA+IDAgJiYgaCA+IDApOwogICAgfQoKICAgICNbdGVzdF0KICAgIGZuIHRlc3Rfc2F2ZV9zY3JlZW5zaG90X3dvcmtzKCkgewogICAgICAgIGxldCBwID0gInRlc3Rfc3MucG5nIjsKICAgICAgICBzYXZlX3NjcmVlbnNob3QoU29tZSgwKSwgcCkuZXhwZWN0KCJzYXZlIik7CiAgICAgICAgYXNzZXJ0IShzdGQ6OnBhdGg6OlBhdGg6Om5ldyhwKS5leGlzdHMoKSk7CiAgICAgICAgc3RkOjpmczo6cmVtb3ZlX2ZpbGUocCkub2soKTsKICAgIH0KfQo=
+//! Screenshot capture via xcap — sub-10ms on Windows DXGI.
+
+use pyo3::prelude::*;
+
+fn xcap_err(e: impl std::fmt::Display) -> PyErr {
+    PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string())
+}
+
+#[pyclass]
+#[derive(Clone)]
+pub struct CaptureResult {
+    #[pyo3(get)]
+    pub width: u32,
+    #[pyo3(get)]
+    pub height: u32,
+    #[pyo3(get)]
+    pub raw: Vec<u8>,
+    #[pyo3(get)]
+    pub png: Vec<u8>,
+}
+
+#[pymethods]
+impl CaptureResult {
+    #[new]
+    fn new() -> Self {
+        CaptureResult {
+            width: 0,
+            height: 0,
+            raw: Vec::new(),
+            png: Vec::new(),
+        }
+    }
+}
+
+#[pyclass]
+#[derive(Clone)]
+pub struct MonitorInfo {
+    #[pyo3(get)]
+    pub index: usize,
+    #[pyo3(get)]
+    pub name: String,
+    #[pyo3(get)]
+    pub width: u32,
+    #[pyo3(get)]
+    pub height: u32,
+    #[pyo3(get)]
+    pub x: i32,
+    #[pyo3(get)]
+    pub y: i32,
+    #[pyo3(get)]
+    pub is_primary: bool,
+    #[pyo3(get)]
+    pub scale_factor: f64,
+}
+
+#[pymethods]
+impl MonitorInfo {
+    #[new]
+    fn new() -> Self {
+        MonitorInfo {
+            index: 0,
+            name: String::new(),
+            width: 0,
+            height: 0,
+            x: 0,
+            y: 0,
+            is_primary: false,
+            scale_factor: 1.0,
+        }
+    }
+}
+
+#[pyfunction]
+pub fn list_monitors() -> PyResult<Vec<MonitorInfo>> {
+    let monitors = xcap::Monitor::all().map_err(xcap_err)?;
+
+    let mut result = Vec::new();
+    for (i, m) in monitors.into_iter().enumerate() {
+        result.push(MonitorInfo {
+            index: i,
+            name: m.name().map_err(xcap_err)?,
+            width: m.width().map_err(xcap_err)?,
+            height: m.height().map_err(xcap_err)?,
+            x: m.x().map_err(xcap_err)?,
+            y: m.y().map_err(xcap_err)?,
+            is_primary: m.is_primary().map_err(xcap_err)?,
+            scale_factor: m.scale_factor().map_err(xcap_err)? as f64,
+        });
+    }
+    Ok(result)
+}
+
+#[pyfunction]
+pub fn capture_screen(monitor_index: Option<usize>) -> PyResult<CaptureResult> {
+    let monitors = xcap::Monitor::all().map_err(xcap_err)?;
+    let idx = monitor_index.unwrap_or(0);
+
+    let monitor = monitors.into_iter().nth(idx).ok_or_else(|| {
+        PyErr::new::<pyo3::exceptions::PyIndexError, _>(format!("Monitor index {idx} out of range"))
+    })?;
+
+    let image = monitor.capture_image().map_err(xcap_err)?;
+    let (width, height) = (image.width(), image.height());
+    let raw = image.as_raw().to_vec();
+
+    let mut png_buf = std::io::Cursor::new(Vec::new());
+    image
+        .write_to(&mut png_buf, image::ImageFormat::Png)
+        .map_err(xcap_err)?;
+
+    Ok(CaptureResult {
+        width,
+        height,
+        raw,
+        png: png_buf.into_inner(),
+    })
+}
+
+#[pyfunction]
+pub fn capture_region(x: u32, y: u32, w: u32, h: u32) -> PyResult<CaptureResult> {
+    let monitors = xcap::Monitor::all().map_err(xcap_err)?;
+    let monitor = monitors.into_iter().next().ok_or_else(|| {
+        PyErr::new::<pyo3::exceptions::PyRuntimeError, _>("No monitors found")
+    })?;
+
+    let image = monitor.capture_image().map_err(xcap_err)?;
+    let cropped = image::imageops::crop_imm(&image, x, y, w, h).to_image();
+    let raw = cropped.as_raw().to_vec();
+
+    let mut png_buf = std::io::Cursor::new(Vec::new());
+    cropped
+        .write_to(&mut png_buf, image::ImageFormat::Png)
+        .map_err(xcap_err)?;
+
+    Ok(CaptureResult {
+        width: w,
+        height: h,
+        raw,
+        png: png_buf.into_inner(),
+    })
+}
+
+#[pyfunction]
+pub fn save_screenshot(monitor_index: Option<usize>, path: &str) -> PyResult<String> {
+    let result = capture_screen(monitor_index)?;
+    std::fs::write(path, &result.png).map_err(|e| {
+        PyErr::new::<pyo3::exceptions::PyIOError, _>(format!("Failed to write file: {e}"))
+    })?;
+    Ok(path.to_string())
+}
+
+#[pyfunction]
+pub fn screen_size() -> PyResult<(u32, u32)> {
+    let monitors = xcap::Monitor::all().map_err(xcap_err)?;
+    let m = monitors.into_iter().next().ok_or_else(|| {
+        PyErr::new::<pyo3::exceptions::PyRuntimeError, _>("No monitors found")
+    })?;
+    Ok((m.width().map_err(xcap_err)?, m.height().map_err(xcap_err)?))
+}
+
+/// Fast raw-only screenshot — skips PNG encoding (~60-80% faster than capture_screen).
+/// Returns raw RGBA bytes and dimensions only. Use when you don't need PNG.
+#[pyfunction]
+pub fn capture_raw(monitor_index: Option<u32>) -> PyResult<(Vec<u8>, u32, u32)> {
+    let monitors = xcap::Monitor::all().map_err(xcap_err)?;
+    let idx = monitor_index.unwrap_or(0) as usize;
+    let monitor = monitors.get(idx).ok_or_else(|| {
+        PyErr::new::<pyo3::exceptions::PyValueError, _>(format!("Monitor index {idx} not found"))
+    })?;
+    let image = monitor.capture_image().map_err(xcap_err)?;
+    let w = image.width();
+    let h = image.height();
+    Ok((image.into_raw(), w, h))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_monitors() {
+        let m = list_monitors().expect("list_monitors");
+        assert!(!m.is_empty());
+        assert!(m[0].width > 0 && m[0].height > 0);
+    }
+
+    #[test]
+    fn test_capture_screen_works() {
+        let r = capture_screen(Some(0)).expect("capture_screen");
+        assert!(r.width > 0 && r.height > 0);
+        assert!(!r.png.is_empty());
+        assert_eq!(r.raw.len(), (r.width * r.height * 4) as usize);
+        assert!(r.png.len() < r.raw.len(), "PNG should compress RGBA");
+    }
+
+    #[test]
+    fn test_capture_region_works() {
+        let r = capture_region(0, 0, 100, 50).expect("capture_region");
+        assert_eq!(r.width, 100);
+        assert_eq!(r.height, 50);
+    }
+
+    #[test]
+    fn test_screen_size_works() {
+        let (w, h) = screen_size().expect("screen_size");
+        assert!(w > 0 && h > 0);
+    }
+
+    #[test]
+    fn test_save_screenshot_works() {
+        let p = "test_ss.png";
+        save_screenshot(Some(0), p).expect("save");
+        assert!(std::path::Path::new(p).exists());
+        std::fs::remove_file(p).ok();
+    }
+}

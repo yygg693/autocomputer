@@ -1,1 +1,314 @@
-IyBhdXRvY29tcHV0ZXIg8J+mgPCfkI3wn4yQCgoqKkFJLWRyaXZlbiBkZXNrdG9wIEdVSSBhdXRvbWF0aW9uIOKAlCBSdXN0IGNvcmUgKyBQeXRob24gU0RLICsgSFRNTDUgRGFzaGJvYXJkLioqCgo+IE5vIGJsYWNrIGJveC4gTm8gc3Vic2NyaXB0aW9uLiBZb3VyIGNvbXB1dGVyLCB5b3VyIHJ1bGVzLgoKWyFbUnVzdF0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9SdXN0LTEuOTctb3JhbmdlLnN2ZyldKGh0dHBzOi8vd3d3LnJ1c3QtbGFuZy5vcmcvKQpbIVtQeXRob25dKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvUHl0aG9uLTMuOSstYmx1ZS5zdmcpXShodHRwczovL3d3dy5weXRob24ub3JnLykKWyFbTGljZW5zZTogTUlUXShodHRwczovL2ltZy5zaGllbGRzLmlvL2JhZGdlL0xpY2Vuc2UtTUlULWdyZWVuLnN2ZyldKExJQ0VOU0UpClshW1Rlc3RzXShodHRwczovL2ltZy5zaGllbGRzLmlvL2JhZGdlL1Rlc3RzLTQ4JTJGNDgtYnJpZ2h0Z3JlZW4uc3ZnKV0oIykKWyFbQ2xpcHB5XShodHRwczovL2ltZy5zaGllbGRzLmlvL2JhZGdlL0NsaXBweS16ZXJvJTIwd2FybmluZ3Mtc3VjY2Vzcy5zdmcpXSgjKQpbIVtQbGF0Zm9ybV0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9QbGF0Zm9ybS1XaW5kb3dzJTIwMTAlMkYxMS1ibHVldmlvbGV0LnN2ZyldKCMpCgotLS0KCiMjIFdoeSBhdXRvY29tcHV0ZXI/CgpNb3N0IEdVSSBhdXRvbWF0aW9uIHRvb2xzIGZhbGwgaW50byB0d28gY2FtcHM6ICoqcHJvcHJpZXRhcnkgY2xvdWQgc2VydmljZXMqKiB0aGF0IHNlbmQgeW91ciBzY3JlZW4gdG8gcmVtb3RlIHNlcnZlcnMsIG9yICoqZnJhZ2lsZSBjb29yZGluYXRlLWJhc2VkIHNjcmlwdHMqKiB0aGF0IGJyZWFrIHRoZSBtb21lbnQgeW91ciB3aW5kb3cgbW92ZXMuIGF1dG9jb21wdXRlciB0YWtlcyBhIHRoaXJkIHBhdGg6CgotIPCfpoAgKipSdXN0IGNvcmUqKiBmb3Igc3ViLTEwbXMgc2NyZWVuc2hvdHMgYW5kIHJlbGlhYmxlIHN5c3RlbSBjYWxscwotIPCfkI0gKipQeXRob24gU0RLKiogZm9yIHJhcGlkIHNjcmlwdGluZyBhbmQgQUkgaW50ZWdyYXRpb24KLSDwn5GB77iPICoqVmlzdWFsIGZlZWRiYWNrIGxvb3AqKiDigJQgc2NyZWVuc2hvdCDihpIgQUkgdmlzaW9uIOKGkiBhY3Rpb24g4oaSIHZlcmlmeQotIPCfm6HvuI8gKipCdWlsdC1pbiBzYWZldHkqKiDigJQgYm91bmRzIGNsYW1waW5nLCBsb29wIGRldGVjdGlvbiwgcmF0ZSBsaW1pdGluZywgaG90a2V5IGJsb2NraW5nCgojIyDinKggRmVhdHVyZSBNYXAKCiMjIyBSdXN0IENvcmUgKGBjcmF0ZXMvYWMtY29yZS9gKQoKfCBNb2R1bGUgfCBGaWxlIHwgV2hhdCBpdCBkb2VzIHwgUGVyZm9ybWFuY2UgfAp8LS0tLS0tLS18LS0tLS0tfC0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS0tLXwKfCAqKmNhcHR1cmUqKiB8IGBjYXB0dXJlLnJzYCB8IE11bHRpLW1vbml0b3Igc2NyZWVuc2hvdCB2aWEgeGNhcC9EWEdJLCByZWdpb24gY3JvcCwgUE5HIGVuY29kZSwgc2NyZWVuIHJlc29sdXRpb24gfCB+OG1zIHBlciBmcmFtZSB8CnwgKippbnB1dCoqIHwgYGlucHV0LnJzYCB8IE1vdXNlOiBtb3ZlLCBjbGljaywgZHJhZywgc2Nyb2xsLCBwb3NpdGlvbi4gS2V5Ym9hcmQ6IHR5cGUsIHByZXNzLCBob3RrZXkuIENoaW5lc2UgdGV4dCB2aWEgY2xpcGJvYXJkIHwg4oCUIHwKfCAqKndpbmRvdyoqIHwgYHdpbmRvdy5yc2AgfCBXaW5kb3dzIEFQSTogZW51bWVyYXRlLCBmb2N1cywgbW92ZSwgcmVzaXplLCBsYXVuY2ggYXBwbGljYXRpb25zIHwg4oCUIHwKfCAqKnNlY3VyaXR5KiogfCBgc2VjdXJpdHkucnNgIHwgQm91bmRzIGNoZWNrICYgY2xhbXAsIGNsaWNrIGxvb3AgZGV0ZWN0aW9uIChzYW1lIHBvc2l0aW9uIMOXIE4pLCByYXRlIGxpbWl0ZXIsIGhvdGtleSBibG9ja2xpc3QsIFNRTGl0ZSBhdWRpdCB8IOKAlCB8CnwgKippbWFnZV9wcm9jKiogfCBgaW1hZ2VfcHJvYy5yc2AgfCBQaXhlbC1sZXZlbCBkaWZmIHdpdGggdGhyZXNob2xkLCBkSGFzaCAoZGlmZmVyZW5jZSBoYXNoKSwgSGFtbWluZyBkaXN0YW5jZSwgTkNDIHRlbXBsYXRlIG1hdGNoaW5nLCBjaGFuZ2UgZGV0ZWN0aW9uIHwg4oCUIHwKCiMjIyBQeXRob24gU0RLIChgcHl0aG9uL2F1dG9jb21wdXRlci9gKQoKfCBQYWNrYWdlIHwgUHVycG9zZSB8IEtleSBBUElzIHwKfC0tLS0tLS0tLXwtLS0tLS0tLS18LS0tLS0tLS0tLXwKfCBgYWdlbnQvYCB8IENvVCAoQ2hhaW4tb2YtVGhvdWdodCkgY29udGV4dCBjb2xsZWN0aW9uLCBhY3Rpb24gcGxhbm5pbmcsIHN0YXRlIHRyYWNraW5nIHwgYEFnZW50LnJ1bih0YXNrKWAsIGBTY3JlZW5Db250ZXh0LmNhcHR1cmUoKWAsIGBTdGF0ZVRyYWNrZXJgIHwKfCBgcGVyY2VwdGlvbi9gIHwgNC1iYWNrZW5kIE9DUjogUGFkZGxlT0NSIChDaGluZXNlLW9wdGltaXplZCksIEVhc3lPQ1IgKG11bHRpbGluZ3VhbCksIFRlc3NlcmFjdCAobGlnaHR3ZWlnaHQpLCBMTE0gVmlzaW9uIChHUFQtNFYvQ2xhdWRlKSB8IGBQZXJjZXB0aW9uTWFuYWdlci5hdXRvKClgLCBgb2NyX3RleHQoKWAsIGBmaW5kX3RleHQoKWAgfAp8IGByZWNvcmQvYCB8IEFjdGlvbkZsb3cgSlNPTiB2MS4wIGZvcm1hdDogaW50ZW50LWJhc2VkIHJlY29yZGluZywgc21hcnQgcmVwbGF5IChPQ1Ig4oaSIHRlbXBsYXRlIOKGkiBmYWxsYmFjayksIGZsb3cgY29tcHJlc3Npb24gfCBgRmxvd1JlY29yZGVyLnJlY29yZCgpYCwgYHJlcGxheSgpYCwgYGNvbXByZXNzKClgIHwKfCBgbGxtL2AgfCBQbGF5d3JpZ2h0LWJhc2VkIGJyb3dzZXIgYXV0b21hdGlvbiB2aWEgQ0RQIHwgYEJyb3dzZXIubGF1bmNoKClgLCBgLmdvdG8oKWAsIGAuY2xpY2soKWAsIGAuc2NyZWVuc2hvdCgpYCB8CnwgYGNsaS9gIHwgdHlwZXIgQ0xJIHdpdGggcGx1Z2luIENvbW1hbmRSZWdpc3RyeSwgYWxpYXNlcywgY2F0ZWdvcnkgZ3JvdXBpbmcgfCBgYWMgdmVyc2lvbmAsIGBhYyBzZWVgLCBgYWMgbW9uaXRvcnNgLCBgYWMgc2VydmVgIHwKfCBgc2VydmVyLnB5YCB8IFplcm8tZGVwZW5kZW5jeSBIVFRQIEFQSSBzZXJ2ZXIgYnJpZGdpbmcgR1VJIOKGlCBSdXN0IGNvcmUgfCBgR0VUIC9hcGkvc3RhdHVzYCwgYC9jYXB0dXJlYCwgYC9tb25pdG9yc2AsIGBQT1NUIC9hcGkvZXhlY3V0ZWAgfAoKIyMjIERhc2hib2FyZCAoYGd1aS9gKQoKSFRNTDUgc2luZ2xlLXBhZ2UgYXBwIOKAlCBubyBidWlsZCBzdGVwLCBvcGVuIGluIGJyb3dzZXIgZGlyZWN0bHk6Cgp8IFBhZ2UgfCBXaGF0IGl0IHNob3dzIHwKfC0tLS0tLXwtLS0tLS0tLS0tLS0tLXwKfCDwn5OKIERhc2hib2FyZCB8IFJlYWwtdGltZSBzeXN0ZW0gc3RhdHVzLCBSdXN0IGNvcmUgaGVhbHRoLCBxdWljayBhY3Rpb25zIHwKfCDinI/vuI8gRWRpdG9yIHwgRHJhZy1hbmQtZHJvcCBzdGVwIGJ1aWxkZXI6IENsaWNrIC8gVHlwZSAvIFByZXNzIC8gV2FpdCAvIFNjcm9sbCAvIE1vdmUgfAp8IPCfk4sgRmxvd3MgfCBTYXZlZCBmbG93IGxpYnJhcnksIHJlcGxheSwgSlNPTiBleHBvcnQvaW1wb3J0IHwKfCDwn5GB77iPIE1vbml0b3IgfCBMaXZlIG9wZXJhdGlvbiBsb2cgd2l0aCBzZXZlcml0eSBjb2xvcmluZyAoaW5mby9vay93YXJuL2Vycm9yKSB8Cnwg8J+boe+4jyBTZWN1cml0eSB8IEhvdGtleSBibG9ja2xpc3QsIGxvb3AgdGhyZXNob2xkcywgcmF0ZSBsaW1pdCBjb25maWcsIGF1ZGl0IHN0YXRzIHwKCi0tLQoKIyMg8J+agCBRdWljayBTdGFydAoKIyMjIFJlcXVpcmVtZW50cwoKLSAqKlJ1c3QqKiAxLjk3KyAoYHJ1c3R1cCBkZWZhdWx0IHN0YWJsZWApCi0gKipQeXRob24qKiAzLjkrCi0gKipXaW5kb3dzKiogMTAgb3IgMTEgKG1hY09TL0xpbnV4IHdpbmRvdyBBUElzIGFyZSBzdHVicyDigJQgUFJzIHdlbGNvbWUhKQoKIyMjIE9uZS1jb21tYW5kIHNldHVwCgpgYGBiYXNoCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20veXlnZzY5My9hdXRvY29tcHV0ZXIuZ2l0CmNkIGF1dG9jb21wdXRlcgoKcGlwIGluc3RhbGwgbWF0dXJpbiBweXRlc3QgdHlwZXIgcmljaCBweWRhbnRpYwptYXR1cmluIGRldmVsb3AgLW0gY3JhdGVzL2FjLWNvcmUvQ2FyZ28udG9tbApwaXAgaW5zdGFsbCAtZSAuCmBgYAoKIyMjIFZlcmlmeQoKYGBgYmFzaApweXRob24gLW0gYXV0b2NvbXB1dGVyIHZlcnNpb24KIyBhdXRvY29tcHV0ZXIgdjAuOC4wLWRldgojIFJ1c3QgY29yZTog4pyFIGxvYWRlZCAoNSBtb2R1bGVzKQoKcHl0aG9uIC1tIHB5dGVzdCBweXRob24vdGVzdHMvIC1xCiMgMjcgcGFzc2VkCgpjYXJnbyB0ZXN0IC0td29ya3NwYWNlCiMgMjEgcGFzc2VkCgpjYXJnbyBjbGlwcHkgLS13b3Jrc3BhY2UgLS0gLUQgd2FybmluZ3MKIyB6ZXJvIHdhcm5pbmdzCmBgYAoKIyMjIExhdW5jaCB0aGUgRGFzaGJvYXJkCgpgYGBiYXNoCnB5dGhvbiAtbSBhdXRvY29tcHV0ZXIgc2VydmUgLS1wb3J0IDg3NjUKIyDwn6aAIGF1dG9jb21wdXRlciBBUEkgU2VydmVyIHYwLjguMC1kZXYKIyDwn5OhIExpc3RlbmluZyBvbiBodHRwOi8vMTI3LjAuMC4xOjg3NjUKIyDwn4yQIEdVSTogaHR0cDovLzEyNy4wLjAuMTo4NzY1CiMg8J+TiyBBUEk6IGh0dHA6Ly8xMjcuMC4wLjE6ODc2NS9hcGkvc3RhdHVzCmBgYAoKT3BlbiBgaHR0cDovLzEyNy4wLjAuMTo4NzY1YCBpbiB5b3VyIGJyb3dzZXIuCgotLS0KCiMjIPCfk5YgVXNhZ2UgRXhhbXBsZXMKCiMjIyBQeXRob24gU0RLIOKAlCBTY3JlZW5zaG90ICYgQ2xpY2sKCmBgYHB5dGhvbgpmcm9tIGF1dG9jb21wdXRlci5jb3JlIGltcG9ydCBjYXB0dXJlX3NjcmVlbiwgbW91c2VfY2xpY2ssIGtleWJvYXJkX3R5cGUKCiMgQ2FwdHVyZSBwcmltYXJ5IG1vbml0b3IKcmVzdWx0ID0gY2FwdHVyZV9zY3JlZW4oMCkKcHJpbnQoZiJ7cmVzdWx0LndpZHRofXh7cmVzdWx0LmhlaWdodH0sIHtsZW4ocmVzdWx0LnBuZyl9IGJ5dGVzIikKCiMgQ2xpY2sgYW5kIHR5cGUKbW91c2VfY2xpY2soNTAwLCAzMDApCmtleWJvYXJkX3R5cGUoIkhlbGxvIFdvcmxkIikKYGBgCgojIyMgUHl0aG9uIFNESyDigJQgU2VjdXJpdHkgR3VhcmQKCmBgYHB5dGhvbgpmcm9tIGF1dG9jb21wdXRlci5jb3JlIGltcG9ydCBTZWN1cml0eUd1YXJkLCBTZWN1cml0eUNvbmZpZwppbXBvcnQgdG9tbAoKIyBMb2FkIGZyb20gY29uZmlnIGZpbGUKY29uZmlnID0gdG9tbC5sb2FkcyhvcGVuKCJzZWN1cml0eS50b21sIikucmVhZCgpKQpndWFyZCA9IFNlY3VyaXR5R3VhcmQoY29uZmlnKQoKIyBFdmVyeSBjbGljayBnb2VzIHRocm91Z2ggc2FmZXR5IGNoZWNrcwp4LCB5ID0gZ3VhcmQuZ3VhcmRfY2xpY2soMTAwLCAyMDAsIDE5MjAsIDEwODApICAjICBjbGFtcHMgKyByYXRlLWxpbWl0cwoKIyBCbG9jayBkYW5nZXJvdXMgaG90a2V5cwpndWFyZC5ndWFyZF9ob3RrZXkoWyJhbHQiLCAiZjQiXSkgICMgcmFpc2VzIFNlY3VyaXR5RXJyb3IKYGBgCgojIyMgUHl0aG9uIFNESyDigJQgQWdlbnQgTG9vcAoKYGBgcHl0aG9uCmZyb20gYXV0b2NvbXB1dGVyLmFnZW50LmNvcmUgaW1wb3J0IEFnZW50CgphZ2VudCA9IEFnZW50KCkKcGxhbiA9IGFnZW50LnBsYW4oIk9wZW4gTm90ZXBhZCBhbmQgdHlwZSAnSGVsbG8nIikKCmZvciBzdGVwIGluIHBsYW4uc3RlcHM6CiAgICBhZ2VudC5leGVjdXRlKHN0ZXAuYWN0aW9uLCAqKnN0ZXAucGFyYW1zKQogICAgYWdlbnQudmVyaWZ5KHN0ZXAuZXhwZWN0ZWRfc3RhdGUpCmBgYAoKIyMjIFJlY29yZCAmIFJlcGxheQoKYGBgcHl0aG9uCmZyb20gYXV0b2NvbXB1dGVyLnJlY29yZC5lbmdpbmUgaW1wb3J0IEZsb3dSZWNvcmRlcgoKIyBSZWNvcmQgYSBmbG93CnJlY29yZGVyID0gRmxvd1JlY29yZGVyKCkKcmVjb3JkZXIuc3RhcnQoKQojIC4uLiBwZXJmb3JtIGFjdGlvbnMgbWFudWFsbHkgLi4uCnJlY29yZGVyLnN0b3AoKQpyZWNvcmRlci5zYXZlKCJteV9mbG93Lmpzb24iKQoKIyBSZXBsYXkgd2l0aCBzbWFydCBtYXRjaGluZwpyZWNvcmRlci5sb2FkKCJteV9mbG93Lmpzb24iKQpyZWNvcmRlci5yZXBsYXkoc3BlZWQ9Mi4wLCB2ZXJpZnk9VHJ1ZSkKYGBgCgojIyMgSFRUUCBBUEkKCmBgYGJhc2gKIyBTeXN0ZW0gc3RhdHVzCmN1cmwgaHR0cDovLzEyNy4wLjAuMTo4NzY1L2FwaS9zdGF0dXMKCiMgU2NyZWVuc2hvdCAocmV0dXJucyBiYXNlNjQgUE5HKQpjdXJsIGh0dHA6Ly8xMjcuMC4wLjE6ODc2NS9hcGkvY2FwdHVyZQoKIyBFeGVjdXRlIGFuIGFjdGlvbgpjdXJsIC1YIFBPU1QgaHR0cDovLzEyNy4wLjAuMTo4NzY1L2FwaS9leGVjdXRlIFwKICAtSCAiQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uIiBcCiAgLWQgJ3siYWN0aW9uIjoiY2xpY2siLCJwYXJhbXMiOnsieCI6MTAwLCJ5IjoyMDB9fScKYGBgCgotLS0KCiMjIPCfj5cgQXJjaGl0ZWN0dXJlCgpgYGAK4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQCuKUgiAgSFRNTDUgRGFzaGJvYXJkICg1IHBhZ2VzLCBnbGFzcyBkZXNpZ24pICAgIOKUggrilIIgIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCAg4pSCCuKUgiAgSFRUUCBBUEkgU2VydmVyIChQeXRob24gc3RkbGliLCAwIGRlcHMpICAg4pSCCuKUnOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUpArilIIgIFB5dGhvbiBTREsgKGFnZW50IMK3IHBlcmNlcHRpb24gwrcgcmVjb3JkKSAg4pSCCuKUgiAg4pSc4pSAIEFnZW50OiBDb1QgY29udGV4dCDihpIgcGxhbiDihpIgZXhlY3V0ZSAgICDilIIK4pSCICDilJzilIAgUGVyY2VwdGlvbjogNCBPQ1IgYmFja2VuZHMgICAgICAgICAgICAg4pSCCuKUgiAg4pSc4pSAIFJlY29yZDogQWN0aW9uRmxvdyB2MS4wICAgICAgICAgICAgICAgIOKUggrilIIgIOKUnOKUgCBMTE06IFBsYXl3cmlnaHQgYnJvd3NlciBhdXRvbWF0aW9uICAgICDilIIK4pSCICDilJTilIAgQ0xJOiB0eXBlciArIHBsdWdpbiByZWdpc3RyeSAgICAgICAgICAg4pSCCuKUnOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUpArilIIgIPCfpoAgUnVzdCBDb3JlIChQeU8zIOKGkiBfY29yZS5weWQpICAgICAgICAgICDilIIK4pSCICDilJzilIAgY2FwdHVyZSAgICAgwrcgeGNhcCBEWEdJICh+OG1zKSAgICAgICAgIOKUggrilIIgIOKUnOKUgCBpbnB1dCAgICAgICDCtyBlbmlnbyArIGNsaXBib2FyZCAgICAgICAg4pSCCuKUgiAg4pSc4pSAIHdpbmRvdyAgICAgIMK3IFdpbmRvd3MgQVBJICAgICAgICAgICAgICDilIIK4pSCICDilJzilIAgc2VjdXJpdHkgICAgwrcgZ3VhcmQgKyBTUUxpdGUgYXVkaXQgICAgIOKUggrilIIgIOKUlOKUgCBpbWFnZV9wcm9jICDCtyBkaWZmIC8gaGFzaCAvIG1hdGNoICAgICAg4pSCCuKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUmApgYGAKCkRhdGEgZmxvdyBmb3IgYSB0eXBpY2FsICJjbGljayIgYWN0aW9uOgoKYGBgClVzZXIgcmVxdWVzdCDihpIgUHl0aG9uIFNESyDihpIgX2NvcmUucHlkIChSdXN0KSDihpIgV2luMzIgQVBJIOKGkiBhY3R1YWwgbW91c2UgZXZlbnQKICAgICAgICAgICAgICAgICAgICAgICAg4oaQIHNjcmVlbnNob3QgKFBORykg4oaQIHhjYXAgRFhHSSDihpAgZnJhbWVidWZmZXIKICAgICAgICAgICDihpIgdmVyaWZ5IChpbWFnZV9wcm9jIGRpZmYpIOKGkiBuZXh0IGFjdGlvbiBvciByZXRyeQpgYGAKCi0tLQoKIyMg8J+boe+4jyBTZWN1cml0eSBNb2RlbAoKYXV0b2NvbXB1dGVyIHNoaXBzIHdpdGggYSA3LWxheWVyIGRlZmVuc2U6Cgp8IExheWVyIHwgTWVjaGFuaXNtIHwgV2hhdCBpdCBwcmV2ZW50cyB8CnwtLS0tLS0tfC0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0tLS0tfAp8IDEuICoqRmFpbC1zYWZlIGNvcm5lcioqIHwgQ2xpY2sgKDAsMCkgdG8gaW5zdGFudGx5IGFib3J0IHwgUnVuYXdheSBhdXRvbWF0aW9uIHwKfCAyLiAqKkxvb3AgZGV0ZWN0aW9uKiogfCBCbG9jayBjbGljayBpZiBzYW1lIHBvc2l0aW9uID4gTiB0aW1lcyB8IEluZmluaXRlIGNsaWNrIGxvb3BzIHwKfCAzLiAqKlJhdGUgbGltaXRpbmcqKiB8IEVuZm9yY2UgbWluaW11bSBpbnRlcnZhbCAoZGVmYXVsdCAxMDBtcykgfCBSYXBpZC1maXJlIHNwYW0gfAp8IDQuICoqSG90a2V5IGJsb2NraW5nKiogfCBCbG9jayBkYW5nZXJvdXMga2V5IGNvbWJvcyAoYWx0K2Y0LCB3aW4rbCwg4oCmKSB8IEFjY2lkZW50YWwgbG9nb3V0L3NodXRkb3duIHwKfCA1LiAqKkFwcCBwZXJtaXNzaW9ucyoqIHwgUGVyLWFwcCBhbGxvdy9kZW55L3Byb21wdCBydWxlcyB8IFVuYXV0aG9yaXplZCBhcHAgY29udHJvbCB8CnwgNi4gKipBdWRpdCBsb2dnaW5nKiogfCBTUUxpdGUgd2l0aCB0aW1lc3RhbXBzLCByZXRlbnRpb25zIHwgUG9zdC1tb3J0ZW0gYW5hbHlzaXMgfAp8IDcuICoqQm91bmRzIGNsYW1waW5nKiogfCBDbGFtcCBhbGwgY29vcmRpbmF0ZXMgdG8gc2NyZWVuIGRpbWVuc2lvbnMgfCBPZmYtc2NyZWVuIGNsaWNrcyB8CgpDb25maWd1cmF0aW9uIHZpYSBUT01MIOKAlCBzZWUgW2BleGFtcGxlcy9zZWN1cml0eS50b21sYF0oZXhhbXBsZXMvc2VjdXJpdHkudG9tbCkuCgotLS0KCiMjIPCfp6ogVGVzdGluZwoKfCBTdWl0ZSB8IEZyYW1ld29yayB8IENvdW50IHwgQ292ZXJhZ2UgfAp8LS0tLS0tLXwtLS0tLS0tLS0tLXwtLS0tLS0tfC0tLS0tLS0tLS18CnwgUnVzdCB1bml0IHRlc3RzIHwgYGNhcmdvIHRlc3RgIHwgMjEgfCBjYXB0dXJlICg1KSwgaW1hZ2VfcHJvYyAoOSksIHNlY3VyaXR5ICg3KSB8CnwgUHl0aG9uIHRlc3RzIHwgYHB5dGVzdGAgfCAyNyB8IGNvcmUsIHNkaywgcmVjb3JkLCBwZXJjZXB0aW9uLCBhZ2VudCB8CnwgKipUb3RhbCoqIHwgfCAqKjQ4KiogfCBhbGwgcGFzc2luZyB8CgpgYGBiYXNoCmNhcmdvIHRlc3QgLS13b3Jrc3BhY2UgICAgICMgMjEgdGVzdHMsIDAgZmFpbHVyZXMKcHl0ZXN0IHB5dGhvbi90ZXN0cy8gLXEgICAgIyAyNyB0ZXN0cywgMCBmYWlsdXJlcwpjYXJnbyBjbGlwcHkgLS13b3Jrc3BhY2UgICAjIDAgd2FybmluZ3MKYGBgCgotLS0KCiMjIPCflKcgRGV2ZWxvcG1lbnQKCmBgYGJhc2gKIyBCdWlsZCBldmVyeXRoaW5nCm1hdHVyaW4gZGV2ZWxvcCAtbSBjcmF0ZXMvYWMtY29yZS9DYXJnby50b21sCgojIFJ1biB3aXRoIGhvdCByZWxvYWQgKFB5dGhvbikKcGlwIGluc3RhbGwgLWUgLgoKIyBCZWZvcmUgY29tbWl0dGluZwpjYXJnbyBmbXQgLS1hbGwKY2FyZ28gY2xpcHB5IC0td29ya3NwYWNlIC0tIC1EIHdhcm5pbmdzCmNhcmdvIHRlc3QgLS13b3Jrc3BhY2UKcHl0ZXN0IHB5dGhvbi90ZXN0cy8KYGBgCgotLS0KCiMjIPCfk4IgUHJvamVjdCBTdHJ1Y3R1cmUKCmBgYAphdXRvY29tcHV0ZXIvCuKUnOKUgOKUgCBjcmF0ZXMvCuKUgiAgIOKUnOKUgOKUgCBhYy1jb3JlLyAgICAgICAgICAjIE1haW4gUnVzdCBjcmF0ZSAoY2FwdHVyZSwgaW5wdXQsIHdpbmRvdywgc2VjdXJpdHksIGltYWdlX3Byb2MpCuKUgiAgIOKUnOKUgOKUgCBhYy1zZWN1cml0eS8gICAgICAjIFN0YW5kYWxvbmUgc2VjdXJpdHkgbGlicmFyeQrilIIgICDilJTilIDilIAgYWMtYnJvd3Nlci8gICAgICAgIyBDRFAtYmFzZWQgYnJvd3NlciBjb250cm9sCuKUnOKUgOKUgCBweXRob24vCuKUgiAgIOKUnOKUgOKUgCBhdXRvY29tcHV0ZXIvICAgICAjIFB5dGhvbiBTREsK4pSCICAg4pSCICAg4pSc4pSA4pSAIGFnZW50LyAgICAgICAgIyBDb1QgZXhlY3V0b3IK4pSCICAg4pSCICAg4pSc4pSA4pSAIGNsaS8gICAgICAgICAgIyB0eXBlciBDTEkK4pSCICAg4pSCICAg4pSc4pSA4pSAIGNvcmUvICAgICAgICAgIyBSdXN0IGJyaWRnZSAoX2NvcmUucHlkKQrilIIgICDilIIgICDilJzilIDilIAgbGxtLyAgICAgICAgICAjIFBsYXl3cmlnaHQgYXV0b21hdGlvbgrilIIgICDilIIgICDilJzilIDilIAgcGVyY2VwdGlvbi8gICAjIE9DUiBiYWNrZW5kcwrilIIgICDilIIgICDilJzilIDilIAgcmVjb3JkLyAgICAgICAjIEFjdGlvbkZsb3cK4pSCICAg4pSCICAg4pSc4pSA4pSAIHNlcnZlci5weSAgICAgIyBIVFRQIEFQSQrilIIgICDilIIgICDilJTilIDilIAgdXRpbHMvICAgICAgICAjIFNoYXJlZCB1dGlsaXRpZXMK4pSCICAg4pSU4pSA4pSAIHRlc3RzLyAgICAgICAgICAgICMgUHl0aG9uIHRlc3Qgc3VpdGUK4pSc4pSA4pSAIGd1aS8K4pSCICAg4pSU4pSA4pSAIGluZGV4Lmh0bWwgICAgICAgICMgSFRNTDUgRGFzaGJvYXJkICg1IHBhZ2VzKQrilJzilIDilIAgZXhhbXBsZXMvCuKUgiAgIOKUlOKUgOKUgCBzZWN1cml0eS50b21sICAgICAjIFNlY3VyaXR5IHBvbGljeSB0ZW1wbGF0ZQrilJzilIDilIAgQ2FyZ28udG9tbCAgICAgICAgICAgICMgUnVzdCB3b3Jrc3BhY2UK4pSc4pSA4pSAIHB5cHJvamVjdC50b21sICAgICAgICAjIFB5dGhvbiBwYWNrYWdlCuKUlOKUgOKUgCBSRUFETUUubWQgICAgICAgICAgICAgIyDihpAgeW91IGFyZSBoZXJlCmBgYAoKLS0tCgojIyDwn5OEIExpY2Vuc2UKCk1JVCDigJQgc2VlIFtMSUNFTlNFXShMSUNFTlNFKSBmb3IgZGV0YWlscy4KCi0tLQoKKlRoaXMgaXMgdGhlIFJ1c3QgcmV3cml0ZSBvZiBbYXV0b2NvbXB1dGVyXShodHRwczovL2dpdGh1Yi5jb20veXlnZzY5My9hdXRvY29tcHV0ZXIpIChvcmlnaW5hbGx5IGEgUHl0aG9uLW9ubHkgZnJhbWV3b3JrKS4gVGhlIGxlZ2FjeSBQeXRob24gdmVyc2lvbiBpcyBhdmFpbGFibGUgaW4gdGhlIGBweXRob24tbGVnYWN5YCBicmFuY2guKgo=
+# autocomputer 🦀🐍🌐
+
+**AI-driven desktop GUI automation — Rust core + Python SDK + HTML5 Dashboard.**
+
+> No black box. No subscription. Your computer, your rules.
+
+[![Rust](https://img.shields.io/badge/Rust-1.97-orange.svg)](https://www.rust-lang.org/)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/Tests-48%2F48-brightgreen.svg)](#)
+[![Clippy](https://img.shields.io/badge/Clippy-zero%20warnings-success.svg)](#)
+[![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-blueviolet.svg)](#)
+
+---
+
+## Why autocomputer?
+
+Most GUI automation tools fall into two camps: **proprietary cloud services** that send your screen to remote servers, or **fragile coordinate-based scripts** that break the moment your window moves. autocomputer takes a third path:
+
+- 🦀 **Rust core** for sub-10ms screenshots and reliable system calls
+- 🐍 **Python SDK** for rapid scripting and AI integration
+- 👁️ **Visual feedback loop** — screenshot → AI vision → action → verify
+- 🛡️ **Built-in safety** — bounds clamping, loop detection, rate limiting, hotkey blocking
+
+## ✨ Feature Map
+
+### Rust Core (`crates/ac-core/`)
+
+| Module | File | What it does | Performance |
+|--------|------|-------------|-------------|
+| **capture** | `capture.rs` | Multi-monitor screenshot via xcap/DXGI, region crop, PNG encode, screen resolution | ~8ms per frame |
+| **input** | `input.rs` | Mouse: move, click, drag, scroll, position. Keyboard: type, press, hotkey. Chinese text via clipboard | — |
+| **window** | `window.rs` | Windows API: enumerate, focus, move, resize, launch applications | — |
+| **security** | `security.rs` | Bounds check & clamp, click loop detection (same position × N), rate limiter, hotkey blocklist, SQLite audit | — |
+| **image_proc** | `image_proc.rs` | Pixel-level diff with threshold, dHash (difference hash), Hamming distance, NCC template matching, change detection | — |
+
+### Python SDK (`python/autocomputer/`)
+
+| Package | Purpose | Key APIs |
+|---------|---------|----------|
+| `agent/` | CoT (Chain-of-Thought) context collection, action planning, state tracking | `Agent.run(task)`, `ScreenContext.capture()`, `StateTracker` |
+| `perception/` | 4-backend OCR: PaddleOCR (Chinese-optimized), EasyOCR (multilingual), Tesseract (lightweight), LLM Vision (GPT-4V/Claude) | `PerceptionManager.auto()`, `ocr_text()`, `find_text()` |
+| `record/` | ActionFlow JSON v1.0 format: intent-based recording, smart replay (OCR → template → fallback), flow compression | `FlowRecorder.record()`, `replay()`, `compress()` |
+| `llm/` | Playwright-based browser automation via CDP | `Browser.launch()`, `.goto()`, `.click()`, `.screenshot()` |
+| `cli/` | typer CLI with plugin CommandRegistry, aliases, category grouping | `ac version`, `ac see`, `ac monitors`, `ac serve` |
+| `server.py` | Zero-dependency HTTP API server bridging GUI ↔ Rust core | `GET /api/status`, `/capture`, `/monitors`, `POST /api/execute` |
+
+### Dashboard (`gui/`)
+
+HTML5 single-page app — no build step, open in browser directly:
+
+| Page | What it shows |
+|------|--------------|
+| 📊 Dashboard | Real-time system status, Rust core health, quick actions |
+| ✏️ Editor | Drag-and-drop step builder: Click / Type / Press / Wait / Scroll / Move |
+| 📋 Flows | Saved flow library, replay, JSON export/import |
+| 👁️ Monitor | Live operation log with severity coloring (info/ok/warn/error) |
+| 🛡️ Security | Hotkey blocklist, loop thresholds, rate limit config, audit stats |
+
+---
+
+## 🚀 Quick Start
+
+### Requirements
+
+- **Rust** 1.97+ (`rustup default stable`)
+- **Python** 3.9+
+- **Windows** 10 or 11 (macOS/Linux window APIs are stubs — PRs welcome!)
+
+### One-command setup
+
+```bash
+git clone https://github.com/yygg693/autocomputer.git
+cd autocomputer
+
+pip install maturin pytest typer rich pydantic
+maturin develop -m crates/ac-core/Cargo.toml
+pip install -e .
+```
+
+### Verify
+
+```bash
+python -m autocomputer version
+# autocomputer v0.8.0-dev
+# Rust core: ✅ loaded (5 modules)
+
+python -m pytest python/tests/ -q
+# 27 passed
+
+cargo test --workspace
+# 21 passed
+
+cargo clippy --workspace -- -D warnings
+# zero warnings
+```
+
+### Launch the Dashboard
+
+```bash
+python -m autocomputer serve --port 8765
+# 🦀 autocomputer API Server v0.8.0-dev
+# 📡 Listening on http://127.0.0.1:8765
+# 🌐 GUI: http://127.0.0.1:8765
+# 📋 API: http://127.0.0.1:8765/api/status
+```
+
+Open `http://127.0.0.1:8765` in your browser.
+
+---
+
+## 📖 Usage Examples
+
+### Python SDK — Screenshot & Click
+
+```python
+from autocomputer.core import capture_screen, mouse_click, keyboard_type
+
+# Capture primary monitor
+result = capture_screen(0)
+print(f"{result.width}x{result.height}, {len(result.png)} bytes")
+
+# Click and type
+mouse_click(500, 300)
+keyboard_type("Hello World")
+```
+
+### Python SDK — Security Guard
+
+```python
+from autocomputer.core import SecurityGuard, SecurityConfig
+import toml
+
+# Load from config file
+config = toml.loads(open("security.toml").read())
+guard = SecurityGuard(config)
+
+# Every click goes through safety checks
+x, y = guard.guard_click(100, 200, 1920, 1080)  #  clamps + rate-limits
+
+# Block dangerous hotkeys
+guard.guard_hotkey(["alt", "f4"])  # raises SecurityError
+```
+
+### Python SDK — Agent Loop
+
+```python
+from autocomputer.agent.core import Agent
+
+agent = Agent()
+plan = agent.plan("Open Notepad and type 'Hello'")
+
+for step in plan.steps:
+    agent.execute(step.action, **step.params)
+    agent.verify(step.expected_state)
+```
+
+### Record & Replay
+
+```python
+from autocomputer.record.engine import FlowRecorder
+
+# Record a flow
+recorder = FlowRecorder()
+recorder.start()
+# ... perform actions manually ...
+recorder.stop()
+recorder.save("my_flow.json")
+
+# Replay with smart matching
+recorder.load("my_flow.json")
+recorder.replay(speed=2.0, verify=True)
+```
+
+### HTTP API
+
+```bash
+# System status
+curl http://127.0.0.1:8765/api/status
+
+# Screenshot (returns base64 PNG)
+curl http://127.0.0.1:8765/api/capture
+
+# Execute an action
+curl -X POST http://127.0.0.1:8765/api/execute \
+  -H "Content-Type: application/json" \
+  -d '{"action":"click","params":{"x":100,"y":200}}'
+```
+
+---
+
+## 🏗 Architecture
+
+```
+┌────────────────────────────────────────────┐
+│  HTML5 Dashboard (5 pages, glass design)    │
+│  ────────────────────────────────────────  │
+│  HTTP API Server (Python stdlib, 0 deps)   │
+├────────────────────────────────────────────┤
+│  Python SDK (agent · perception · record)  │
+│  ├─ Agent: CoT context → plan → execute    │
+│  ├─ Perception: 4 OCR backends             │
+│  ├─ Record: ActionFlow v1.0                │
+│  ├─ LLM: Playwright browser automation     │
+│  └─ CLI: typer + plugin registry           │
+├────────────────────────────────────────────┤
+│  🦀 Rust Core (PyO3 → _core.pyd)           │
+│  ├─ capture     · xcap DXGI (~8ms)         │
+│  ├─ input       · enigo + clipboard        │
+│  ├─ window      · Windows API              │
+│  ├─ security    · guard + SQLite audit     │
+│  └─ image_proc  · diff / hash / match      │
+└────────────────────────────────────────────┘
+```
+
+Data flow for a typical "click" action:
+
+```
+User request → Python SDK → _core.pyd (Rust) → Win32 API → actual mouse event
+                        ← screenshot (PNG) ← xcap DXGI ← framebuffer
+           → verify (image_proc diff) → next action or retry
+```
+
+---
+
+## 🛡️ Security Model
+
+autocomputer ships with a 7-layer defense:
+
+| Layer | Mechanism | What it prevents |
+|-------|-----------|-----------------|
+| 1. **Fail-safe corner** | Click (0,0) to instantly abort | Runaway automation |
+| 2. **Loop detection** | Block click if same position > N times | Infinite click loops |
+| 3. **Rate limiting** | Enforce minimum interval (default 100ms) | Rapid-fire spam |
+| 4. **Hotkey blocking** | Block dangerous key combos (alt+f4, win+l, …) | Accidental logout/shutdown |
+| 5. **App permissions** | Per-app allow/deny/prompt rules | Unauthorized app control |
+| 6. **Audit logging** | SQLite with timestamps, retentions | Post-mortem analysis |
+| 7. **Bounds clamping** | Clamp all coordinates to screen dimensions | Off-screen clicks |
+
+Configuration via TOML — see [`examples/security.toml`](examples/security.toml).
+
+---
+
+## 🧪 Testing
+
+| Suite | Framework | Count | Coverage |
+|-------|-----------|-------|----------|
+| Rust unit tests | `cargo test` | 21 | capture (5), image_proc (9), security (7) |
+| Python tests | `pytest` | 27 | core, sdk, record, perception, agent |
+| **Total** | | **48** | all passing |
+
+```bash
+cargo test --workspace     # 21 tests, 0 failures
+pytest python/tests/ -q    # 27 tests, 0 failures
+cargo clippy --workspace   # 0 warnings
+```
+
+---
+
+## 🔧 Development
+
+```bash
+# Build everything
+maturin develop -m crates/ac-core/Cargo.toml
+
+# Run with hot reload (Python)
+pip install -e .
+
+# Before committing
+cargo fmt --all
+cargo clippy --workspace -- -D warnings
+cargo test --workspace
+pytest python/tests/
+```
+
+---
+
+## 📂 Project Structure
+
+```
+autocomputer/
+├── crates/
+│   ├── ac-core/          # Main Rust crate (capture, input, window, security, image_proc)
+│   ├── ac-security/      # Standalone security library
+│   └── ac-browser/       # CDP-based browser control
+├── python/
+│   ├── autocomputer/     # Python SDK
+│   │   ├── agent/        # CoT executor
+│   │   ├── cli/          # typer CLI
+│   │   ├── core/         # Rust bridge (_core.pyd)
+│   │   ├── llm/          # Playwright automation
+│   │   ├── perception/   # OCR backends
+│   │   ├── record/       # ActionFlow
+│   │   ├── server.py     # HTTP API
+│   │   └── utils/        # Shared utilities
+│   └── tests/            # Python test suite
+├── gui/
+│   └── index.html        # HTML5 Dashboard (5 pages)
+├── examples/
+│   └── security.toml     # Security policy template
+├── Cargo.toml            # Rust workspace
+├── pyproject.toml        # Python package
+└── README.md             # ← you are here
+```
+
+---
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+*This is the Rust rewrite of [autocomputer](https://github.com/yygg693/autocomputer) (originally a Python-only framework). The legacy Python version is available in the `python-legacy` branch.*

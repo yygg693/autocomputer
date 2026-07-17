@@ -1,1 +1,67 @@
-IiIiQ29yZSBtb2R1bGUg4oCUIGJyaWRnZXMgUnVzdCBlbmdpbmVzIHRvIFB5dGhvbi4iIiIKCmZyb20gYXV0b2NvbXB1dGVyLmNvcmUuX2JyaWRnZSBpbXBvcnQgKAogICAgIyBDYXB0dXJlCiAgICBDYXB0dXJlUmVzdWx0LAogICAgTW9uaXRvckluZm8sCiAgICBXaW5kb3dJbmZvLAogICAgY2FwdHVyZV9yYXcsCiAgICBjYXB0dXJlX3JlZ2lvbiwKICAgIGNhcHR1cmVfc2NyZWVuLAogICAgbGlzdF9tb25pdG9ycywKICAgIHNhdmVfc2NyZWVuc2hvdCwKICAgIHNjcmVlbl9zaXplLAogICAgIyBNb3VzZQogICAgbW91c2VfY2xpY2ssCiAgICBtb3VzZV9kb3VibGVfY2xpY2ssCiAgICBtb3VzZV9kcmFnLAogICAgbW91c2VfbW92ZSwKICAgIG1vdXNlX3Bvc2l0aW9uLAogICAgbW91c2VfcmlnaHRfY2xpY2ssCiAgICBtb3VzZV9zY3JvbGwsCiAgICAjIEtleWJvYXJkCiAgICBrZXlib2FyZF9kb3duLAogICAga2V5Ym9hcmRfcHJlc3MsCiAgICBrZXlib2FyZF90eXBlLAogICAga2V5Ym9hcmRfdXAsCiAgICAjIFdpbmRvdwogICAgbGF1bmNoX2FwcCwKICAgIHdpbmRvd19mb2N1cywKICAgIHdpbmRvd19nZXRfcmVjdCwKICAgIHdpbmRvd19saXN0LAogICAgd2luZG93X21vdmUsCiAgICB3aW5kb3dfcmVzaXplLAopCgpfX2FsbF9fID0gWwogICAgIyBDYXB0dXJlCiAgICAiQ2FwdHVyZVJlc3VsdCIsCiAgICAiTW9uaXRvckluZm8iLAogICAgIldpbmRvd0luZm8iLAogICAgImNhcHR1cmVfcmF3IiwKICAgICJjYXB0dXJlX3JlZ2lvbiIsCiAgICAiY2FwdHVyZV9zY3JlZW4iLAogICAgImxpc3RfbW9uaXRvcnMiLAogICAgInNhdmVfc2NyZWVuc2hvdCIsCiAgICAic2NyZWVuX3NpemUiLAogICAgIyBNb3VzZQogICAgIm1vdXNlX21vdmUiLAogICAgIm1vdXNlX2NsaWNrIiwKICAgICJtb3VzZV9kb3VibGVfY2xpY2siLAogICAgIm1vdXNlX3JpZ2h0X2NsaWNrIiwKICAgICJtb3VzZV9kcmFnIiwKICAgICJtb3VzZV9zY3JvbGwiLAogICAgIm1vdXNlX3Bvc2l0aW9uIiwKICAgICMgS2V5Ym9hcmQKICAgICJrZXlib2FyZF90eXBlIiwKICAgICJrZXlib2FyZF9wcmVzcyIsCiAgICAia2V5Ym9hcmRfZG93biIsCiAgICAia2V5Ym9hcmRfdXAiLAogICAgIyBXaW5kb3cKICAgICJsYXVuY2hfYXBwIiwKICAgICJ3aW5kb3dfZm9jdXMiLAogICAgIndpbmRvd19nZXRfcmVjdCIsCiAgICAid2luZG93X2xpc3QiLAogICAgIndpbmRvd19tb3ZlIiwKICAgICJ3aW5kb3dfcmVzaXplIiwKXQo=
+"""Core module — bridges Rust engines to Python."""
+
+from autocomputer.core._bridge import (
+    # Capture
+    CaptureResult,
+    MonitorInfo,
+    WindowInfo,
+    capture_raw,
+    capture_region,
+    capture_screen,
+    list_monitors,
+    save_screenshot,
+    screen_size,
+    # Mouse
+    mouse_click,
+    mouse_double_click,
+    mouse_drag,
+    mouse_move,
+    mouse_position,
+    mouse_right_click,
+    mouse_scroll,
+    # Keyboard
+    keyboard_down,
+    keyboard_press,
+    keyboard_type,
+    keyboard_up,
+    # Window
+    launch_app,
+    window_focus,
+    window_get_rect,
+    window_list,
+    window_move,
+    window_resize,
+)
+
+__all__ = [
+    # Capture
+    "CaptureResult",
+    "MonitorInfo",
+    "WindowInfo",
+    "capture_raw",
+    "capture_region",
+    "capture_screen",
+    "list_monitors",
+    "save_screenshot",
+    "screen_size",
+    # Mouse
+    "mouse_move",
+    "mouse_click",
+    "mouse_double_click",
+    "mouse_right_click",
+    "mouse_drag",
+    "mouse_scroll",
+    "mouse_position",
+    # Keyboard
+    "keyboard_type",
+    "keyboard_press",
+    "keyboard_down",
+    "keyboard_up",
+    # Window
+    "launch_app",
+    "window_focus",
+    "window_get_rect",
+    "window_list",
+    "window_move",
+    "window_resize",
+]

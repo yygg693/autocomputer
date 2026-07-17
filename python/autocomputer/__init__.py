@@ -1,1 +1,7 @@
-IiIiCmF1dG9jb21wdXRlciDigJQgQUktZHJpdmVuIGRlc2t0b3AgR1VJIGF1dG9tYXRpb24gZnJhbWV3b3JrLgoKUnVzdCBjb3JlICsgUHl0aG9uIFNESyArIFRhdXJpIEdVSS4KIiIiCgpfX3ZlcnNpb25fXyA9ICIwLjguMC1kZXYiCg==
+"""
+autocomputer — AI-driven desktop GUI automation framework.
+
+Rust core + Python SDK + Tauri GUI.
+"""
+
+__version__ = "0.8.0-dev"

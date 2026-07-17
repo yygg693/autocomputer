@@ -1,1 +1,87 @@
-IiIiClNoYXJlZCB1dGlsaXRpZXMg4oCUIGxvZ2dpbmcsIGNvbmZpZ3VyYXRpb24sIHBhdGhzLgoiIiIKCmltcG9ydCBsb2dnaW5nCmltcG9ydCBvcwppbXBvcnQgc3lzCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aApmcm9tIHR5cGluZyBpbXBvcnQgT3B0aW9uYWwKCgojIOKUgOKUgCBMb2dnaW5nIOKUgOKUgAoKZGVmIGdldF9sb2dnZXIobmFtZTogc3RyID0gImF1dG9jb21wdXRlciIsIGxldmVsOiBpbnQgPSBsb2dnaW5nLklORk8pIC0+IGxvZ2dpbmcuTG9nZ2VyOgogICAgIiIiR2V0IChvciBjcmVhdGUpIGEgbmFtZWQgbG9nZ2VyIHdpdGggY29uc2lzdGVudCBmb3JtYXR0aW5nLiIiIgogICAgbG9nZ2VyID0gbG9nZ2luZy5nZXRMb2dnZXIobmFtZSkKICAgIGlmIG5vdCBsb2dnZXIuaGFuZGxlcnM6CiAgICAgICAgaGFuZGxlciA9IGxvZ2dpbmcuU3RyZWFtSGFuZGxlcihzeXMuc3RkZXJyKQogICAgICAgIGhhbmRsZXIuc2V0Rm9ybWF0dGVyKGxvZ2dpbmcuRm9ybWF0dGVyKAogICAgICAgICAgICAiWyUoYXNjdGltZSlzXSAlKGxldmVsbmFtZSktN3MgJShuYW1lKXMgfCAlKG1lc3NhZ2UpcyIsCiAgICAgICAgICAgIGRhdGVmbXQ9IiVIOiVNOiVTIiwKICAgICAgICApKQogICAgICAgIGxvZ2dlci5hZGRIYW5kbGVyKGhhbmRsZXIpCiAgICBsb2dnZXIuc2V0TGV2ZWwobGV2ZWwpCiAgICByZXR1cm4gbG9nZ2VyCgoKIyDilIDilIAgQ29uZmlndXJhdGlvbiDilIDilIAKCmRlZiBjb25maWdfZGlyKCkgLT4gUGF0aDoKICAgICIiIkdldCB0aGUgYXV0b2NvbXB1dGVyIGNvbmZpZyBkaXJlY3RvcnkgKH4vLmF1dG9jb21wdXRlcikuIiIiCiAgICBpZiBvcy5uYW1lID09ICJudCI6CiAgICAgICAgYmFzZSA9IFBhdGgob3MuZW52aXJvbi5nZXQoIkFQUERBVEEiLCBzdHIoUGF0aC5ob21lKCkgLyAiQXBwRGF0YSIgLyAiUm9hbWluZyIpKSkKICAgIGVsc2U6CiAgICAgICAgYmFzZSA9IFBhdGgob3MuZW52aXJvbi5nZXQoIlhER19DT05GSUdfSE9NRSIsIHN0cihQYXRoLmhvbWUoKSAvICIuY29uZmlnIikpKQogICAgZCA9IGJhc2UgLyAiYXV0b2NvbXB1dGVyIgogICAgZC5ta2RpcihwYXJlbnRzPVRydWUsIGV4aXN0X29rPVRydWUpCiAgICByZXR1cm4gZAoKCmRlZiB3b3Jrc3BhY2VfZGlyKCkgLT4gUGF0aDoKICAgICIiIkdldCB0aGUgYXV0b2NvbXB1dGVyIHdvcmtzcGFjZSAvIGRhdGEgZGlyZWN0b3J5LiIiIgogICAgZCA9IFBhdGgoIi5hdXRvY29tcHV0ZXIiKQogICAgZC5ta2RpcihwYXJlbnRzPVRydWUsIGV4aXN0X29rPVRydWUpCiAgICByZXR1cm4gZAoKCmRlZiBsb2FkX3RvbWwocGF0aDogUGF0aCkgLT4gZGljdDoKICAgICIiIkxvYWQgYSBUT01MIGNvbmZpZ3VyYXRpb24gZmlsZS4iIiIKICAgIHRyeToKICAgICAgICBpbXBvcnQgdG9tbGxpYiAgIyBQeXRob24gMy4xMSsKICAgIGV4Y2VwdCBJbXBvcnRFcnJvcjoKICAgICAgICBpbXBvcnQgdG9tbGkgYXMgdG9tbGxpYiAgIyB0eXBlOiBpZ25vcmUKICAgIHdpdGggb3BlbihwYXRoLCAicmIiKSBhcyBmOgogICAgICAgIHJldHVybiB0b21sbGliLmxvYWQoZikKCgpkZWYgZmluZF9zZWN1cml0eV9jb25maWcoKSAtPiBPcHRpb25hbFtQYXRoXToKICAgICIiIlNlYXJjaCBmb3Igc2VjdXJpdHkudG9tbCBpbiBzdGFuZGFyZCBsb2NhdGlvbnMuIiIiCiAgICBjYW5kaWRhdGVzID0gWwogICAgICAgIGNvbmZpZ19kaXIoKSAvICJzZWN1cml0eS50b21sIiwKICAgICAgICBQYXRoKCJzZWN1cml0eS50b21sIiksCiAgICAgICAgUGF0aCgiZXhhbXBsZXMiKSAvICJzZWN1cml0eS50b21sIiwKICAgIF0KICAgIGZvciBwIGluIGNhbmRpZGF0ZXM6CiAgICAgICAgaWYgcC5leGlzdHMoKToKICAgICAgICAgICAgcmV0dXJuIHAKICAgIHJldHVybiBOb25lCgoKIyDilIDilIAgVmVyc2lvbiBpbmZvIOKUgOKUgAoKZGVmIHZlcnNpb25faW5mbygpIC0+IGRpY3Q6CiAgICAiIiJDb2xsZWN0IHZlcnNpb24gaW5mb3JtYXRpb24gZnJvbSBSdXN0IGNvcmUgYW5kIFB5dGhvbiBTREsuIiIiCiAgICBmcm9tIGF1dG9jb21wdXRlci5jb3JlLl9icmlkZ2UgaW1wb3J0IF9nZXRfcnVzdF9hdHRyCgogICAgaW5mbzogZGljdCA9IHsicHl0aG9uX3ZlcnNpb24iOiBzeXMudmVyc2lvbi5zcGxpdCgpWzBdLCAiY29yZV9sb2FkZWQiOiAibm8ifQoKICAgIHRyeToKICAgICAgICBydXN0X3ZlcnNpb25fZm4gPSBfZ2V0X3J1c3RfYXR0cigidmVyc2lvbiIpCiAgICAgICAgaWYgcnVzdF92ZXJzaW9uX2ZuOgogICAgICAgICAgICBpbmZvWyJydXN0X3ZlcnNpb24iXSA9IHJ1c3RfdmVyc2lvbl9mbigpCiAgICAgICAgICAgIGluZm9bImNvcmVfbG9hZGVkIl0gPSAieWVzIgogICAgZXhjZXB0IEV4Y2VwdGlvbjoKICAgICAgICBwYXNzCgogICAgcmV0dXJuIGluZm8K
+"""
+Shared utilities — logging, configuration, paths.
+"""
+
+import logging
+import os
+import sys
+from pathlib import Path
+from typing import Optional
+
+
+# ── Logging ──
+
+def get_logger(name: str = "autocomputer", level: int = logging.INFO) -> logging.Logger:
+    """Get (or create) a named logger with consistent formatting."""
+    logger = logging.getLogger(name)
+    if not logger.handlers:
+        handler = logging.StreamHandler(sys.stderr)
+        handler.setFormatter(logging.Formatter(
+            "[%(asctime)s] %(levelname)-7s %(name)s | %(message)s",
+            datefmt="%H:%M:%S",
+        ))
+        logger.addHandler(handler)
+    logger.setLevel(level)
+    return logger
+
+
+# ── Configuration ──
+
+def config_dir() -> Path:
+    """Get the autocomputer config directory (~/.autocomputer)."""
+    if os.name == "nt":
+        base = Path(os.environ.get("APPDATA", str(Path.home() / "AppData" / "Roaming")))
+    else:
+        base = Path(os.environ.get("XDG_CONFIG_HOME", str(Path.home() / ".config")))
+    d = base / "autocomputer"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def workspace_dir() -> Path:
+    """Get the autocomputer workspace / data directory."""
+    d = Path(".autocomputer")
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def load_toml(path: Path) -> dict:
+    """Load a TOML configuration file."""
+    try:
+        import tomllib  # Python 3.11+
+    except ImportError:
+        import tomli as tomllib  # type: ignore
+    with open(path, "rb") as f:
+        return tomllib.load(f)
+
+
+def find_security_config() -> Optional[Path]:
+    """Search for security.toml in standard locations."""
+    candidates = [
+        config_dir() / "security.toml",
+        Path("security.toml"),
+        Path("examples") / "security.toml",
+    ]
+    for p in candidates:
+        if p.exists():
+            return p
+    return None
+
+
+# ── Version info ──
+
+def version_info() -> dict:
+    """Collect version information from Rust core and Python SDK."""
+    from autocomputer.core._bridge import _get_rust_attr
+
+    info: dict = {"python_version": sys.version.split()[0], "core_loaded": "no"}
+
+    try:
+        rust_version_fn = _get_rust_attr("version")
+        if rust_version_fn:
+            info["rust_version"] = rust_version_fn()
+            info["core_loaded"] = "yes"
+    except Exception:
+        pass
+
+    return info

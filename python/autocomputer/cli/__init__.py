@@ -1,1 +1,187 @@
-IiIiQ29tbWFuZC1saW5lIGludGVyZmFjZSDigJQgcG93ZXJlZCBieSB0eXBlciArIHJpY2guIiIiCgppbXBvcnQgdHlwZXIKZnJvbSByaWNoLmNvbnNvbGUgaW1wb3J0IENvbnNvbGUKZnJvbSByaWNoLnRhYmxlIGltcG9ydCBUYWJsZQoKYXBwID0gdHlwZXIuVHlwZXIoCiAgICBuYW1lPSJhYyIsCiAgICBoZWxwPSJhdXRvY29tcHV0ZXIg4oCUIEFJLWRyaXZlbiBkZXNrdG9wIEdVSSBhdXRvbWF0aW9uIiwKICAgIG5vX2FyZ3NfaXNfaGVscD1UcnVlLAopCmNvbnNvbGUgPSBDb25zb2xlKCkKCgpAYXBwLmNvbW1hbmQoKQpkZWYgdmVyc2lvbigpIC0+IE5vbmU6CiAgICAiIiJTaG93IHZlcnNpb24gaW5mby4iIiIKICAgIGZyb20gYXV0b2NvbXB1dGVyIGltcG9ydCBfX3ZlcnNpb25fXwogICAgZnJvbSBhdXRvY29tcHV0ZXIuY29yZS5fYnJpZGdlIGltcG9ydCBfUlVTVF9BVkFJTEFCTEUKCiAgICBjb25zb2xlLnByaW50KGYiW2JvbGQgY3lhbl1hdXRvY29tcHV0ZXJbL10gdltncmVlbl17X192ZXJzaW9uX199Wy9dIikKICAgIGNvbnNvbGUucHJpbnQoCiAgICAgICAgZiJSdXN0IGNvcmU6IFtncmVlbl1hdmFpbGFibGVbL10iCiAgICAgICAgaWYgX1JVU1RfQVZBSUxBQkxFCiAgICAgICAgZWxzZSAiUnVzdCBjb3JlOiBbeWVsbG93XW5vdCBhdmFpbGFibGUgKHB1cmUtUHl0aG9uIGZhbGxiYWNrKVsvXSIKICAgICkKCgpAYXBwLmNvbW1hbmQoKQpkZWYgc2VlKAogICAgbW9uaXRvcjogaW50ID0gdHlwZXIuT3B0aW9uKDAsICItLW1vbml0b3IiLCAiLW0iLCBoZWxwPSJNb25pdG9yIGluZGV4ICgwID0gcHJpbWFyeSkiKSwKICAgIHNhdmU6IHN0ciA9IHR5cGVyLk9wdGlvbihOb25lLCAiLS1zYXZlIiwgIi1zIiwgaGVscD0iU2F2ZSBzY3JlZW5zaG90IHRvIGZpbGUiKSwKKSAtPiBOb25lOgogICAgIiIiQ2FwdHVyZSBhIHNjcmVlbnNob3QgYW5kIGRpc3BsYXkgaW5mby4iIiIKICAgIGZyb20gYXV0b2NvbXB1dGVyLmNvcmUgaW1wb3J0IGNhcHR1cmVfc2NyZWVuLCBsaXN0X21vbml0b3JzLCBNb25pdG9ySW5mbywgQ2FwdHVyZVJlc3VsdAoKICAgIG1vbml0b3JzID0gbGlzdF9tb25pdG9ycygpCiAgICBpZiBub3QgbW9uaXRvcnM6CiAgICAgICAgY29uc29sZS5wcmludCgiW3llbGxvd11ObyBtb25pdG9ycyBkZXRlY3RlZFsveWVsbG93XSIpCiAgICAgICAgcmV0dXJuCgogICAgIyBTaG93IG1vbml0b3IgbGlzdAogICAgdGFibGUgPSBUYWJsZSh0aXRsZT0iQ29ubmVjdGVkIE1vbml0b3JzIiwgYm9yZGVyX3N0eWxlPSJkaW0iKQogICAgdGFibGUuYWRkX2NvbHVtbigiIyIsIHN0eWxlPSJjeWFuIikKICAgIHRhYmxlLmFkZF9jb2x1bW4oIk5hbWUiLCBzdHlsZT0id2hpdGUiKQogICAgdGFibGUuYWRkX2NvbHVtbigiUmVzb2x1dGlvbiIsIHN0eWxlPSJncmVlbiIpCiAgICB0YWJsZS5hZGRfY29sdW1uKCJQb3NpdGlvbiIsIHN0eWxlPSJkaW0iKQogICAgdGFibGUuYWRkX2NvbHVtbigiUHJpbWFyeSIsIHN0eWxlPSJ5ZWxsb3ciKQoKICAgIGZvciBtIGluIG1vbml0b3JzOgogICAgICAgIHRhYmxlLmFkZF9yb3coCiAgICAgICAgICAgIHN0cihtLmluZGV4KSwKICAgICAgICAgICAgbS5uYW1lLAogICAgICAgICAgICBmInttLndpZHRofXh7bS5oZWlnaHR9IiwKICAgICAgICAgICAgZiIoe20ueH0sIHttLnl9KSIsCiAgICAgICAgICAgICLimIUiIGlmIG0uaXNfcHJpbWFyeSBlbHNlICIiLAogICAgICAgICkKCiAgICBjb25zb2xlLnByaW50KHRhYmxlKQoKICAgICMgQ2FwdHVyZQogICAgcmVzdWx0OiBDYXB0dXJlUmVzdWx0ID0gY2FwdHVyZV9zY3JlZW4obW9uaXRvcikKICAgIGNvbnNvbGUucHJpbnQoKQogICAgY29uc29sZS5wcmludChmIltib2xkXVNjcmVlbnNob3RbL10g4oCUIE1vbml0b3Ige21vbml0b3J9OiBbZ3JlZW5de3Jlc3VsdC53aWR0aH14e3Jlc3VsdC5oZWlnaHR9Wy9dIikKICAgIGNvbnNvbGUucHJpbnQoZiIgIFBORyBzaXplOiBbY3lhbl17bGVuKHJlc3VsdC5wbmcpOix9IGJ5dGVzWy9dIikKICAgIGNvbnNvbGUucHJpbnQoZiIgIFJhdyBSR0JBOiBbY3lhbl17bGVuKHJlc3VsdC5yYXcpOix9IGJ5dGVzICh7cmVzdWx0LndpZHRoICogcmVzdWx0LmhlaWdodCAqIDQ6LH0gZXhwZWN0ZWQpWy9dIikKCiAgICBpZiBzYXZlOgogICAgICAgIGZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKICAgICAgICBvdXQgPSBQYXRoKHNhdmUpCiAgICAgICAgaWYgb3V0LnN1ZmZpeC5sb3dlcigpICE9ICIucG5nIjoKICAgICAgICAgICAgb3V0ID0gb3V0LndpdGhfc3VmZml4KCIucG5nIikKICAgICAgICBvdXQud3JpdGVfYnl0ZXMocmVzdWx0LnBuZykKICAgICAgICBjb25zb2xlLnByaW50KGYiICBbZ3JlZW5dU2F2ZWQgdG86Wy9dIHtvdXR9IikKCgpAYXBwLmNvbW1hbmQoKQpkZWYgbW9uaXRvcnMoKSAtPiBOb25lOgogICAgIiIiTGlzdCBhbGwgY29ubmVjdGVkIG1vbml0b3JzLiIiIgogICAgZnJvbSBhdXRvY29tcHV0ZXIuY29yZSBpbXBvcnQgbGlzdF9tb25pdG9ycwoKICAgIG1vbml0b3JzID0gbGlzdF9tb25pdG9ycygpCiAgICBpZiBub3QgbW9uaXRvcnM6CiAgICAgICAgY29uc29sZS5wcmludCgiW3llbGxvd11ObyBtb25pdG9ycyBkZXRlY3RlZFsveWVsbG93XSIpCiAgICAgICAgcmV0dXJuCgogICAgZm9yIG0gaW4gbW9uaXRvcnM6CiAgICAgICAgcHJpbWFyeSA9ICIg4piFIiBpZiBtLmlzX3ByaW1hcnkgZWxzZSAiIgogICAgICAgIGNvbnNvbGUucHJpbnQoCiAgICAgICAgICAgIGYiICBbe20uaW5kZXh9XSBbY3lhbl17bS5uYW1lfVsvXSDigJQgIgogICAgICAgICAgICBmIltncmVlbl17bS53aWR0aH14e20uaGVpZ2h0fVsvXSBAICh7bS54fSwge20ueX0pICIKICAgICAgICAgICAgZiJzY2FsZTogW3llbGxvd117bS5zY2FsZV9mYWN0b3I6LjAlfVsvXXtwcmltYXJ5fSIKICAgICAgICApCgoKQGFwcC5jb21tYW5kKCkKZGVmIHNlcnZlKHBvcnQ6IGludCA9IHR5cGVyLk9wdGlvbig4NzY1LCAiLS1wb3J0IiwgIi1wIiksIGhvc3Q6IHN0ciA9IHR5cGVyLk9wdGlvbigiMTI3LjAuMC4xIiwgIi0taG9zdCIpKSAtPiBOb25lOgogICAgIiIiU3RhcnQgQVBJICsgR1VJIHNlcnZlci4iIiIKICAgIGZyb20gYXV0b2NvbXB1dGVyLnNlcnZlciBpbXBvcnQgcnVuX3NlcnZlcgogICAgcnVuX3NlcnZlcihob3N0PWhvc3QsIHBvcnQ9cG9ydCkKCgpAYXBwLmNvbW1hbmQoKQpkZWYgcnVuKAogICAgZ29hbDogc3RyID0gdHlwZXIuQXJndW1lbnQoLi4uLCBoZWxwPSJOYXR1cmFsIGxhbmd1YWdlIGdvYWwgdG8gZXhlY3V0ZSIpLAogICAgbW9kZWw6IHN0ciA9IHR5cGVyLk9wdGlvbigib3BlbmFpL2dwdC00byIsICItLW1vZGVsIiwgIi1tIiwgaGVscD0iTExNIG1vZGVsIGZvciBwbGFubmluZyIpLAopIC0+IE5vbmU6CiAgICAiIiJSdW4gYSBuYXR1cmFsIGxhbmd1YWdlIGF1dG9tYXRpb24gZ29hbC4iIiIKICAgIGZyb20gYXV0b2NvbXB1dGVyLmFnZW50LmNvcmUgaW1wb3J0IEFnZW50CiAgICBjb25zb2xlLnByaW50KGYiW2JvbGQgY3lhbl1Hb2FsOlsvXSB7Z29hbH0iKQogICAgY29uc29sZS5wcmludChmIltkaW1dTW9kZWw6IHttb2RlbH1bL10iKQogICAgYWdlbnQgPSBBZ2VudChtb2RlbD1tb2RlbCkKICAgIHJlc3VsdCA9IGFnZW50LnJ1bihnb2FsKQogICAgaWYgcmVzdWx0WyJzdWNjZXNzIl06CiAgICAgICAgY29uc29sZS5wcmludChmIltncmVlbl3inJMgRG9uZVsvXSBpbiB7cmVzdWx0WydlbGFwc2VkX21zJ106LjBmfW1zLCB7bGVuKHJlc3VsdFsnc3RlcHMnXSl9IHN0ZXBzIikKICAgIGVsc2U6CiAgICAgICAgY29uc29sZS5wcmludChmIltyZWRd4pyXIEZhaWxlZFsvXSBhZnRlciB7cmVzdWx0LmdldCgncmV0cmllc191c2VkJywgMCl9IHJldHJpZXMiKQogICAgICAgIGZvciByIGluIHJlc3VsdFsic3RlcHMiXToKICAgICAgICAgICAgaWYgbm90IHIuZ2V0KCJzdWNjZXNzIik6CiAgICAgICAgICAgICAgICBjb25zb2xlLnByaW50KGYiICBbcmVkXeKAolsvXSB7ci5nZXQoJ2FjdGlvbicsICc/Jyl9OiB7ci5nZXQoJ2Vycm9yJywgJ3Vua25vd24gZXJyb3InKX0iKQoKCkBhcHAuY29tbWFuZCgpCmRlZiByZWNvcmQob3V0cHV0OiBzdHIgPSB0eXBlci5PcHRpb24oImZsb3cuanNvbiIsICItLW91dHB1dCIsICItbyIpKToKICAgICIiIlJlY29yZCBhIG5ldyBhdXRvbWF0aW9uIGZsb3cuIiIiCiAgICBmcm9tIGF1dG9jb21wdXRlci5yZWNvcmQuZW5naW5lIGltcG9ydCBGbG93UmVjb3JkZXIKICAgIHJlY29yZGVyID0gRmxvd1JlY29yZGVyKG5hbWU9IkNMSSBSZWNvcmQiKQogICAgY29uc29sZS5wcmludCgiW2JvbGQgY3lhbl1SZWNvcmRpbmcuLi5bL10gKGNhbGwgLnN0b3AoKSBhbmQgLnNhdmUoKSBpbiBjb2RlKSIpCiAgICBjb25zb2xlLnByaW50KGYiICBPdXRwdXQ6IHtvdXRwdXR9IikKICAgICMgSW4gZnV0dXJlOiBob29rIGludG8gZ2xvYmFsIGtleWJvYXJkIGxpc3RlbmVyCiAgICBjb25zb2xlLnByaW50KCIgIFtkaW1dTm90ZTogaW50ZXJhY3RpdmUgcmVjb3JkaW5nIHJlcXVpcmVzIFB5dGhvbiBBUElbL10iKQoKCkBhcHAuY29tbWFuZCgpCmRlZiByZXBsYXkoCiAgICBmbG93X2ZpbGU6IHN0ciA9IHR5cGVyLkFyZ3VtZW50KC4uLiwgaGVscD0iRmxvdyBKU09OIGZpbGUgdG8gcmVwbGF5IiksCiAgICBzcGVlZDogZmxvYXQgPSB0eXBlci5PcHRpb24oMS4wLCAiLS1zcGVlZCIsICItcyIpLAogICAgZHJ5X3J1bjogYm9vbCA9IHR5cGVyLk9wdGlvbihGYWxzZSwgIi0tZHJ5LXJ1biIpLAopOgogICAgIiIiUmVwbGF5IGEgcmVjb3JkZWQgZmxvdy4iIiIKICAgIGltcG9ydCBqc29uCiAgICBmcm9tIGF1dG9jb21wdXRlci5yZWNvcmQuZW5naW5lIGltcG9ydCBGbG93UmVjb3JkZXIsIEZsb3dSZXBsYXllcgoKICAgIGNvbnNvbGUucHJpbnQoZiJbYm9sZCBjeWFuXUxvYWRpbmc6Wy9dIHtmbG93X2ZpbGV9IikKICAgIHdpdGggb3BlbihmbG93X2ZpbGUpIGFzIGY6CiAgICAgICAgZGF0YSA9IGpzb24ubG9hZChmKQoKICAgIHJlY29yZGVyID0gRmxvd1JlY29yZGVyLmZyb21fZGljdChkYXRhKQogICAgcmVwbGF5ZXIgPSBGbG93UmVwbGF5ZXIocmVjb3JkZXIpCiAgICByZXN1bHRzID0gcmVwbGF5ZXIucmVwbGF5KHNwZWVkPXNwZWVkLCBkcnlfcnVuPWRyeV9ydW4pCgogICAgb2sgPSBzdW0oMSBmb3IgciBpbiByZXN1bHRzIGlmIHIuZ2V0KCJzdWNjZXNzIikpCiAgICBjb25zb2xlLnByaW50KGYiW2dyZWVuXeKckyB7b2t9L3tsZW4ocmVzdWx0cyl9IHN0ZXBzWy9dIikKCgpAYXBwLmNvbW1hbmQoKQpkZWYgcGxhbigKICAgIGdvYWw6IHN0ciA9IHR5cGVyLkFyZ3VtZW50KC4uLiwgaGVscD0iTmF0dXJhbCBsYW5ndWFnZSBnb2FsIiksCiAgICBtb2RlbDogc3RyID0gdHlwZXIuT3B0aW9uKCJvcGVuYWkvZ3B0LTRvIiwgIi0tbW9kZWwiLCAiLW0iKSwKKToKICAgICIiIkdlbmVyYXRlIGFuIGFjdGlvbiBwbGFuIHdpdGhvdXQgZXhlY3V0aW5nLiIiIgogICAgZnJvbSBhdXRvY29tcHV0ZXIuYWdlbnQuY29yZSBpbXBvcnQgQWdlbnQsIFNjcmVlbkNvbnRleHQKICAgIGN0eCA9IFNjcmVlbkNvbnRleHQuY2FwdHVyZSh3aXRoX29jcj1UcnVlKQogICAgYWdlbnQgPSBBZ2VudChtb2RlbD1tb2RlbCkKICAgIHBsYW4gPSBhZ2VudC5wbGFuKGdvYWwsIGNvbnRleHQ9Y3R4KQoKICAgIGNvbnNvbGUucHJpbnQoZiJbYm9sZCBjeWFuXVBsYW4gZm9yOlsvXSB7Z29hbH0iKQogICAgY29uc29sZS5wcmludChmIltkaW1dQ29udGV4dDoge2N0eC50b19wcm9tcHQoKX1bL10iKQogICAgZm9yIGksIHN0ZXAgaW4gZW51bWVyYXRlKHBsYW4uc3RlcHMpOgogICAgICAgIGNvbnNvbGUucHJpbnQoZiIgIHtpKzF9LiBbeWVsbG93XXtzdGVwLmFjdGlvbn1bL10g4oCUIHtzdGVwLnJlYXNvbmluZyBvciAnKG5vIHJlYXNvbmluZyknfSIpCgoKQGFwcC5jb21tYW5kKCkKZGVmIHBsdWdpbnNfbGlzdCgpOgogICAgIiIiTGlzdCBpbnN0YWxsZWQgcGx1Z2lucy4iIiIKICAgIGZyb20gYXV0b2NvbXB1dGVyLnBsdWdpbnMgaW1wb3J0IFBsdWdpblJlZ2lzdHJ5CiAgICBhY3Rpb25zID0gUGx1Z2luUmVnaXN0cnkubGlzdF9hY3Rpb25zKCkKICAgIGlmIGFjdGlvbnM6CiAgICAgICAgY29uc29sZS5wcmludChmIltncmVlbl17bGVuKGFjdGlvbnMpfSBhY3Rpb24ocylbL106IHsnLCAnLmpvaW4oYWN0aW9ucyl9IikKICAgIGVsc2U6CiAgICAgICAgY29uc29sZS5wcmludCgiW2RpbV1ObyBwbHVnaW5zIGluc3RhbGxlZFsvXSIpCiAgICBjb25zb2xlLnByaW50KCJbZGltXUFkZCBwbHVnaW5zIHZpYSBlbnRyeV9wb2ludHMgZ3JvdXAgJ2F1dG9jb21wdXRlci5wbHVnaW5zJ1svXSIpCgoKZGVmIG1haW4oKSAtPiBOb25lOgogICAgYXBwKCkK
+"""Command-line interface — powered by typer + rich."""
+
+import typer
+from rich.console import Console
+from rich.table import Table
+
+app = typer.Typer(
+    name="ac",
+    help="autocomputer — AI-driven desktop GUI automation",
+    no_args_is_help=True,
+)
+console = Console()
+
+
+@app.command()
+def version() -> None:
+    """Show version info."""
+    from autocomputer import __version__
+    from autocomputer.core._bridge import _RUST_AVAILABLE
+
+    console.print(f"[bold cyan]autocomputer[/] v[green]{__version__}[/]")
+    console.print(
+        f"Rust core: [green]available[/]"
+        if _RUST_AVAILABLE
+        else "Rust core: [yellow]not available (pure-Python fallback)[/]"
+    )
+
+
+@app.command()
+def see(
+    monitor: int = typer.Option(0, "--monitor", "-m", help="Monitor index (0 = primary)"),
+    save: str = typer.Option(None, "--save", "-s", help="Save screenshot to file"),
+) -> None:
+    """Capture a screenshot and display info."""
+    from autocomputer.core import capture_screen, list_monitors, MonitorInfo, CaptureResult
+
+    monitors = list_monitors()
+    if not monitors:
+        console.print("[yellow]No monitors detected[/yellow]")
+        return
+
+    # Show monitor list
+    table = Table(title="Connected Monitors", border_style="dim")
+    table.add_column("#", style="cyan")
+    table.add_column("Name", style="white")
+    table.add_column("Resolution", style="green")
+    table.add_column("Position", style="dim")
+    table.add_column("Primary", style="yellow")
+
+    for m in monitors:
+        table.add_row(
+            str(m.index),
+            m.name,
+            f"{m.width}x{m.height}",
+            f"({m.x}, {m.y})",
+            "★" if m.is_primary else "",
+        )
+
+    console.print(table)
+
+    # Capture
+    result: CaptureResult = capture_screen(monitor)
+    console.print()
+    console.print(f"[bold]Screenshot[/] — Monitor {monitor}: [green]{result.width}x{result.height}[/]")
+    console.print(f"  PNG size: [cyan]{len(result.png):,} bytes[/]")
+    console.print(f"  Raw RGBA: [cyan]{len(result.raw):,} bytes ({result.width * result.height * 4:,} expected)[/]")
+
+    if save:
+        from pathlib import Path
+
+        out = Path(save)
+        if out.suffix.lower() != ".png":
+            out = out.with_suffix(".png")
+        out.write_bytes(result.png)
+        console.print(f"  [green]Saved to:[/] {out}")
+
+
+@app.command()
+def monitors() -> None:
+    """List all connected monitors."""
+    from autocomputer.core import list_monitors
+
+    monitors = list_monitors()
+    if not monitors:
+        console.print("[yellow]No monitors detected[/yellow]")
+        return
+
+    for m in monitors:
+        primary = " ★" if m.is_primary else ""
+        console.print(
+            f"  [{m.index}] [cyan]{m.name}[/] — "
+            f"[green]{m.width}x{m.height}[/] @ ({m.x}, {m.y}) "
+            f"scale: [yellow]{m.scale_factor:.0%}[/]{primary}"
+        )
+
+
+@app.command()
+def serve(port: int = typer.Option(8765, "--port", "-p"), host: str = typer.Option("127.0.0.1", "--host")) -> None:
+    """Start API + GUI server."""
+    from autocomputer.server import run_server
+    run_server(host=host, port=port)
+
+
+@app.command()
+def run(
+    goal: str = typer.Argument(..., help="Natural language goal to execute"),
+    model: str = typer.Option("openai/gpt-4o", "--model", "-m", help="LLM model for planning"),
+) -> None:
+    """Run a natural language automation goal."""
+    from autocomputer.agent.core import Agent
+    console.print(f"[bold cyan]Goal:[/] {goal}")
+    console.print(f"[dim]Model: {model}[/]")
+    agent = Agent(model=model)
+    result = agent.run(goal)
+    if result["success"]:
+        console.print(f"[green]✓ Done[/] in {result['elapsed_ms']:.0f}ms, {len(result['steps'])} steps")
+    else:
+        console.print(f"[red]✗ Failed[/] after {result.get('retries_used', 0)} retries")
+        for r in result["steps"]:
+            if not r.get("success"):
+                console.print(f"  [red]•[/] {r.get('action', '?')}: {r.get('error', 'unknown error')}")
+
+
+@app.command()
+def record(output: str = typer.Option("flow.json", "--output", "-o")):
+    """Record a new automation flow."""
+    from autocomputer.record.engine import FlowRecorder
+    recorder = FlowRecorder(name="CLI Record")
+    console.print("[bold cyan]Recording...[/] (call .stop() and .save() in code)")
+    console.print(f"  Output: {output}")
+    # In future: hook into global keyboard listener
+    console.print("  [dim]Note: interactive recording requires Python API[/]")
+
+
+@app.command()
+def replay(
+    flow_file: str = typer.Argument(..., help="Flow JSON file to replay"),
+    speed: float = typer.Option(1.0, "--speed", "-s"),
+    dry_run: bool = typer.Option(False, "--dry-run"),
+):
+    """Replay a recorded flow."""
+    import json
+    from autocomputer.record.engine import FlowRecorder, FlowReplayer
+
+    console.print(f"[bold cyan]Loading:[/] {flow_file}")
+    with open(flow_file) as f:
+        data = json.load(f)
+
+    recorder = FlowRecorder.from_dict(data)
+    replayer = FlowReplayer(recorder)
+    results = replayer.replay(speed=speed, dry_run=dry_run)
+
+    ok = sum(1 for r in results if r.get("success"))
+    console.print(f"[green]✓ {ok}/{len(results)} steps[/]")
+
+
+@app.command()
+def plan(
+    goal: str = typer.Argument(..., help="Natural language goal"),
+    model: str = typer.Option("openai/gpt-4o", "--model", "-m"),
+):
+    """Generate an action plan without executing."""
+    from autocomputer.agent.core import Agent, ScreenContext
+    ctx = ScreenContext.capture(with_ocr=True)
+    agent = Agent(model=model)
+    plan = agent.plan(goal, context=ctx)
+
+    console.print(f"[bold cyan]Plan for:[/] {goal}")
+    console.print(f"[dim]Context: {ctx.to_prompt()}[/]")
+    for i, step in enumerate(plan.steps):
+        console.print(f"  {i+1}. [yellow]{step.action}[/] — {step.reasoning or '(no reasoning)'}")
+
+
+@app.command()
+def plugins_list():
+    """List installed plugins."""
+    from autocomputer.plugins import PluginRegistry
+    actions = PluginRegistry.list_actions()
+    if actions:
+        console.print(f"[green]{len(actions)} action(s)[/]: {', '.join(actions)}")
+    else:
+        console.print("[dim]No plugins installed[/]")
+    console.print("[dim]Add plugins via entry_points group 'autocomputer.plugins'[/]")
+
+
+def main() -> None:
+    app()

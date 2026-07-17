@@ -1,1 +1,166 @@
-IiIiCkJyaWRnZSBsYXllciBiZXR3ZWVuIFB5dGhvbiBhbmQgUnVzdCBjb3JlIGVuZ2luZXMuCiIiIgoKaW1wb3J0IGxvZ2dpbmcKZnJvbSB0eXBpbmcgaW1wb3J0IEFueSwgT3B0aW9uYWwKCmxvZ2dlciA9IGxvZ2dpbmcuZ2V0TG9nZ2VyKF9fbmFtZV9fKQoKX1JVU1RfQVZBSUxBQkxFID0gRmFsc2UKCgpkZWYgX3RyeV9pbXBvcnRfcnVzdCgpIC0+IGJvb2w6CiAgICB0cnk6CiAgICAgICAgaW1wb3J0IGF1dG9jb21wdXRlci5jb3JlLl9jb3JlICAjIHR5cGU6IGlnbm9yZVtpbXBvcnQtdW50eXBlZF0gIyBub3FhOiBGNDAxCiAgICAgICAgZ2xvYmFsIF9SVVNUX0FWQUlMQUJMRQogICAgICAgIF9SVVNUX0FWQUlMQUJMRSA9IFRydWUKICAgICAgICByZXR1cm4gVHJ1ZQogICAgZXhjZXB0IEltcG9ydEVycm9yOgogICAgICAgIGxvZ2dlci53YXJuaW5nKCJSdXN0IGNvcmUgbW9kdWxlIG5vdCBmb3VuZCwgcnVubmluZyBpbiBwdXJlLVB5dGhvbiBmYWxsYmFjayBtb2RlLiIpCiAgICAgICAgcmV0dXJuIEZhbHNlCgoKZGVmIF9nZXRfcnVzdF9hdHRyKG5hbWU6IHN0cikgLT4gQW55OgogICAgaW1wb3J0IGF1dG9jb21wdXRlci5jb3JlLl9jb3JlIGFzIF9jb3JlICAjIHR5cGU6IGlnbm9yZVtpbXBvcnQtdW50eXBlZF0KICAgIGlmIGhhc2F0dHIoX2NvcmUsIG5hbWUpOgogICAgICAgIHJldHVybiBnZXRhdHRyKF9jb3JlLCBuYW1lKQogICAgcmV0dXJuIE5vbmUKCgpfdHJ5X2ltcG9ydF9ydXN0KCkKCgojIOKUgOKUgCBUeXBlcyDilIDilIAKCl9DYXB0dXJlUmVzdWx0ID0gX2dldF9ydXN0X2F0dHIoIkNhcHR1cmVSZXN1bHQiKQppZiBfQ2FwdHVyZVJlc3VsdCBpcyBub3QgTm9uZToKICAgIENhcHR1cmVSZXN1bHQgPSBfQ2FwdHVyZVJlc3VsdAplbHNlOgogICAgY2xhc3MgQ2FwdHVyZVJlc3VsdDogICMgdHlwZTogaWdub3JlW25vLXJlZGVmXQogICAgICAgIHdpZHRoOiBpbnQgPSAwCiAgICAgICAgaGVpZ2h0OiBpbnQgPSAwCiAgICAgICAgcmF3OiBieXRlcyA9IGIiIgogICAgICAgIHBuZzogYnl0ZXMgPSBiIiIKCgpfTW9uaXRvckluZm8gPSBfZ2V0X3J1c3RfYXR0cigiTW9uaXRvckluZm8iKQppZiBfTW9uaXRvckluZm8gaXMgbm90IE5vbmU6CiAgICBNb25pdG9ySW5mbyA9IF9Nb25pdG9ySW5mbwplbHNlOgogICAgY2xhc3MgTW9uaXRvckluZm86ICAjIHR5cGU6IGlnbm9yZVtuby1yZWRlZl0KICAgICAgICBpbmRleDogaW50ID0gMAogICAgICAgIG5hbWU6IHN0ciA9ICIiCiAgICAgICAgd2lkdGg6IGludCA9IDAKICAgICAgICBoZWlnaHQ6IGludCA9IDAKICAgICAgICB4OiBpbnQgPSAwCiAgICAgICAgeTogaW50ID0gMAogICAgICAgIGlzX3ByaW1hcnk6IGJvb2wgPSBGYWxzZQogICAgICAgIHNjYWxlX2ZhY3RvcjogZmxvYXQgPSAxLjAKCgpfV2luZG93SW5mbyA9IF9nZXRfcnVzdF9hdHRyKCJXaW5kb3dJbmZvIikKaWYgX1dpbmRvd0luZm8gaXMgbm90IE5vbmU6CiAgICBXaW5kb3dJbmZvID0gX1dpbmRvd0luZm8KZWxzZToKICAgIGNsYXNzIFdpbmRvd0luZm86ICAjIHR5cGU6IGlnbm9yZVtuby1yZWRlZl0KICAgICAgICB0aXRsZTogc3RyID0gIiIKICAgICAgICB4OiBpbnQgPSAwCiAgICAgICAgeTogaW50ID0gMAogICAgICAgIHdpZHRoOiBpbnQgPSAwCiAgICAgICAgaGVpZ2h0OiBpbnQgPSAwCiAgICAgICAgcGlkOiBpbnQgPSAwCiAgICAgICAgaXNfdmlzaWJsZTogYm9vbCA9IEZhbHNlCgoKIyDilIDilIAgSGVscGVyIOKUgOKUgAoKZGVmIF9jYWxsKG5hbWU6IHN0ciwgKmFyZ3M6IEFueSwgKiprd2FyZ3M6IEFueSkgLT4gQW55OgogICAgZm4gPSBfZ2V0X3J1c3RfYXR0cihuYW1lKQogICAgaWYgZm4gaXMgbm90IE5vbmU6CiAgICAgICAgcmV0dXJuIGZuKCphcmdzLCAqKmt3YXJncykKICAgIHJldHVybiBOb25lCgoKIyDilIDilIAgQ2FwdHVyZSDilIDilIAKCmRlZiBsaXN0X21vbml0b3JzKCkgLT4gbGlzdFtBbnldOgogICAgcmV0dXJuIF9jYWxsKCJsaXN0X21vbml0b3JzIikgb3IgW10KCmRlZiBjYXB0dXJlX3NjcmVlbihtb25pdG9yX2luZGV4OiBPcHRpb25hbFtpbnRdID0gTm9uZSkgLT4gQ2FwdHVyZVJlc3VsdDoKICAgIHJldHVybiBfY2FsbCgiY2FwdHVyZV9zY3JlZW4iLCBtb25pdG9yX2luZGV4KSBvciBDYXB0dXJlUmVzdWx0KCkKCmRlZiBjYXB0dXJlX3JlZ2lvbih4OiBpbnQsIHk6IGludCwgdzogaW50LCBoOiBpbnQpIC0+IENhcHR1cmVSZXN1bHQ6CiAgICByZXR1cm4gX2NhbGwoImNhcHR1cmVfcmVnaW9uIiwgeCwgeSwgdywgaCkgb3IgQ2FwdHVyZVJlc3VsdCgpCgpkZWYgc2F2ZV9zY3JlZW5zaG90KG1vbml0b3JfaW5kZXg6IE9wdGlvbmFsW2ludF0gPSBOb25lLCBwYXRoOiBzdHIgPSAic2NyZWVuc2hvdC5wbmciKSAtPiBzdHI6CiAgICByZXR1cm4gX2NhbGwoInNhdmVfc2NyZWVuc2hvdCIsIG1vbml0b3JfaW5kZXgsIHBhdGgpIG9yIHBhdGgKCmRlZiBzY3JlZW5fc2l6ZSgpIC0+IHR1cGxlW2ludCwgaW50XToKICAgIHJldHVybiBfY2FsbCgic2NyZWVuX3NpemUiKSBvciAoMCwgMCkKCiMg4pSA4pSAIE1vdXNlIOKUgOKUgAoKZGVmIG1vdXNlX21vdmUoeDogaW50LCB5OiBpbnQsIGR1cmF0aW9uX21zOiBPcHRpb25hbFtpbnRdID0gTm9uZSkgLT4gTm9uZToKICAgIF9jYWxsKCJtb3VzZV9tb3ZlIiwgeCwgeSwgZHVyYXRpb25fbXMpCgpkZWYgbW91c2VfY2xpY2soeDogT3B0aW9uYWxbaW50XSA9IE5vbmUsIHk6IE9wdGlvbmFsW2ludF0gPSBOb25lLCBidXR0b246IHN0ciA9ICJsZWZ0IikgLT4gTm9uZToKICAgIF9jYWxsKCJtb3VzZV9jbGljayIsIHgsIHksIGJ1dHRvbikKCmRlZiBtb3VzZV9kb3VibGVfY2xpY2soeDogT3B0aW9uYWxbaW50XSA9IE5vbmUsIHk6IE9wdGlvbmFsW2ludF0gPSBOb25lLCBidXR0b246IHN0ciA9ICJsZWZ0IikgLT4gTm9uZToKICAgIF9jYWxsKCJtb3VzZV9kb3VibGVfY2xpY2siLCB4LCB5LCBidXR0b24pCgpkZWYgbW91c2VfcmlnaHRfY2xpY2soeDogT3B0aW9uYWxbaW50XSA9IE5vbmUsIHk6IE9wdGlvbmFsW2ludF0gPSBOb25lKSAtPiBOb25lOgogICAgX2NhbGwoIm1vdXNlX3JpZ2h0X2NsaWNrIiwgeCwgeSkKCmRlZiBtb3VzZV9kcmFnKHgxOiBpbnQsIHkxOiBpbnQsIHgyOiBpbnQsIHkyOiBpbnQsIGR1cmF0aW9uX21zOiBPcHRpb25hbFtpbnRdID0gTm9uZSkgLT4gTm9uZToKICAgIF9jYWxsKCJtb3VzZV9kcmFnIiwgeDEsIHkxLCB4MiwgeTIsIGR1cmF0aW9uX21zKQoKZGVmIG1vdXNlX3Njcm9sbChjbGlja3M6IGludCkgLT4gTm9uZToKICAgIF9jYWxsKCJtb3VzZV9zY3JvbGwiLCBjbGlja3MpCgpkZWYgbW91c2VfcG9zaXRpb24oKSAtPiB0dXBsZVtpbnQsIGludF06CiAgICByZXR1cm4gX2NhbGwoIm1vdXNlX3Bvc2l0aW9uIikgb3IgKDAsIDApCgojIOKUgOKUgCBLZXlib2FyZCDilIDilIAKCmRlZiBrZXlib2FyZF90eXBlKHRleHQ6IHN0ciwgbWV0aG9kOiBzdHIgPSAiYXV0byIpIC0+IE5vbmU6CiAgICBfY2FsbCgia2V5Ym9hcmRfdHlwZSIsIHRleHQsIG1ldGhvZCkKCmRlZiBrZXlib2FyZF9wcmVzcyhrZXk6IHN0cikgLT4gTm9uZToKICAgIF9jYWxsKCJrZXlib2FyZF9wcmVzcyIsIGtleSkKCmRlZiBrZXlib2FyZF9kb3duKGtleTogc3RyKSAtPiBOb25lOgogICAgX2NhbGwoImtleWJvYXJkX2Rvd24iLCBrZXkpCgpkZWYga2V5Ym9hcmRfdXAoa2V5OiBzdHIpIC0+IE5vbmU6CiAgICBfY2FsbCgia2V5Ym9hcmRfdXAiLCBrZXkpCgojIOKUgOKUgCBGYXN0IENhcHR1cmUg4pSA4pSACgpkZWYgY2FwdHVyZV9yYXcobW9uaXRvcl9pbmRleDogaW50ID0gMCkgLT4gdHVwbGVbYnl0ZXMsIGludCwgaW50XToKICAgICIiIkZhc3QgcmF3IHNjcmVlbnNob3Qg4oCUIHNraXBzIFBORyBlbmNvZGluZy4gUmV0dXJucyAocmdiYV9ieXRlcywgd2lkdGgsIGhlaWdodCkuIiIiCiAgICByZXN1bHQgPSBfY2FsbCgiY2FwdHVyZV9yYXciLCBtb25pdG9yX2luZGV4KQogICAgaWYgcmVzdWx0OgogICAgICAgIHJldHVybiByZXN1bHQKICAgIHJldHVybiAoYiIiLCAwLCAwKQoKIyDilIDilIAgV2luZG93IE1hbmFnZW1lbnQg4pSA4pSACgpkZWYgd2luZG93X2xpc3QoZmlsdGVyX3RpdGxlOiBPcHRpb25hbFtzdHJdID0gTm9uZSkgLT4gbGlzdFtXaW5kb3dJbmZvXToKICAgIHJldHVybiBfY2FsbCgid2luZG93X2xpc3QiLCBmaWx0ZXJfdGl0bGUpIG9yIFtdCgpkZWYgd2luZG93X2ZvY3VzKHRpdGxlOiBzdHIpIC0+IE5vbmU6CiAgICBfY2FsbCgid2luZG93X2ZvY3VzIiwgdGl0bGUpCgpkZWYgd2luZG93X21vdmUodGl0bGU6IHN0ciwgeDogaW50LCB5OiBpbnQpIC0+IE5vbmU6CiAgICBfY2FsbCgid2luZG93X21vdmUiLCB0aXRsZSwgeCwgeSkKCmRlZiB3aW5kb3dfcmVzaXplKHRpdGxlOiBzdHIsIHc6IGludCwgaDogaW50KSAtPiBOb25lOgogICAgX2NhbGwoIndpbmRvd19yZXNpemUiLCB0aXRsZSwgdywgaCkKCmRlZiB3aW5kb3dfZ2V0X3JlY3QodGl0bGU6IHN0cikgLT4gdHVwbGVbaW50LCBpbnQsIGludCwgaW50XToKICAgIHJldHVybiBfY2FsbCgid2luZG93X2dldF9yZWN0IiwgdGl0bGUpIG9yICgwLCAwLCAwLCAwKQoKZGVmIGxhdW5jaF9hcHAocGF0aDogc3RyKSAtPiBOb25lOgogICAgX2NhbGwoImxhdW5jaF9hcHAiLCBwYXRoKQo=
+"""
+Bridge layer between Python and Rust core engines.
+"""
+
+import logging
+from typing import Any, Optional
+
+logger = logging.getLogger(__name__)
+
+_RUST_AVAILABLE = False
+
+
+def _try_import_rust() -> bool:
+    try:
+        import autocomputer.core._core  # type: ignore[import-untyped] # noqa: F401
+        global _RUST_AVAILABLE
+        _RUST_AVAILABLE = True
+        return True
+    except ImportError:
+        logger.warning("Rust core module not found, running in pure-Python fallback mode.")
+        return False
+
+
+def _get_rust_attr(name: str) -> Any:
+    import autocomputer.core._core as _core  # type: ignore[import-untyped]
+    if hasattr(_core, name):
+        return getattr(_core, name)
+    return None
+
+
+_try_import_rust()
+
+
+# ── Types ──
+
+_CaptureResult = _get_rust_attr("CaptureResult")
+if _CaptureResult is not None:
+    CaptureResult = _CaptureResult
+else:
+    class CaptureResult:  # type: ignore[no-redef]
+        width: int = 0
+        height: int = 0
+        raw: bytes = b""
+        png: bytes = b""
+
+
+_MonitorInfo = _get_rust_attr("MonitorInfo")
+if _MonitorInfo is not None:
+    MonitorInfo = _MonitorInfo
+else:
+    class MonitorInfo:  # type: ignore[no-redef]
+        index: int = 0
+        name: str = ""
+        width: int = 0
+        height: int = 0
+        x: int = 0
+        y: int = 0
+        is_primary: bool = False
+        scale_factor: float = 1.0
+
+
+_WindowInfo = _get_rust_attr("WindowInfo")
+if _WindowInfo is not None:
+    WindowInfo = _WindowInfo
+else:
+    class WindowInfo:  # type: ignore[no-redef]
+        title: str = ""
+        x: int = 0
+        y: int = 0
+        width: int = 0
+        height: int = 0
+        pid: int = 0
+        is_visible: bool = False
+
+
+# ── Helper ──
+
+def _call(name: str, *args: Any, **kwargs: Any) -> Any:
+    fn = _get_rust_attr(name)
+    if fn is not None:
+        return fn(*args, **kwargs)
+    return None
+
+
+# ── Capture ──
+
+def list_monitors() -> list[Any]:
+    return _call("list_monitors") or []
+
+def capture_screen(monitor_index: Optional[int] = None) -> CaptureResult:
+    return _call("capture_screen", monitor_index) or CaptureResult()
+
+def capture_region(x: int, y: int, w: int, h: int) -> CaptureResult:
+    return _call("capture_region", x, y, w, h) or CaptureResult()
+
+def save_screenshot(monitor_index: Optional[int] = None, path: str = "screenshot.png") -> str:
+    return _call("save_screenshot", monitor_index, path) or path
+
+def screen_size() -> tuple[int, int]:
+    return _call("screen_size") or (0, 0)
+
+# ── Mouse ──
+
+def mouse_move(x: int, y: int, duration_ms: Optional[int] = None) -> None:
+    _call("mouse_move", x, y, duration_ms)
+
+def mouse_click(x: Optional[int] = None, y: Optional[int] = None, button: str = "left") -> None:
+    _call("mouse_click", x, y, button)
+
+def mouse_double_click(x: Optional[int] = None, y: Optional[int] = None, button: str = "left") -> None:
+    _call("mouse_double_click", x, y, button)
+
+def mouse_right_click(x: Optional[int] = None, y: Optional[int] = None) -> None:
+    _call("mouse_right_click", x, y)
+
+def mouse_drag(x1: int, y1: int, x2: int, y2: int, duration_ms: Optional[int] = None) -> None:
+    _call("mouse_drag", x1, y1, x2, y2, duration_ms)
+
+def mouse_scroll(clicks: int) -> None:
+    _call("mouse_scroll", clicks)
+
+def mouse_position() -> tuple[int, int]:
+    return _call("mouse_position") or (0, 0)
+
+# ── Keyboard ──
+
+def keyboard_type(text: str, method: str = "auto") -> None:
+    _call("keyboard_type", text, method)
+
+def keyboard_press(key: str) -> None:
+    _call("keyboard_press", key)
+
+def keyboard_down(key: str) -> None:
+    _call("keyboard_down", key)
+
+def keyboard_up(key: str) -> None:
+    _call("keyboard_up", key)
+
+# ── Fast Capture ──
+
+def capture_raw(monitor_index: int = 0) -> tuple[bytes, int, int]:
+    """Fast raw screenshot — skips PNG encoding. Returns (rgba_bytes, width, height)."""
+    result = _call("capture_raw", monitor_index)
+    if result:
+        return result
+    return (b"", 0, 0)
+
+# ── Window Management ──
+
+def window_list(filter_title: Optional[str] = None) -> list[WindowInfo]:
+    return _call("window_list", filter_title) or []
+
+def window_focus(title: str) -> None:
+    _call("window_focus", title)
+
+def window_move(title: str, x: int, y: int) -> None:
+    _call("window_move", title, x, y)
+
+def window_resize(title: str, w: int, h: int) -> None:
+    _call("window_resize", title, w, h)
+
+def window_get_rect(title: str) -> tuple[int, int, int, int]:
+    return _call("window_get_rect", title) or (0, 0, 0, 0)
+
+def launch_app(path: str) -> None:
+    _call("launch_app", path)

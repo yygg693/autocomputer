@@ -1,1 +1,58 @@
-LlBIT05ZOiBkZXYgYnVpbGQgdGVzdCBsaW50IGNsZWFuCgojIOKUgOKUgCBSdXN0IHRvb2xjaGFpbiBwYXRoIOKUgOKUgApDQVJHTyA9ICQoSE9NRSkvLmNhcmdvL2Jpbi9jYXJnbwpSVVNUQyA9ICQoSE9NRSkvLmNhcmdvL2Jpbi9ydXN0YwoKIyDilIDilIAgUHl0aG9uIOKUgOKUgApWRU5WID0gLnZlbnYKUFlUSE9OID0gcHl0aG9uClBJUCA9ICQoUFlUSE9OKSAtbSBwaXAKCiMgQ3Jvc3MtcGxhdGZvcm0gdmVudiBzZXR1cAppZmVxICgkKE9TKSxXaW5kb3dzX05UKQogICAgVkVOVl9BQ1RJVkFURSA9ICQoVkVOVilcU2NyaXB0c1xhY3RpdmF0ZQogICAgVkVOVl9QWVRIT04gPSAkKFZFTlYpXFNjcmlwdHNccHl0aG9uCmVsc2UKICAgIFZFTlZfQUNUSVZBVEUgPSAkKFZFTlYpL2Jpbi9hY3RpdmF0ZQogICAgVkVOVl9QWVRIT04gPSAkKFZFTlYpL2Jpbi9weXRob24KZW5kaWYKCmRldjogJChWRU5WKSBidWlsZCBpbnN0YWxsCglAZWNobyAi4pyFIGF1dG9jb21wdXRlciBkZXYgZW52aXJvbm1lbnQgcmVhZHkiCglAJChWRU5WX1BZVEhPTikgLWMgImZyb20gYXV0b2NvbXB1dGVyIGltcG9ydCBfX3ZlcnNpb25fXzsgcHJpbnQoZidhdXRvY29tcHV0ZXIgdntfX3ZlcnNpb25fX30nKSIKCiQoVkVOVik6CgkkKFBZVEhPTikgLW0gdmVudiAkKFZFTlYpCgkkKFZFTlZfUFlUSE9OKSAtbSBwaXAgaW5zdGFsbCAtLXVwZ3JhZGUgcGlwIG1hdHVyaW4KCmJ1aWxkOgoJJChDQVJHTykgYnVpbGQKCmluc3RhbGw6CgljZCAkKENVUkRJUikgJiYgJChWRU5WX1BZVEhPTikgLW0gbWF0dXJpbiBkZXZlbG9wCgkkKFZFTlZfUFlUSE9OKSAtbSBwaXAgaW5zdGFsbCAtZSAiLltkZXZdIgoJQGVjaG8gIuKchSBQeXRob24gcGFja2FnZSBpbnN0YWxsZWQiCgp0ZXN0OiB0ZXN0LXJ1c3QgdGVzdC1weQoKdGVzdC1ydXN0OgoJJChDQVJHTykgdGVzdCAtLXdvcmtzcGFjZQoKdGVzdC1weToKCSQoUFlUSE9OKSAtbSBweXRlc3QgcHl0aG9uL3Rlc3RzLyAtdgoKbGludDogbGludC1ydXN0IGxpbnQtcHkKCmxpbnQtcnVzdDoKCSQoQ0FSR08pIGNsaXBweSAtLXdvcmtzcGFjZSAtLSAtRCB3YXJuaW5ncwoJJChDQVJHTykgZm10IC0tYWxsIC0tIC0tY2hlY2sKCmxpbnQtcHk6CgkkKFBZVEhPTikgLW0gcnVmZiBjaGVjayBweXRob24vCgkkKFBZVEhPTikgLW0gbXlweSBweXRob24vCgpjbGVhbjoKCSQoQ0FSR08pIGNsZWFuCglybSAtcmYgJChWRU5WKSBkaXN0IGJ1aWxkIC5tYXR1cmluCglAZWNobyAi4pyFIENsZWFuZWQiCg==
+.PHONY: dev build test lint clean
+
+# ── Rust toolchain path ──
+CARGO = $(HOME)/.cargo/bin/cargo
+RUSTC = $(HOME)/.cargo/bin/rustc
+
+# ── Python ──
+VENV = .venv
+PYTHON = python
+PIP = $(PYTHON) -m pip
+
+# Cross-platform venv setup
+ifeq ($(OS),Windows_NT)
+    VENV_ACTIVATE = $(VENV)\Scripts\activate
+    VENV_PYTHON = $(VENV)\Scripts\python
+else
+    VENV_ACTIVATE = $(VENV)/bin/activate
+    VENV_PYTHON = $(VENV)/bin/python
+endif
+
+dev: $(VENV) build install
+	@echo "✅ autocomputer dev environment ready"
+	@$(VENV_PYTHON) -c "from autocomputer import __version__; print(f'autocomputer v{__version__}')"
+
+$(VENV):
+	$(PYTHON) -m venv $(VENV)
+	$(VENV_PYTHON) -m pip install --upgrade pip maturin
+
+build:
+	$(CARGO) build
+
+install:
+	cd $(CURDIR) && $(VENV_PYTHON) -m maturin develop
+	$(VENV_PYTHON) -m pip install -e ".[dev]"
+	@echo "✅ Python package installed"
+
+test: test-rust test-py
+
+test-rust:
+	$(CARGO) test --workspace
+
+test-py:
+	$(PYTHON) -m pytest python/tests/ -v
+
+lint: lint-rust lint-py
+
+lint-rust:
+	$(CARGO) clippy --workspace -- -D warnings
+	$(CARGO) fmt --all -- --check
+
+lint-py:
+	$(PYTHON) -m ruff check python/
+	$(PYTHON) -m mypy python/
+
+clean:
+	$(CARGO) clean
+	rm -rf $(VENV) dist build .maturin
+	@echo "✅ Cleaned"
