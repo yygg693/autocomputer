@@ -2,38 +2,32 @@ name: Update Repo Metadata
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/repo-meta.json'
 
 permissions:
   contents: read
-  metadata: write
   administration: write
 
 jobs:
   update-repo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Update Repository Description & Topics
+      - name: Update Description & Homepage
         run: |
-          gh api repos/yygg693/autocomputer --method PATCH \
-            -f description="AI-driven desktop GUI automation — Rust core + Python SDK + HTML5 Dashboard" \
-            -f homepage="https://github.com/yygg693/autocomputer#readme" \
-            -f has_wiki=false
-          
-          gh api repos/yygg693/autocomputer/topics --method PUT \
-            -f names[]="rust" \
-            -f names[]="python" \
-            -f names[]="automation" \
-            -f names[]="desktop-automation" \
-            -f names[]="windows" \
-            -f names[]="gui" \
-            -f names[]="screenshot" \
-            -f names[]="keyboard" \
-            -f names[]="mouse" \
-            -f names[]="ocr"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          curl -s -X PATCH https://api.github.com/repos/yygg693/autocomputer \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -d '{"description":"AI-driven desktop GUI automation — Rust core + Python SDK + HTML5 Dashboard","homepage":"https://github.com/yygg693/autocomputer#readme","has_wiki":false}'
+
+      - name: Update Topics
+        run: |
+          curl -s -X PUT https://api.github.com/repos/yygg693/autocomputer/topics \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -d '{"names":["rust","python","automation","desktop-automation","windows","gui","screenshot","keyboard","mouse","ocr"]}'
+
+      - name: Verify
+        run: |
+          echo "✅ Description:"
+          curl -s https://api.github.com/repos/yygg693/autocomputer | jq .description
+          echo "✅ Topics:"
+          curl -s https://api.github.com/repos/yygg693/autocomputer | jq .topics
