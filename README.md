@@ -7,7 +7,7 @@
 [![Rust](https://img.shields.io/badge/Rust-1.97-orange.svg)](https://www.rust-lang.org/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-48%2F48-brightgreen.svg)](#)
+[![Tests](https://img.shields.io/badge/Tests-56%2F56-brightgreen.svg)](#)
 [![Clippy](https://img.shields.io/badge/Clippy-zero%20warnings-success.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-blueviolet.svg)](#)
 
@@ -89,7 +89,7 @@ python -m pytest python/tests/ -q
 # 27 passed
 
 cargo test --workspace
-# 21 passed
+# 29 passed
 
 cargo clippy --workspace -- -D warnings
 # zero warnings
@@ -245,12 +245,12 @@ Configuration via TOML — see [`examples/security.toml`](examples/security.toml
 
 | Suite | Framework | Count | Coverage |
 |-------|-----------|-------|----------|
-| Rust unit tests | `cargo test` | 21 | capture (5), image_proc (9), security (7) |
+| Rust unit tests | `cargo test` | 29 | capture (5), image_proc (9), security (7), input (8) |
 | Python tests | `pytest` | 27 | core, sdk, record, perception, agent |
-| **Total** | | **48** | all passing |
+| **Total** | | **56** | all passing |
 
 ```bash
-cargo test --workspace     # 21 tests, 0 failures
+cargo test --workspace     # 29 tests, 0 failures
 pytest python/tests/ -q    # 27 tests, 0 failures
 cargo clippy --workspace   # 0 warnings
 ```
@@ -277,30 +277,30 @@ pytest python/tests/
 
 ## 📂 Project Structure
 
-```
+```text
 autocomputer/
 ├── crates/
-│   ├── ac-core/          # Main Rust crate (capture, input, window, security, image_proc)
-│   ├── ac-security/      # Standalone security library
-│   └── ac-browser/       # CDP-based browser control
+│   └── ac-core/              # Main Rust crate (capture, input, window, security, image_proc)
 ├── python/
-│   ├── autocomputer/     # Python SDK
-│   │   ├── agent/        # CoT executor
-│   │   ├── cli/          # typer CLI
-│   │   ├── core/         # Rust bridge (_core.pyd)
-│   │   ├── llm/          # Playwright automation
-│   │   ├── perception/   # OCR backends
-│   │   ├── record/       # ActionFlow
-│   │   ├── server.py     # HTTP API
-│   │   └── utils/        # Shared utilities
-│   └── tests/            # Python test suite
+│   ├── autocomputer/         # Python SDK
+│   │   ├── agent/            # CoT executor + memory + profiling
+│   │   ├── cli/              # typer CLI (10 commands)
+│   │   ├── core/             # Rust bridge (_core.pyd)
+│   │   ├── llm/              # Playwright automation
+│   │   ├── perception/       # OCR backends (4 engines)
+│   │   ├── plugins/          # Plugin registry (entry_points)
+│   │   ├── record/           # ActionFlow v1.0
+│   │   ├── server.py         # HTTP API server
+│   │   └── utils/            # Logging, config, paths
+│   └── tests/                # Python test suite (27 tests)
 ├── gui/
-│   └── index.html        # HTML5 Dashboard (5 pages)
+│   └── index.html            # HTML5 Dashboard (5 pages)
+├── .github/workflows/        # CI + repo metadata
 ├── examples/
-│   └── security.toml     # Security policy template
-├── Cargo.toml            # Rust workspace
-├── pyproject.toml        # Python package
-└── README.md             # ← you are here
+│   └── security.toml         # Security policy template
+├── Cargo.toml                # Rust workspace (1 crate)
+├── pyproject.toml            # Python package config
+└── README.md                 # ← you are here
 ```
 
 ---
