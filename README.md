@@ -82,7 +82,7 @@ pip install -e .
 
 ```bash
 python -m autocomputer version
-# autocomputer v0.8.0-dev
+# autocomputer v0.8.0
 # Rust core: ✅ loaded (5 modules)
 
 python -m pytest python/tests/ -q
@@ -99,7 +99,7 @@ cargo clippy --workspace -- -D warnings
 
 ```bash
 python -m autocomputer serve --port 8765
-# 🦀 autocomputer API Server v0.8.0-dev
+# 🦀 autocomputer API Server v0.8.0
 # 📡 Listening on http://127.0.0.1:8765
 # 🌐 GUI: http://127.0.0.1:8765
 # 📋 API: http://127.0.0.1:8765/api/status
