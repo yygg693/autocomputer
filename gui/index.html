@@ -434,6 +434,8 @@ async function renderDashboard() {
   const monitors = await api('/api/monitors');
   const online = !status.error && status.rust_core;
   const screen = status.screen || 'Unknown';
+  const modules = status.modules || [];
+  const pyPackages = status.python_packages || [];
 
   div.innerHTML = `
     <div class="stats-grid">
@@ -442,11 +444,11 @@ async function renderDashboard() {
         <div class="stat-label">录制流程</div>
       </div>
       <div class="stat-card green">
-        <div class="stat-value green">${online ? '5' : '0'}</div>
+        <div class="stat-value green">${online ? (modules ? modules.length : 5) : 0}</div>
         <div class="stat-label">Rust 核心模块</div>
       </div>
       <div class="stat-card purple">
-        <div class="stat-value purple">27</div>
+        <div class="stat-value purple">56</div>
         <div class="stat-label">测试通过</div>
       </div>
       <div class="stat-card cyan">

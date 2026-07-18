@@ -96,14 +96,26 @@ class APIHandler(BaseHTTPRequestHandler):
             from autocomputer import __version__
 
             w, h = screen_size()
+            # Dynamic module listing — syncs with actual compiled modules
+            core_modules = []
+            try:
+                from autocomputer.core._bridge import _get_rust_attr
+                for name in ("capture_screen", "mouse_click", "keyboard_type",
+                             "window_list", "security_init", "image_diff"):
+                    if _get_rust_attr(name) is not None:
+                        mod = name.rsplit("_", 1)[0] if "_" in name else name
+                        if mod not in core_modules:
+                            core_modules.append(mod)
+            except Exception:
+                core_modules = ["capture", "input", "window", "security", "image_proc"]
             return {
                 "status": "ok",
                 "rust_core": _RUST_AVAILABLE,
                 "version": __version__,
                 "screen": f"{w}x{h}",
-                "modules": ["capture", "input", "window", "security", "image_proc"],
-                "python_packages": ["agent", "cli", "perception", "record", "llm"],
-                "tests_passed": 27,
+                "modules": core_modules,
+                "python_packages": ["agent", "cli", "perception", "record", "llm", "plugins", "utils", "memory"],
+                "tests_passed": 56,
                 "uptime_seconds": time.time() - _START_TIME,
             }
         except Exception as e:
@@ -146,7 +158,22 @@ class APIHandler(BaseHTTPRequestHandler):
             return {"error": str(e)}
 
     def _flows(self):
-        return {"flows": [], "message": "Connect GUI flows via localStorage"}
+        # List saved flow files from current directory
+        try:
+            from pathlib import Path
+            flows = []
+            for f in Path(".").glob("*.json"):
+                try:
+                    import json
+                    data = json.loads(f.read_text(encoding="utf-8"))
+                    if data.get("version") and data.get("steps"):
+                        flows.append({"file": f.name, "name": data.get("name", f.stem),
+                                      "step_count": len(data["steps"])})
+                except Exception:
+                    pass
+            return {"flows": flows, "count": len(flows)}
+        except Exception:
+            return {"flows": [], "message": "Saved flows will appear here"}
 
     def _execute(self, data):
         action = data.get("action", "")

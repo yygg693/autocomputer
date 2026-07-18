@@ -6,11 +6,8 @@ use enigo::{
     Axis, Coordinate, Direction, Enigo, Key, Keyboard, Mouse, Settings,
 };
 use pyo3::prelude::*;
+use crate::input_err;
 use std::time::Duration;
-
-fn input_err(e: impl std::fmt::Display) -> PyErr {
-    PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string())
-}
 
 // ── Helpers ──
 
@@ -62,7 +59,7 @@ fn parse_key(name: &str) -> Result<Key, PyErr> {
         "capslock" | "caps" => Key::CapsLock,
         other if other.len() == 1 => {
             let ch = other.chars().next().unwrap();
-            if ch.is_ascii_alphabetic() {
+            if ch.is_ascii_alphanumeric() || ch.is_ascii_punctuation() {
                 Key::Unicode(ch)
             } else {
                 return Err(PyErr::new::<pyo3::exceptions::PyValueError, _>(
@@ -85,12 +82,23 @@ fn parse_key(name: &str) -> Result<Key, PyErr> {
 #[pyfunction]
 pub fn mouse_move(x: i32, y: i32, duration_ms: Option<u64>) -> PyResult<()> {
     let mut en = en()?;
-    if let Some(ms) = duration_ms {
-        en.move_mouse(x, y, Coordinate::Abs).map_err(input_err)?;
-        std::thread::sleep(Duration::from_millis(ms));
-    } else {
-        en.move_mouse(x, y, Coordinate::Abs).map_err(input_err)?;
+    if let Some(ms) = duration_ms
+        && ms > 0
+    {
+        // Smooth interpolation: move from current position to target
+        let start = en.location().map_err(|e| input_err(e.to_string()))?;
+        let steps = (ms / 16).clamp(1, 200) as i32; // ~60fps, max 200 steps
+        for i in 1..=steps {
+            let t = i as f64 / steps as f64;
+            let cx = start.0 as f64 + (x as f64 - start.0 as f64) * t;
+            let cy = start.1 as f64 + (y as f64 - start.1 as f64) * t;
+            en.move_mouse(cx as i32, cy as i32, Coordinate::Abs)
+                .map_err(|e| input_err(e.to_string()))?;
+            std::thread::sleep(Duration::from_millis(ms / steps as u64));
+        }
+        return Ok(());
     }
+    en.move_mouse(x, y, Coordinate::Abs).map_err(|e| input_err(e.to_string()))?;
     Ok(())
 }
 

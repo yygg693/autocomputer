@@ -17,39 +17,28 @@ use pyo3::prelude::*;
 
 // ── Error types ──
 
-#[pyclass(extends=pyo3::exceptions::PyException)]
-#[derive(Debug)]
-pub struct AutoComputerError {
-    #[pyo3(get)]
-    pub kind: String,
-    #[pyo3(get)]
-    pub message: String,
-}
+use pyo3::create_exception;
 
-impl AutoComputerError {
-    fn create_err(kind: &str, msg: &str) -> PyErr {
-        PyErr::new::<Self, _>(format!("[{kind}] {msg}"))
-    }
-}
+create_exception!(_core, AutoComputerError, pyo3::exceptions::PyException);
 
 /// Capture errors — monitor not found, screenshot failed, etc.
 pub fn capture_err(msg: impl std::fmt::Display) -> PyErr {
-    AutoComputerError::create_err("CaptureError", &msg.to_string())
+    AutoComputerError::new_err(format!("[CaptureError] {msg}"))
 }
 
 /// Input errors — enigo failure, invalid key name, etc.
 pub fn input_err(msg: impl std::fmt::Display) -> PyErr {
-    AutoComputerError::create_err("InputError", &msg.to_string())
+    AutoComputerError::new_err(format!("[InputError] {msg}"))
 }
 
 /// Window errors — window not found, Win32 API failure.
 pub fn window_err(msg: impl std::fmt::Display) -> PyErr {
-    AutoComputerError::create_err("WindowError", &msg.to_string())
+    AutoComputerError::new_err(format!("[WindowError] {msg}"))
 }
 
 /// Security violations — hotkey blocked, loop detected, rate limit.
 pub fn security_err(msg: impl std::fmt::Display) -> PyErr {
-    AutoComputerError::create_err("SecurityError", &msg.to_string())
+    AutoComputerError::new_err(format!("[SecurityError] {msg}"))
 }
 
 #[pymodule]
@@ -58,7 +47,7 @@ fn _core(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__rust_version__", "1.97")?;
 
     // ── Error types ──
-    m.add_class::<AutoComputerError>()?;
+    m.add("AutoComputerError", m.py().get_type::<AutoComputerError>())?;
 
     // ── Types ──
     m.add_class::<capture::CaptureResult>()?;

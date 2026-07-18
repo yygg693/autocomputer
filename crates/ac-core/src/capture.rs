@@ -1,9 +1,10 @@
 //! Screenshot capture via xcap — sub-10ms on Windows DXGI.
 
 use pyo3::prelude::*;
+use crate::capture_err;
 
 fn xcap_err(e: impl std::fmt::Display) -> PyErr {
-    PyErr::new::<pyo3::exceptions::PyRuntimeError, _>(e.to_string())
+    capture_err(e)
 }
 
 #[pyclass]
