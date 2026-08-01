@@ -7,43 +7,45 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --font: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  /* Fonts: Share Tech Mono for display/data, Fira Code for body (HUD feel) */
+  --font: 'Fira Code', 'JetBrains Mono', Consolas, 'Microsoft YaHei', monospace;
+  --font-display: 'Share Tech Mono', 'Fira Code', Consolas, monospace;
+  --font-sans: 'Microsoft YaHei', -apple-system, sans-serif;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Obsidian 暗色令牌 */
-  --bg-base: #080a0f;
-  --bg-surface: #0f1218;
-  --bg-elevated: #161b24;
-  --bg-overlay: #1e2430;
-  --bg-hover: #232a38;
-  --border-subtle: rgba(255,255,255,0.05);
-  --border-default: rgba(255,255,255,0.09);
-  --border-strong: rgba(255,255,255,0.15);
-  --text-primary: #f2f4f7;
-  --text-secondary: #98a1b0;
-  --text-tertiary: #565f6e;
-  --accent: #c9a962;
-  --accent-soft: #e2cc8f;
-  --accent-dim: rgba(201,169,98,0.10);
-  --accent-glow: rgba(201,169,98,0.20);
-  --accent-cyan: #4fd6ff;
-  --cyan-dim: rgba(79,214,255,0.10);
-  --ok: #26c966;
-  --error: #f04848;
-  --warn: #e6b84c;
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.3), 0 0 1px rgba(255,255,255,0.04);
-  --shadow-elevated: 0 8px 32px rgba(0,0,0,0.5);
-  --scrollbar-thumb: #2a3040;
+  /* Deep-slate + run-green developer palette (ui-ux-pro-max: financial dashboard) */
+  --bg-base: #020617;
+  --bg-surface: #0B1120;
+  --bg-elevated: #0E1223;
+  --bg-overlay: #1A1E2F;
+  --bg-hover: #1E293B;
+  --border-subtle: rgba(148,163,184,0.08);
+  --border-default: rgba(148,163,184,0.14);
+  --border-strong: rgba(148,163,184,0.24);
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
+  --accent: #22C55E;
+  --accent-soft: #4ADE80;
+  --accent-dim: rgba(34,197,94,0.10);
+  --accent-glow: rgba(34,197,94,0.22);
+  --accent-cyan: #38BDF8;
+  --cyan-dim: rgba(56,189,248,0.10);
+  --ok: #22C55E;
+  --error: #EF4444;
+  --warn: #F59E0B;
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.35), 0 0 1px rgba(148,163,184,0.06);
+  --shadow-elevated: 0 8px 32px rgba(0,0,0,0.55);
+  --scrollbar-thumb: #1E293B;
 }
-
 html, body {
   width: 100%;
   height: 100%;
   font-family: var(--font);
+  font-size: 14px;
   background: var(--bg-base);
   color: var(--text-primary);
   display: flex;
@@ -66,11 +68,11 @@ html, body {
 .sidebar-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
 .sidebar-logo .icon {
   width: 34px; height: 34px; border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--accent), #8a6d2f);
+  background: linear-gradient(135deg, #22C55E, #0E7490); color: #02120A;
   display: flex; align-items: center; justify-content: center;
   font-size: 17px; color: #0b0a14; box-shadow: 0 0 14px var(--accent-glow);
 }
-.sidebar-logo h1 { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; }
+.sidebar-logo h1 { font-size: 17px; font-weight: 700; letter-spacing: 1px; font-family: var(--font-display); }
 .sidebar-subtitle { font-size: 10px; color: var(--text-tertiary); padding-left: 44px; }
 .logo-line { height: 1px; margin-top: 12px; background: linear-gradient(90deg, var(--accent-dim), transparent); }
 
@@ -111,7 +113,7 @@ html, body {
   padding: 14px 24px; border-bottom: 1px solid var(--border-subtle);
   background: rgba(15,18,24,0.7); backdrop-filter: blur(14px);
 }
-.topbar h2 { font-size: 16px; font-weight: 600; }
+.topbar h2 { font-size: 16px; font-weight: 600; font-family: var(--font-display); letter-spacing: 0.5px; }
 .topbar-actions { display: flex; gap: 8px; }
 .content {
   flex: 1; min-width: 0; width: 100%;
@@ -147,7 +149,7 @@ html, body {
   border-radius: var(--radius-lg); padding: 18px 20px; text-align: center;
   backdrop-filter: blur(14px); box-shadow: var(--shadow-card);
 }
-.stat-value { font-size: 26px; font-weight: 700; font-family: var(--font-mono); }
+.stat-value { font-size: 26px; font-weight: 700; font-family: var(--font-display); }
 .stat-value.green { color: var(--ok); }
 .stat-value.accent { color: var(--accent-soft); }
 .stat-value.purple { color: var(--accent-cyan); }
@@ -164,8 +166,8 @@ html, body {
 .btn:active { transform: scale(0.97); }
 .btn-sm { padding: 5px 12px; font-size: 12px; }
 .btn-xs { padding: 3px 9px; font-size: 11px; }
-.btn-primary { background: linear-gradient(135deg, var(--accent), #8a6d2f); color: #0b0a14; border-color: transparent; font-weight: 600; }
-.btn-primary:hover { color: #0b0a14; filter: brightness(1.1); }
+.btn-primary { background: linear-gradient(135deg, #22C55E, #16A34A); color: #02120A; border-color: transparent; font-weight: 600; }
+.btn-primary:hover { color: #02120A; filter: brightness(1.12); box-shadow: 0 0 16px var(--accent-glow); }
 .btn-success { background: rgba(38,201,102,0.15); color: var(--ok); border-color: rgba(38,201,102,0.3); }
 .btn-warning { background: rgba(230,184,76,0.15); color: var(--warn); border-color: rgba(230,184,76,0.3); }
 .btn-danger { background: rgba(240,72,72,0.15); color: var(--error); border-color: rgba(240,72,72,0.3); }
@@ -335,7 +337,7 @@ tbody tr:last-child td { border-bottom: none; }
 .bar-row { display: flex; align-items: center; gap: 10px; }
 .bar-label { width: 130px; font-size: 12px; color: var(--text-secondary); text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .bar-track { flex: 1; height: 14px; background: var(--bg-hover); border-radius: 7px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-cyan)); border-radius: 7px; transition: width 0.4s ease; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, #22C55E, #38BDF8); border-radius: 7px; transition: width 0.4s ease; }
 .bar-count { width: 40px; font-size: 12px; color: var(--text-tertiary); font-family: var(--font-mono); }
 
 /* ═══════════ Capture preview ═══════════ */
@@ -401,3 +403,12 @@ tbody tr:last-child td { border-bottom: none; }
 @media (max-width: 860px) {
   .overview-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ═══════════ Stagger reveal helpers ═══════════ */
+.stagger > * { animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.stagger > *:nth-child(1) { animation-delay: 0.03s; }
+.stagger > *:nth-child(2) { animation-delay: 0.07s; }
+.stagger > *:nth-child(3) { animation-delay: 0.11s; }
+.stagger > *:nth-child(4) { animation-delay: 0.15s; }
+.stagger > *:nth-child(5) { animation-delay: 0.19s; }
