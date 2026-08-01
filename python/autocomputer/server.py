@@ -6,6 +6,7 @@ Start with: python -m autocomputer serve
 import json
 import base64
 import sqlite3
+import sys
 import time
 import threading
 from collections import deque
@@ -13,6 +14,14 @@ from datetime import datetime
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 from pathlib import Path
+
+if sys.platform == "win32":
+    try:
+        # Windows console defaults to gbk/cp936 — emoji in startup banner crashes.
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 GUI_DIR = Path(__file__).resolve().parent.parent.parent / "gui"
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -127,7 +136,7 @@ class APIHandler(BaseHTTPRequestHandler):
             body = self.rfile.read(content_len) if content_len else b"{}"
             try:
                 data = json.loads(body)
-            except json.JSONDecodeError:
+            except (json.JSONDecodeError, UnicodeDecodeError):
                 data = {}
             return self.json_response(self._execute(data))
         elif parsed.path == "/api/flows":
@@ -135,7 +144,7 @@ class APIHandler(BaseHTTPRequestHandler):
             body = self.rfile.read(content_len) if content_len else b"{}"
             try:
                 data = json.loads(body)
-            except json.JSONDecodeError:
+            except (json.JSONDecodeError, UnicodeDecodeError):
                 data = {}
             return self.json_response(self._save_flow(data))
 

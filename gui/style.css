@@ -297,3 +297,17 @@ td:first-child { color: var(--text-primary); font-weight: 500; }
 /* ═══════════ Page Transitions ═══════════ */
 .page-enter { animation: fadeIn 0.2s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+
+/* ── capture preview ── */
+.capture-preview { margin-top: 14px; }
+.capture-preview img { max-width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+.capture-meta { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+/* ── bar chart (audit) ── */
+.bar-chart { display: flex; flex-direction: column; gap: 8px; }
+.bar-row { display: flex; align-items: center; gap: 10px; }
+.bar-label { width: 120px; font-size: 12px; color: var(--text-secondary); text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { flex: 1; height: 14px; background: var(--bg-hover); border-radius: 7px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--accent); border-radius: 7px; transition: width .3s; }
+.bar-count { width: 36px; font-size: 12px; color: var(--text-muted); }

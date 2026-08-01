@@ -6,8 +6,9 @@
 // ── State ──
 const state = {
   tab: 'dashboard',
-  flows: JSON.parse(localStorage.getItem('ac_flows') || '[]'),
+  flows: [],
   editing: [],
+  lastCapture: null,
 };
 
 // ── Navigation ──
@@ -22,13 +23,14 @@ document.querySelectorAll('.nav-item').forEach(btn => {
 });
 
 // ── Rendering ──
-function render() {
+async function render() {
   const content = document.getElementById('content');
   content.innerHTML = '';
-  content.appendChild(({
+  const node = await ({
     dashboard: renderDashboard, editor: renderEditor,
     flows: renderFlows, monitor: renderMonitor, security: renderSecurity,
-  }[state.tab] || renderDashboard)());
+  }[state.tab] || renderDashboard)();
+  content.appendChild(node);
   updateBadges();
 }
 
@@ -92,7 +94,7 @@ async function renderDashboard() {
         <div class="stat-label">Rust 核心模块</div>
       </div>
       <div class="stat-card purple">
-        <div class="stat-value purple">56</div>
+        <div class="stat-value purple">${status.tests_passed ?? 56}</div>
         <div class="stat-label">测试通过</div>
       </div>
       <div class="stat-card cyan">
@@ -123,6 +125,11 @@ async function renderDashboard() {
         <button class="btn btn-outline" onclick="switchTab('flows')">▶️ 回放流程</button>
         <button class="btn btn-ghost" onclick="window.open('https://github.com/yygg693/autocomputer')">📖 GitHub →</button>
       </div>
+      ${state.lastCapture ? `
+      <div class="capture-preview">
+        <img src="data:image/png;base64,${state.lastCapture.png_b64}" alt="截图预览"/>
+        <div class="capture-meta">${state.lastCapture.width}×${state.lastCapture.height} · ${(state.lastCapture.png_size/1024).toFixed(0)}KB</div>
+      </div>` : ''}
     </div>
   `;
   return div;
@@ -131,7 +138,9 @@ async function renderDashboard() {
 async function quickCapture() {
   const data = await api('/api/capture');
   if (data.error) { toast(data.error, 'error'); return; }
-  toast(`Screenshot: ${data.width}×${data.height}, ${(data.png_size/1024).toFixed(0)}KB`, 'success');
+  state.lastCapture = data;
+  toast(`截图成功: ${data.width}×${data.height}, ${(data.png_size/1024).toFixed(0)}KB`, 'success');
+  render();
 }
 
 /* ═══════════ EDITOR ═══════════ */
@@ -208,14 +217,19 @@ function removeStep(i) { state.editing.splice(i, 1); render(); }
 
 function clearEditor() { state.editing = []; render(); toast('Editor cleared', 'info'); }
 
-function saveFlow() {
+async function saveFlow() {
   const name = prompt('流程名称:', `flow_${Date.now()}`);
   if (!name) return;
-  state.flows.push({ name, steps: state.editing.map(s => ({action:s.action, params:s.params})), created: new Date().toISOString() });
-  localStorage.setItem('ac_flows', JSON.stringify(state.flows));
-  state.editing = [];
-  toast(`Saved: ${name} (${state.flows.length} total)`, 'success');
-  switchTab('flows');
+  const steps = state.editing.map(s => ({action:s.action, params:s.params}));
+  const res = await api('/api/flows', { method: 'POST', body: JSON.stringify({ name, steps }) });
+  if (res && res.ok) {
+    state.editing = [];
+    await loadFlows();
+    toast(`已保存: ${name}`, 'success');
+    switchTab('flows');
+  } else {
+    toast('保存失败: ' + ((res && res.error) || '未知错误'), 'error');
+  }
 }
 
 async function testFlow() {
@@ -243,34 +257,49 @@ function exportFlowJSON() {
 }
 
 /* ═══════════ FLOWS ═══════════ */
+async function loadFlows() {
+  try {
+    const d = await api('/api/flows');
+    if (d && Array.isArray(d.flows)) state.flows = d.flows;
+  } catch (e) { /* keep current */ }
+  updateBadges();
+}
+
+async function deleteFlow(name) {
+  if (!confirm(`确定删除流程 "${name}" 吗?`)) return;
+  await api('/api/flows?name=' + encodeURIComponent(name), { method: 'DELETE' });
+  await loadFlows();
+  toast('已删除: ' + name, 'info');
+  render();
+}
+
 function renderFlows() {
   const div = document.createElement('div'); div.className = 'page-enter';
 
   if (state.flows.length === 0) {
-    div.innerHTML = `<div class="card"><div class="empty-state"><div class="empty-icon">📂</div><p>No saved flows</p><p style="font-size:12px;">Create one in the editor first</p><button class="btn btn-primary btn-sm" onclick="switchTab('editor')">✏️ Go to Editor</button></div></div>`;
+    div.innerHTML = `<div class="card"><div class="empty-state"><div class="empty-icon">📂</div><p>暂无保存的流程</p><p style="font-size:12px;">先在编辑器中创建流程</p><button class="btn btn-primary btn-sm" onclick="switchTab('editor')">✏️ 去编辑器</button></div></div>`;
     return div;
   }
 
   div.innerHTML = `
     <div class="card">
       <div class="card-header">
-        <h3>Saved Flows</h3>
-        <span class="card-badge info">${state.flows.length} flows</span>
+        <h3>已保存流程</h3>
+        <span class="card-badge info">${state.flows.length} 个</span>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Name</th><th>Steps</th><th>Created</th><th style="width:140px">Actions</th></tr></thead>
+          <thead><tr><th>名称</th><th>步骤数</th><th>创建时间</th><th style="width:150px">操作</th></tr></thead>
           <tbody>
             ${state.flows.map((f, i) => `
               <tr>
                 <td>${f.name}</td>
-                <td>${f.steps.length} steps</td>
-                <td>${new Date(f.created).toLocaleString()}</td>
+                <td>${f.steps.length} 步</td>
+                <td>${f.created ? new Date(f.created).toLocaleString() : '-'}</td>
                 <td>
-                  <button class="btn btn-success btn-xs" onclick="replayFlow(${i})">▶️</button>
-                  <button class="btn btn-outline btn-xs" onclick="editFlow(${i})">✏️</button>
-                  <button class="btn btn-outline btn-xs" onclick="exportSingle(${i})">📋</button>
-                  <button class="btn btn-danger btn-xs" onclick="deleteFlow(${i})">×</button>
+                  <button class="btn btn-success btn-xs" onclick="replayFlow(${i})" title="回放">▶️</button>
+                  <button class="btn btn-outline btn-xs" onclick="editFlow(${i})" title="编辑">✏️</button>
+                  <button class="btn btn-danger btn-xs" onclick="deleteFlow('${String('${f.name}').replace(/'/g, "\\'")}')" title="删除">🗑</button>
                 </td>
               </tr>
             `).join('')}
@@ -320,81 +349,52 @@ function deleteFlow(i) {
 }
 
 /* ═══════════ MONITOR ═══════════ */
-function renderMonitor() {
+async function renderMonitor() {
   const div = document.createElement('div'); div.className = 'page-enter';
+  let logs = [];
+  try { const d = await api('/api/logs'); logs = (d && d.logs) || []; } catch (e) {}
+  const lines = logs.length ? logs.map(l => `
+    <div class="log-line"><span class="time">${l.ts}</span><span class="level ${l.ok ? 'ok' : 'error'}">${l.ok ? 'OK' : 'ERR'}</span><span class="msg">[${l.action}] ${l.detail}</span></div>
+  `).join('') : `
+    <div class="empty-state"><div class="empty-icon">📭</div><p>暂无操作记录</p><p style="font-size:12px;">在编辑器试运行后,这里会显示真实执行日志</p></div>`;
   div.innerHTML = `
-    <div class="log-container">
-      <div class="log-header">
-        <div class="log-tabs">
-          <button class="log-tab active">All</button>
-          <button class="log-tab">Capture</button>
-          <button class="log-tab">Input</button>
-          <button class="log-tab">Security</button>
-        </div>
-        <div style="flex:1"></div>
-        <button class="btn btn-outline btn-xs">▶ Start</button>
-        <button class="btn btn-ghost btn-xs">⏹ Stop</button>
-        <button class="btn btn-ghost btn-xs">🧹 Clear</button>
-      </div>
-      <div class="log-body">
-        <div class="log-line"><span class="time">00:00:01</span><span class="level ok">OK</span><span class="msg">Core engine initialized — 5 Rust modules loaded</span></div>
-        <div class="log-line"><span class="time">00:00:02</span><span class="level info">INFO</span><span class="msg">Security guard active — 4 hotkeys blocked, audit enabled</span></div>
-        <div class="log-line"><span class="time">00:00:03</span><span class="level ok">OK</span><span class="msg">Capture pipeline ready — xcap DXGI ~8ms</span></div>
-        <div class="log-line"><span class="time">00:00:05</span><span class="level ok">OK</span><span class="msg">Input engine ready — enigo + clipboard Chinese support</span></div>
-        <div class="log-line"><span class="time">00:00:07</span><span class="level warn">WARN</span><span class="msg">Rate limit hit: click blocked at (500,300) — 45ms < 100ms</span></div>
-      </div>
+    <div class="card">
+      <div class="card-header"><h3>👁️ 操作日志</h3><span class="card-badge info">${logs.length} 条</span></div>
+      <div class="log-container">${lines}</div>
     </div>
   `;
   return div;
 }
-
 /* ═══════════ SECURITY ═══════════ */
-function renderSecurity() {
+async function renderSecurity() {
   const div = document.createElement('div'); div.className = 'page-enter';
+  let sec = { audit: { total: 0, by_action: {}, recent: [] }, hotkeys: [], thresholds: {} };
+  try { const d = await api('/api/security'); if (d) sec = d; } catch (e) {}
+  const actions = Object.entries(sec.audit.by_action || {});
+  const maxCnt = Math.max(1, ...actions.map(([, c]) => c));
+  const hotkeys = (sec.hotkeys || []).map(h => `
+    <div class="perm-card"><div class="app-name">${h.keys}</div><span class="perm-tag deny">${h.severity}</span></div>
+  `).join('') || '<p style="font-size:13px;color:var(--text-muted);">无</p>';
+  const bars = actions.length ? actions.map(([a, c]) => `
+    <div class="bar-row"><span class="bar-label">${a}</span><div class="bar-track"><div class="bar-fill" style="width:${(c / maxCnt * 100).toFixed(0)}%"></div></div><span class="bar-count">${c}</span></div>
+  `).join('') : '<p style="font-size:13px;color:var(--text-muted);">暂无审计数据 — 执行操作后自动记录</p>';
+  const recent = (sec.audit.recent || []).length ? sec.audit.recent.map(r => `
+    <div class="log-line"><span class="time">${r.time}</span><span class="level ${r.result === 'ok' ? 'ok' : 'error'}">${r.result}</span><span class="msg">[${r.action}] ${r.detail}</span></div>
+  `).join('') : '<p style="font-size:13px;color:var(--text-muted);">暂无记录</p>';
   div.innerHTML = `
     <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
-      <div class="stat-card green"><div class="stat-value green">4</div><div class="stat-label">Hotkeys Blocked</div></div>
-      <div class="stat-card accent"><div class="stat-value accent">5</div><div class="stat-label">Loop Threshold</div></div>
-      <div class="stat-card purple"><div class="stat-value purple">100ms</div><div class="stat-label">Rate Limit</div></div>
-      <div class="stat-card cyan"><div class="stat-value cyan">SQLite</div><div class="stat-label">Audit Backend</div></div>
+      <div class="stat-card green"><div class="stat-value green">${sec.audit.total}</div><div class="stat-label">审计记录总数</div></div>
+      <div class="stat-card accent"><div class="stat-value accent">${sec.thresholds.max_clicks_same_position ?? 5}</div><div class="stat-label">同点点击阈值</div></div>
+      <div class="stat-card purple"><div class="stat-value purple">${sec.thresholds.rate_limit_ms ?? 100}ms</div><div class="stat-label">操作限速</div></div>
+      <div class="stat-card cyan"><div class="stat-value cyan">${sec.thresholds.audit_retention_days ?? 90}天</div><div class="stat-label">审计保留</div></div>
     </div>
-    <div class="card">
-      <div class="card-header"><h3>🔒 Blocked Hotkeys</h3></div>
-      <div class="perm-grid">
-        <div class="perm-card"><div class="app-name">alt+f4</div><span class="perm-tag deny">Critical</span><div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Close window prevention</div></div>
-        <div class="perm-card"><div class="app-name">win+l</div><span class="perm-tag deny">Critical</span><div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Lock screen prevention</div></div>
-        <div class="perm-card"><div class="app-name">win+r</div><span class="perm-tag deny">Critical</span><div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Run dialog prevention</div></div>
-        <div class="perm-card"><div class="app-name">ctrl+alt+del</div><span class="perm-tag deny">Critical</span><div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Security screen prevention</div></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header"><h3>📱 App Permissions</h3></div>
-      <div class="perm-grid">
-        <div class="perm-card">
-          <div class="app-name">QQ</div>
-          <span class="perm-tag allow">send_message</span><span class="perm-tag allow">read_contacts</span><span class="perm-tag deny">file_transfer</span>
-        </div>
-        <div class="perm-card">
-          <div class="app-name">WeChat</div>
-          <span class="perm-tag allow">send_message</span><span class="perm-tag deny">file_transfer</span>
-        </div>
-        <div class="perm-card">
-          <div class="app-name">Chrome</div>
-          <span class="perm-tag allow">navigate</span><span class="perm-tag allow">form_fill</span><span class="perm-tag prompt">file_download</span>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header"><h3>📝 Audit Log</h3><span class="card-badge success">Active</span></div>
-      <p style="font-size:13px;color:var(--text-secondary);">
-        SQLite database: <code style="color:var(--accent-light);">autocomputer_audit.db</code><br>
-        All clicks, hotkeys, and app actions are recorded with timestamps.
-      </p>
-    </div>
+    <div class="card"><div class="card-header"><h3>🔒 拦截的热键</h3></div><div class="perm-grid">${hotkeys}</div></div>
+    <div class="card"><div class="card-header"><h3>📊 审计统计(按动作)</h3></div><div class="bar-chart">${bars}</div></div>
+    <div class="card"><div class="card-header"><h3>📝 最近审计记录</h3></div><div class="log-container">${recent}</div></div>
   `;
   return div;
 }
-
 // ── Init ──
+loadFlows();
 render();
 updateBadges();
