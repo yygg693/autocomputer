@@ -55,6 +55,8 @@ class ScreenContext:
                     ctx.ocr_text = [r.text for r in pr.regions] if pr.regions else [pr.full_text]
             except ImportError:
                 pass  # perception extras not installed
+            except Exception:
+                pass  # OCR backend installed but unusable (e.g. tesseract missing) — degrade
 
         # Detect active window
         try:
