@@ -5,13 +5,84 @@ Start with: python -m autocomputer serve
 
 import json
 import base64
+import sqlite3
 import time
 import threading
+from collections import deque
+from datetime import datetime
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 from pathlib import Path
 
 GUI_DIR = Path(__file__).resolve().parent.parent.parent / "gui"
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+
+# -- In-process operation log (ring buffer, most recent 200) --
+_LOG_QUEUE: deque = deque(maxlen=200)
+
+
+def count_tests() -> int:
+    """Dynamically count tests: Rust #[test] markers + Python def test_ functions."""
+    n = 0
+    rust_src = REPO_ROOT / "crates" / "ac-core" / "src"
+    for rs in rust_src.glob("*.rs"):
+        n += rs.read_text(encoding="utf-8").count("#[test]")
+    py_tests = REPO_ROOT / "python" / "tests"
+    for py in py_tests.glob("test_*.py"):
+        n += sum(
+            1 for line in py.read_text(encoding="utf-8").splitlines()
+            if line.lstrip().startswith("def test_")
+        )
+    return n
+
+
+def flows_path() -> Path:
+    """Location of persisted flows: %APPDATA%/autocomputer/flows.json."""
+    from autocomputer.utils import config_dir
+    return config_dir() / "flows.json"
+
+
+def _load_flows() -> list:
+    p = flows_path()
+    if p.exists():
+        try:
+            return json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            return []
+    return []
+
+
+def _save_flows(flows: list) -> None:
+    p = flows_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(flows, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def audit_stats() -> dict:
+    """Read audit statistics from the Rust-core SQLite database (may be absent)."""
+    from autocomputer.utils import config_dir
+    db = config_dir() / "autocomputer_audit.db"
+    stats = {"total": 0, "by_action": {}, "recent": []}
+    if not db.exists():
+        return stats
+    try:
+        conn = sqlite3.connect(db)
+        row = conn.execute("SELECT COUNT(*) FROM audit_log").fetchone()
+        stats["total"] = row[0] if row else 0
+        for action, cnt in conn.execute(
+            "SELECT action, COUNT(*) AS c FROM audit_log GROUP BY action ORDER BY c DESC"
+        ):
+            stats["by_action"][action] = cnt
+        for r in conn.execute(
+            "SELECT iso_time, action, detail, result FROM audit_log ORDER BY id DESC LIMIT 20"
+        ):
+            stats["recent"].append(
+                {"time": r[0], "action": r[1], "detail": r[2], "result": r[3]}
+            )
+        conn.close()
+    except Exception:
+        pass
+    return stats
 
 
 class APIHandler(BaseHTTPRequestHandler):
@@ -34,6 +105,10 @@ class APIHandler(BaseHTTPRequestHandler):
             return self.json_response(self._capture())
         elif path == "/api/flows":
             return self.json_response(self._flows())
+        elif path == "/api/logs":
+            return self.json_response(self._logs())
+        elif path == "/api/security":
+            return self.json_response(self._security())
 
         # ── Static Files (GUI) ──
         if path == "/" or path == "":
@@ -55,6 +130,23 @@ class APIHandler(BaseHTTPRequestHandler):
             except json.JSONDecodeError:
                 data = {}
             return self.json_response(self._execute(data))
+        elif parsed.path == "/api/flows":
+            content_len = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(content_len) if content_len else b"{}"
+            try:
+                data = json.loads(body)
+            except json.JSONDecodeError:
+                data = {}
+            return self.json_response(self._save_flow(data))
+
+        self.send_error(404)
+
+    def do_DELETE(self):
+        parsed = urlparse(self.path)
+        if parsed.path == "/api/flows":
+            params = parse_qs(parsed.query)
+            name = (params.get("name") or [""])[0]
+            return self.json_response(self._delete_flow(name))
 
         self.send_error(404)
 
@@ -115,7 +207,7 @@ class APIHandler(BaseHTTPRequestHandler):
                 "screen": f"{w}x{h}",
                 "modules": core_modules,
                 "python_packages": ["agent", "cli", "perception", "record", "llm", "plugins", "utils", "memory"],
-                "tests_passed": 56,
+                "tests_passed": count_tests(),
                 "uptime_seconds": time.time() - _START_TIME,
             }
         except Exception as e:
@@ -158,22 +250,65 @@ class APIHandler(BaseHTTPRequestHandler):
             return {"error": str(e)}
 
     def _flows(self):
-        # List saved flow files from current directory
         try:
-            from pathlib import Path
-            flows = []
-            for f in Path(".").glob("*.json"):
-                try:
-                    import json
-                    data = json.loads(f.read_text(encoding="utf-8"))
-                    if data.get("version") and data.get("steps"):
-                        flows.append({"file": f.name, "name": data.get("name", f.stem),
-                                      "step_count": len(data["steps"])})
-                except Exception:
-                    pass
-            return {"flows": flows, "count": len(flows)}
+            flows = _load_flows()
+            return {
+                "flows": [
+                    {
+                        "name": f.get("name", "未命名流程"),
+                        "steps": f.get("steps", []),
+                        "created": f.get("created", ""),
+                        "step_count": len(f.get("steps", [])),
+                    }
+                    for f in flows
+                ],
+                "count": len(flows),
+            }
         except Exception:
             return {"flows": [], "message": "Saved flows will appear here"}
+
+    def _save_flow(self, data):
+        name = str(data.get("name", "")).strip()
+        steps = data.get("steps", [])
+        if not name:
+            return {"ok": False, "error": "name is required"}
+        flows = _load_flows()
+        now = datetime.now().isoformat(timespec="seconds")
+        for f in flows:
+            if f.get("name") == name:
+                f["steps"] = steps
+                f["created"] = f.get("created", now)
+                _save_flows(flows)
+                return {"ok": True, "name": name, "updated": True}
+        flows.append({"name": name, "steps": steps, "created": now})
+        _save_flows(flows)
+        return {"ok": True, "name": name, "updated": False}
+
+    def _delete_flow(self, name):
+        flows = _load_flows()
+        before = len(flows)
+        flows = [f for f in flows if f.get("name") != name]
+        _save_flows(flows)
+        return {"ok": True, "deleted": before - len(flows)}
+
+    def _logs(self):
+        return {"logs": list(_LOG_QUEUE)}
+
+    def _security(self):
+        return {
+            "audit": audit_stats(),
+            "hotkeys": [
+                {"keys": "alt+f4", "severity": "Critical"},
+                {"keys": "win+l", "severity": "Critical"},
+                {"keys": "win+r", "severity": "Critical"},
+                {"keys": "ctrl+alt+del", "severity": "Critical"},
+            ],
+            "thresholds": {
+                "max_clicks_same_position": 5,
+                "rate_limit_ms": 100,
+                "audit_retention_days": 90,
+            },
+        }
 
     def _execute(self, data):
         action = data.get("action", "")
@@ -186,37 +321,39 @@ class APIHandler(BaseHTTPRequestHandler):
                 fn = _get_rust_attr("mouse_click")
                 if fn:
                     fn(params.get("x", 0), params.get("y", 0), params.get("button", "left"))
-                return {"success": True, "action": "click"}
-
+                result = {"success": True, "action": "click", "detail": f"点击 ({params.get('x', 0)}, {params.get('y', 0)})"}
             elif action == "type":
                 fn = _get_rust_attr("keyboard_type")
                 if fn:
                     fn(params.get("text", ""), params.get("method", "auto"))
-                return {"success": True, "action": "type"}
-
+                result = {"success": True, "action": "type", "detail": f"输入: {str(params.get('text', ''))[:20]}"}
             elif action == "press":
                 fn = _get_rust_attr("keyboard_press")
                 if fn:
                     fn(params.get("key", "enter"))
-                return {"success": True, "action": "press"}
-
+                result = {"success": True, "action": "press", "detail": f"按键: {params.get('key', 'enter')}"}
             elif action == "move":
                 fn = _get_rust_attr("mouse_move")
                 if fn:
                     fn(params.get("x", 0), params.get("y", 0), None)
-                return {"success": True, "action": "move"}
-
+                result = {"success": True, "action": "move", "detail": f"移动至 ({params.get('x', 0)}, {params.get('y', 0)})"}
             elif action == "scroll":
                 fn = _get_rust_attr("mouse_scroll")
                 if fn:
                     fn(params.get("clicks", 1))
-                return {"success": True, "action": "scroll"}
-
+                result = {"success": True, "action": "scroll", "detail": f"滚动 {params.get('clicks', 1)}"}
             else:
-                return {"success": False, "error": f"Unknown action: {action}"}
-
+                result = {"success": False, "action": action, "error": f"Unknown action: {action}"}
         except Exception as e:
-            return {"success": False, "error": str(e)}
+            result = {"success": False, "action": action, "error": str(e)}
+
+        _LOG_QUEUE.append({
+            "ts": datetime.now().strftime("%H:%M:%S"),
+            "action": action,
+            "detail": result.get("detail", result.get("error", "")),
+            "ok": bool(result.get("success", False)),
+        })
+        return result
 
 
 _START_TIME = time.time()
