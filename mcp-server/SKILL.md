@@ -54,17 +54,17 @@ python "$SC\autocomputer_mcp.py" --selftest            # MCP 自检
 前端（`gui/`）是技能的可视化控制台：窗口列表、坐标操作、审计/权限/记忆浏览、
 流程管理、实时日志。三种打开方式：
 
-1. **双击** `%USERPROFILE%/autocomputer/scripts/start-dashboard.cmd`（自动起 server + 开浏览器）
+1. **双击** `%USERPROFILE%\autocomputer\scripts\start-dashboard.cmd`（自动起 server + 开浏览器）
 2. **一条命令**（agent 或终端）：
    ```bash
-   cd %USERPROFILE%/autocomputer && PYTHONPATH=python python -c "import threading,webbrowser; from autocomputer.server import run_server; threading.Timer(2.0, lambda: webbrowser.open('http://127.0.0.1:8765')).start(); run_server()"
+   cd "%USERPROFILE%\autocomputer" && PYTHONPATH=python python -c "import threading,webbrowser; from autocomputer.server import run_server; threading.Timer(2.0, lambda: webbrowser.open('http://127.0.0.1:8765')).start(); run_server()"
    ```
 3. 已启动时直接访问 `http://127.0.0.1:8765`
 
 > 前端经 `/api/*` 读写同一份数据（flows.json、unified_state.db、审计库），
 > 与 MCP 工具共享状态：前端保存的流程 MCP 也能用，MCP 的审计/记忆前端能看。
 
-## 文件映射（单一来源：%USERPROFILE%/autocomputer/mcp-server/）
+## 文件映射（单一来源：%USERPROFILE%\autocomputer\mcp-server/）
 
 > `scripts/` 是指向仓库 `mcp-server/` 的 junction 软链 —— 技能与 GitHub 仓库
 > (yygg693/autocomputer) 共用同一份代码，改仓库即改技能，无双份维护。
