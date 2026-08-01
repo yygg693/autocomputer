@@ -32,6 +32,7 @@ async function render() {
   }[state.tab] || renderDashboard)();
   content.appendChild(node);
   updateBadges();
+  attachJelly();
 }
 
 function updateBadges() {
@@ -205,10 +206,13 @@ async function renderDashboard() {
       </div>
       <table>
         <tr><td>架构</td><td>Rust (ac-core) + Python SDK + HTML5 GUI</td></tr>
-        <tr><td>引擎状态</td><td>${online ? '✅ 已连接 — Rust 核心运行中' : '⚠️ 离线 — 请先启动 server'}</td></tr>
+        <tr><td>引擎状态</td><td>${online ? '✅ 已连接 — Rust 核心运行中' : '⚠️ 离线 — 纯 Python 模式'}</td></tr>
         <tr><td>Rust 模块</td><td>capture · input · window · security · image_proc</td></tr>
+        <tr><td>版本</td><td>${status.version || '-'} (${status.tests_passed ?? '?'} 项测试)</td></tr>
         <tr><td>截图性能</td><td>~8ms (DXGI · xcap)</td></tr>
         <tr><td>显示器</td><td>${monitors.count || 0} 个显示器 @ ${screen}</td></tr>
+        <tr><td>运行时长</td><td>${status.uptime_seconds ? Math.floor(status.uptime_seconds / 60) + ' 分钟' : '-'}</td></tr>
+        <tr><td>Python 包</td><td>${(pyPackages || []).join(' · ')}</td></tr>
       </table>
     </div>
 
@@ -511,6 +515,99 @@ async function renderSecurity() {
   `;
   return div;
 }
+/* ═══════════ JELLY + PARTICLES (参考 StockPilot Obsidian 交互) ═══════════ */
+
+// ---- 粒子系统:背景漂浮 + 点击爆发 ----
+let _particles = [];
+let _pCanvas = null, _pCtx = null;
+
+function initParticles() {
+  const c = document.createElement('canvas');
+  c.id = 'fx-canvas';
+  document.body.appendChild(c);
+  _pCanvas = c; _pCtx = c.getContext('2d');
+  const resize = () => { c.width = window.innerWidth; c.height = window.innerHeight; };
+  resize();
+  window.addEventListener('resize', resize);
+  for (let i = 0; i < 34; i++) _particles.push(mkParticle(true));
+  requestAnimationFrame(pStep);
+}
+
+function mkParticle(ambient) {
+  return {
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.28,
+    vy: (Math.random() - 0.5) * 0.28 - 0.08,
+    life: 1, decay: 0.012 + Math.random() * 0.02,
+    size: 1 + Math.random() * 1.9,
+    hue: Math.random() > 0.35 ? '201,169,98' : '79,214,255', // 金铜为主,青点缀
+    ambient: !!ambient,
+  };
+}
+
+function burstParticles(x, y) {
+  for (let i = 0; i < 12; i++) {
+    const a = Math.random() * Math.PI * 2;
+    const sp = 1 + Math.random() * 2.6;
+    _particles.push({ ...mkParticle(false), x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 0.6 });
+  }
+  if (_particles.length > 180) _particles.splice(0, _particles.length - 180);
+}
+
+function pStep() {
+  const ctx = _pCtx;
+  if (!ctx) return;
+  ctx.clearRect(0, 0, _pCanvas.width, _pCanvas.height);
+  for (let i = _particles.length - 1; i >= 0; i--) {
+    const p = _particles[i];
+    p.x += p.vx; p.y += p.vy;
+    if (!p.ambient) {
+      p.life -= p.decay;
+      if (p.life <= 0 || p.x < -10 || p.x > window.innerWidth + 10 || p.y < -10 || p.y > window.innerHeight + 10) {
+        _particles.splice(i, 1); continue;
+      }
+    } else {
+      if (p.x < -10) p.x = window.innerWidth + 10;
+      if (p.x > window.innerWidth + 10) p.x = -10;
+      if (p.y < -10) p.y = window.innerHeight + 10;
+      if (p.y > window.innerHeight + 10) p.y = -10;
+    }
+    ctx.globalAlpha = p.ambient ? 0.22 : p.life * 0.75;
+    ctx.fillStyle = 'rgba(' + p.hue + ', 0.95)';
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(pStep);
+}
+
+// 点击任意处发射粒子(忽略侧栏/按钮原生点击冲突——粒子只是视觉)
+document.addEventListener('click', function (e) { burstParticles(e.clientX, e.clientY); });
+
+// ---- 果冻弹性:按压压扁 + 释放弹性回弹 + 光标跟随倾斜 ----
+const JELLY_SEL = '.card, .stat-card, .btn, .window-item, .perm-card, .memory-item, .flow-item, .step-item';
+
+function attachJelly() {
+  const els = document.querySelectorAll(JELLY_SEL);
+  els.forEach(el => {
+    if (el.dataset.jelly) return;
+    el.dataset.jelly = '1';
+    el.addEventListener('mousedown', () => {
+      el.style.transition = 'transform 0.08s ease';
+      el.style.transform = 'scale(0.965)';
+    });
+    const release = () => {
+      // 回弹:先快速回弹略过头,再归位(弹性 cubic-bezier)
+      el.style.transition = 'transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      el.style.transform = 'scale(1)';
+    };
+    el.addEventListener('mouseup', release);
+    el.addEventListener('mouseleave', release);
+  });
+}
+
 // ── Init ──
 loadFlows();
 updateEngineStatus();

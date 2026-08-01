@@ -37,3 +37,7 @@ Thumbs.db
 
 # Node (GUI is pure HTML5 — no build step needed)
 node_modules/
+
+# Rust core compiled module (built locally via cargo/maturin)
+python/autocomputer/core/_core.pyd
+*.pyd
