@@ -2,6 +2,28 @@
 
 All notable changes to this project are documented in this file.
 
+## [v0.10.0] - 2026-08-01
+
+### 🎨 Highlights
+- **Visual rebrand**: Obsidian brass identity replaced with a deep-slate + run-green
+  developer palette (`#020617` base, `#22C55E` accent, `#38BDF8` pop) — designed
+  with ui-ux-pro-max design intelligence. Share Tech Mono (display) + Fira Code
+  (body) fonts for a HUD feel. Zero-build preserved.
+
+### 🔧 Changed
+- **Runtime data standardized** to `%APPDATA%/autocomputer/` (was `~/.qclaw`):
+  workspace/screenshots, `unified_state.db`, `flows.json`, `autocomputer_audit.db`.
+  Existing data migrated automatically.
+- **Privacy**: git history rewritten — all commit emails now `yygg693@users.noreply.github.com`,
+  personal paths removed from history and docs.
+- README fully rewritten (7-page dashboard, MCP server, real test counts 61).
+- `prompt` permission semantics: fails closed with a distinct error so callers can
+  distinguish "needs confirmation" from a hard deny.
+
+### 🐛 Fixed
+- CI python job missing `typer`/`rich` deps → 5 CLI tests failed on CI only.
+- README GitHub rendering (centered header, accurate badges).
+
 ## [v0.9.0] - 2026-08-01
 
 ### 🚀 Highlights

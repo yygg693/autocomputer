@@ -11,7 +11,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/Tests-61%2F61-brightgreen.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-blueviolet.svg)](#)
-[![Release](https://img.shields.io/badge/Release-v0.9.0-blue.svg)](CHANGELOG.md)
+[![Release](https://img.shields.io/badge/Release-v0.10.0-blue.svg)](CHANGELOG.md)
 
 </div>
 
@@ -92,7 +92,7 @@ make dev          # builds Rust core + installs Python package + dashboard launc
 ```bash
 # Rust core loaded
 python -c "from autocomputer.core._bridge import _RUST_AVAILABLE; print('Rust core:', _RUST_AVAILABLE)"
-# autocomputer v0.9.0
+# autocomputer v0.10.0
 # Rust core: ✅ loaded (5 modules)
 # 61 passed (29 Rust + 32 Python)
 ```
@@ -103,7 +103,7 @@ python -c "from autocomputer.core._bridge import _RUST_AVAILABLE; print('Rust co
 # Option 1: double-click scripts/start-dashboard.cmd
 # Option 2: one command
 cd autocomputer && PYTHONPATH=python python -c "import threading,webbrowser; from autocomputer.server import run_server; threading.Timer(2.0, lambda: webbrowser.open('http://127.0.0.1:8765')).start(); run_server()"
-# 🦀 autocomputer API Server v0.9.0
+# 🦀 autocomputer API Server v0.10.0
 # 🌐 GUI: http://127.0.0.1:8765
 ```
 
