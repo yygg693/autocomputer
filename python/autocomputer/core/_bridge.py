@@ -22,7 +22,10 @@ def _try_import_rust() -> bool:
 
 
 def _get_rust_attr(name: str) -> Any:
-    import autocomputer.core._core as _core  # type: ignore[import-untyped]
+    try:
+        import autocomputer.core._core as _core  # type: ignore[import-untyped]
+    except ImportError:
+        return None
     if hasattr(_core, name):
         return getattr(_core, name)
     return None

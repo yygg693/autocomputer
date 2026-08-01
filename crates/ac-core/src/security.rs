@@ -109,7 +109,8 @@ pub struct SecurityGuard {
 impl SecurityGuard {
     pub fn new(config: SecurityConfig) -> Self {
         let db = if config.audit_enabled {
-            let conn = Connection::open("autocomputer_audit.db").ok();
+            let db_path = audit_db_path();
+            let conn = Connection::open(db_path).ok();
             if let Some(ref c) = conn {
                 let _ = c.execute(
                     "CREATE TABLE IF NOT EXISTS audit_log (
@@ -121,11 +122,21 @@ impl SecurityGuard {
                         result TEXT NOT NULL)",
                     [],
                 );
-                // Add iso_time if upgrading from older schema
-                let _ = c.execute(
-                    "ALTER TABLE audit_log ADD COLUMN iso_time TEXT NOT NULL DEFAULT ''",
-                    [],
-                );
+                // Add iso_time column only when upgrading from an older schema
+                // (no-op if the column already exists — avoids repeated errors).
+                let has_iso: bool = c
+                    .prepare(
+                        "SELECT COUNT(*) FROM pragma_table_info('audit_log') WHERE name = 'iso_time'",
+                    )
+                    .and_then(|mut stmt| stmt.query_row([], |r| r.get::<_, i64>(0)))
+                    .map(|n| n > 0)
+                    .unwrap_or(true); // assume present if the check itself fails
+                if !has_iso {
+                    let _ = c.execute(
+                        "ALTER TABLE audit_log ADD COLUMN iso_time TEXT NOT NULL DEFAULT ''",
+                        [],
+                    );
+                }
             }
             conn
         } else {
@@ -236,6 +247,19 @@ impl SecurityGuard {
                 maybe_cleanup_audit(conn, self.config.audit_retention_days);
             }
         }
+    }
+}
+
+/// Resolve the audit database path: `%APPDATA%/autocomputer` on Windows
+/// (matches the Python SDK's `utils.config_dir()`), falling back to the
+/// current directory elsewhere.
+fn audit_db_path() -> std::path::PathBuf {
+    if let Some(appdata) = std::env::var_os("APPDATA") {
+        let dir = std::path::PathBuf::from(appdata).join("autocomputer");
+        let _ = std::fs::create_dir_all(&dir);
+        dir.join("autocomputer_audit.db")
+    } else {
+        std::path::PathBuf::from("autocomputer_audit.db")
     }
 }
 

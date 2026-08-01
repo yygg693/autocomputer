@@ -4,6 +4,16 @@ import json
 import tempfile
 from pathlib import Path
 
+import pytest
+
+from autocomputer.core._bridge import _RUST_AVAILABLE
+
+# Tests that need real screenshots/input only make sense with the Rust core
+# (_core.pyd) built; skip them in pure-Python fallback mode.
+needs_rust = pytest.mark.skipif(
+    not _RUST_AVAILABLE, reason="requires Rust core (autocomputer.core._core)"
+)
+
 
 class TestCommandRegistry:
     def test_register_and_dispatch(self) -> None:
@@ -47,6 +57,7 @@ class TestCommandRegistry:
 
 
 class TestScreenContext:
+    @needs_rust
     def test_capture(self) -> None:
         from autocomputer.agent.core import ScreenContext
 
@@ -124,6 +135,7 @@ class TestAgent:
         assert len(plan.steps) == 2
         assert plan.steps[0].action == "click"
 
+    @needs_rust
     def test_state_tracker(self) -> None:
         from autocomputer.agent.core import StateTracker
 

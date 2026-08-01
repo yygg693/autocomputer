@@ -17,7 +17,24 @@ jobs:
           components: clippy, rustfmt
       - name: Build
         run: cargo build --workspace
+      - name: Test
+        run: cargo test --workspace
       - name: Clippy
         run: cargo clippy --workspace -- -D warnings
       - name: Format check
         run: cargo fmt --all -- --check
+
+  python:
+    name: Python SDK (Windows, fallback)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pytest
+        run: pip install pytest
+      - name: Test (pure-Python fallback mode)
+        # Runs without the Rust _core.pyd (pythonpath is configured in pyproject.toml);
+        # screenshot/input tests that need the Rust core skip via @needs_rust.
+        run: pytest python/tests/ -v
