@@ -623,3 +623,4 @@ async function updateEngineStatus() {
     el.innerHTML = `<span class="status-dot ${online ? 'online' : 'offline'}"></span><span>${online ? 'Rust 引擎在线' : '纯 Python 模式(引擎离线)'}</span>`;
   } catch (e) { /* keep default */ }
 }
+
