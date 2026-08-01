@@ -50,7 +50,14 @@ from pathlib import Path
 from datetime import datetime
 
 SKILL_DIR = Path(__file__).parent
-WORKSPACE = Path.home() / ".qclaw" / "workspace"
+def _data_dir() -> Path:
+    """Runtime data root: %APPDATA%/autocomputer (Windows) or ~/.config/autocomputer."""
+    base = os.environ.get("APPDATA") or str(Path.home() / ".config")
+    d = Path(base) / "autocomputer"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+WORKSPACE = _data_dir() / "workspace"
 SCREENSHOT_DIR = WORKSPACE / "screenshots"
 SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
 

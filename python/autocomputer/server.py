@@ -347,7 +347,8 @@ class APIHandler(BaseHTTPRequestHandler):
 
     def _memory(self):
         """Read the MCP-side unified state DB (audit/permissions/learned actions)."""
-        db = Path.home() / ".qclaw" / "autocomputer" / "unified_state.db"
+        from autocomputer.utils import config_dir as _config_dir
+        db = _config_dir() / "unified_state.db"
         out = {"learned_actions": [], "permissions": [], "audit": [], "db": str(db)}
         if not db.exists():
             out["available"] = False

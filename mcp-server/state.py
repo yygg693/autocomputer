@@ -35,7 +35,14 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from typing import Optional, Any
 
-DB_PATH = Path.home() / ".qclaw" / "autocomputer" / "unified_state.db"
+def _data_dir() -> Path:
+    """Runtime data root: %APPDATA%/autocomputer (Windows) or ~/.config/autocomputer."""
+    base = os.environ.get("APPDATA") or str(Path.home() / ".config")
+    d = Path(base) / "autocomputer"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+DB_PATH = _data_dir() / "unified_state.db"
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 # ── Singleton connection ──

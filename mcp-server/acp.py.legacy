@@ -68,7 +68,7 @@ if not _ORIG.is_dir():
     # fallback: maybe co-located
     _ORIG = Path.home() / ".qclaw" / "skills" / "autocomputer" / "scripts"
 
-WORKSPACE = Path.home() / ".qclaw" / "workspace"
+WORKSPACE = Path.home() / "AppData" / "Roaming" / "autocomputer" / "workspace"
 ACP_DIR = WORKSPACE / ".acp"
 SHOT_DIR = WORKSPACE / "screenshots"
 for d in (ACP_DIR, SHOT_DIR):

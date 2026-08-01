@@ -54,7 +54,14 @@ try:
 except Exception:
     pyautogui = None
 
-WORKSPACE = Path.home() / ".qclaw" / "workspace"
+def _data_dir() -> Path:
+    """Runtime data root: %APPDATA%/autocomputer (Windows) or ~/.config/autocomputer."""
+    base = os.environ.get("APPDATA") or str(Path.home() / ".config")
+    d = Path(base) / "autocomputer"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+WORKSPACE = _data_dir() / "workspace"
 ACP_DIR = WORKSPACE / ".acp"
 SHOT_DIR = WORKSPACE / "screenshots"
 for d in (ACP_DIR, SHOT_DIR):

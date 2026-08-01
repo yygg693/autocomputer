@@ -61,9 +61,9 @@ python autocomputer_mcp.py --selftest
 运行时数据(截图、verify 状态、SQLite 审计库)存放在用户目录下:
 
 ```
-~/.qclaw/workspace/screenshots/        # 截图
-~/.qclaw/workspace/.acp/               # verify 状态
-~/.qclaw/autocomputer/unified_state.db # 审计/权限/记忆 SQLite
+%APPDATA%/autocomputer/workspace/screenshots/        # 截图
+%APPDATA%/autocomputer/workspace/.acp/               # verify 状态
+%APPDATA%/autocomputer/unified_state.db # 审计/权限/记忆 SQLite
 ```
 
 ## 依赖

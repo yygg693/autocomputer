@@ -78,5 +78,5 @@ ocr.py + ocr.ps1     Windows 内置 OCR（Windows.Media.Ocr，零下载，中文
 acp.py.legacy        旧 ACP 层设计参考（verify-target 门禁思路已并入 MCP server）
 ```
 
-数据目录：`~/.qclaw/workspace/screenshots/`（截图）、`~/.qclaw/workspace/.acp/`（verify 状态）、
-`~/.qclaw/autocomputer/unified_state.db`（审计/权限/记忆 SQLite）。
+数据目录：`%APPDATA%/autocomputer/workspace/screenshots/`（截图）、`%APPDATA%/autocomputer/workspace/.acp/`（verify 状态）、
+`%APPDATA%/autocomputer/unified_state.db`（审计/权限/记忆 SQLite）。
