@@ -6,9 +6,12 @@ import pytest
 def test_version() -> None:
     from autocomputer import __version__
 
-    assert __version__.endswith("-dev")
-    parts = __version__.split(".")
+    # Accept stable (0.9.0) or dev (0.9.0-dev) versions
+    base = __version__.split("-")[0]
+    parts = base.split(".")
     assert len(parts) >= 3
+    assert all(p.isdigit() for p in parts[:3])
+    assert parts[0] == "0"  # pre-1.0 project
 
 
 def test_import_core() -> None:

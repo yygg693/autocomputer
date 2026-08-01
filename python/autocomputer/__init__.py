@@ -1,7 +1,7 @@
 """
 autocomputer — AI-driven desktop GUI automation framework.
 
-Rust core + Python SDK + Tauri GUI.
+Rust core + Python SDK + MCP Server + HTML5 Dashboard.
 """
 
-__version__ = "0.8.0-dev"
+__version__ = "0.9.0"

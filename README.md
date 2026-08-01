@@ -4,10 +4,12 @@
 
 > No black box. No subscription. Your computer, your rules.
 
+[![Release](https://img.shields.io/badge/Release-v0.9.0-blue.svg)](CHANGELOG.md)
+
 [![Rust](https://img.shields.io/badge/Rust-1.97-orange.svg)](https://www.rust-lang.org/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-56%2F56-brightgreen.svg)](#)
+[![Tests](https://img.shields.io/badge/Tests-61%2F61-brightgreen.svg)](#)
 [![Clippy](https://img.shields.io/badge/Clippy-zero%20warnings-success.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-blueviolet.svg)](#)
 
@@ -107,7 +109,7 @@ pip install -e .
 
 ```bash
 python -m autocomputer version
-# autocomputer v0.8.0
+# autocomputer v0.9.0
 # Rust core: ✅ loaded (5 modules)
 
 python -m pytest python/tests/ -q
@@ -124,7 +126,7 @@ cargo clippy --workspace -- -D warnings
 
 ```bash
 python -m autocomputer serve --port 8765
-# 🦀 autocomputer API Server v0.8.0
+# 🦀 autocomputer API Server v0.9.0
 # 📡 Listening on http://127.0.0.1:8765
 # 🌐 GUI: http://127.0.0.1:8765
 # 📋 API: http://127.0.0.1:8765/api/status
@@ -268,12 +270,12 @@ Configuration via TOML — see [`examples/security.toml`](examples/security.toml
 | Suite | Framework | Count | Coverage |
 |-------|-----------|-------|----------|
 | Rust unit tests | `cargo test` | 29 | capture (5), image_proc (9), security (7), input (8) |
-| Python tests | `pytest` | 27 | core, sdk, record, perception, agent |
-| **Total** | | **56** | all passing |
+| Python tests | `pytest` | 32 | core, sdk, record, perception, agent, server API |
+| **Total** | | **61** | all passing |
 
 ```bash
 cargo test --workspace     # 29 tests, 0 failures
-pytest python/tests/ -q    # 27 tests, 0 failures
+pytest python/tests/ -q    # 32 tests, 0 failures
 cargo clippy --workspace   # 0 warnings
 ```
 
