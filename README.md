@@ -1,3 +1,5 @@
+<div align="center">
+
 # autocomputer 🦀🐍🌐
 
 **AI-driven desktop GUI automation — Rust core + Python SDK + MCP Server + HTML5 Dashboard.**
@@ -10,6 +12,8 @@
 [![Tests](https://img.shields.io/badge/Tests-61%2F61-brightgreen.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-blueviolet.svg)](#)
 [![Release](https://img.shields.io/badge/Release-v0.9.0-blue.svg)](CHANGELOG.md)
+
+</div>
 
 ---
 
