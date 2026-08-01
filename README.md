@@ -53,12 +53,18 @@ Pure static HTML/CSS/JS — no build step, open in browser directly
 | Page | What it shows |
 |------|--------------|
 | 📊 仪表盘 | Real-time status (dynamic test counts), live screenshot preview, quick actions |
+| 🖥️ 桌面操作台 | Window list + focus, coordinate click/move (via `/api/execute`), engine status |
 | ✏️ 录制编辑器 | Drag-and-drop step builder: Click / Type / Press / Wait / Scroll / Move |
 | 📋 流程管理 | Flows persisted to `%APPDATA%/autocomputer/flows.json`, replay, delete, JSON export |
 | 👁️ 实时监控 | Real operation log from `/api/logs` (ring buffer of executed actions) |
 | 🛡️ 安全审计 | Real audit stats from the SQLite audit DB + hotkey blocklist + CSS bar chart |
+| 🧠 记忆浏览 | Learned actions + per-app permissions + MCP audit from `unified_state.db` |
 
-All UI text is Chinese; flows survive browser refresh via the server-side JSON store.
+UI is an **Obsidian-style design system** (near-black layers + brass accent, pure CSS
+variables, no build step). All text is Chinese; the frontend shares state with the MCP
+server (flows, audit, memory). **One-click launch:** double-click
+[`scripts/start-dashboard.cmd`](scripts/start-dashboard.cmd) to start the server and
+auto-open `http://127.0.0.1:8765`.
 
 ### MCP Server (`mcp-server/`)
 
