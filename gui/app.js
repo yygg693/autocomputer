@@ -27,8 +27,8 @@ async function render() {
   const content = document.getElementById('content');
   content.innerHTML = '';
   const node = await ({
-    dashboard: renderDashboard, editor: renderEditor,
-    flows: renderFlows, monitor: renderMonitor, security: renderSecurity,
+    dashboard: renderDashboard, desktop: renderDesktop, editor: renderEditor,
+    flows: renderFlows, monitor: renderMonitor, security: renderSecurity, memory: renderMemory,
   }[state.tab] || renderDashboard)();
   content.appendChild(node);
   updateBadges();
@@ -67,10 +67,105 @@ function switchTab(name) {
   state.tab = name;
   document.querySelectorAll('.nav-item').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
   document.getElementById('pageTitle').textContent = {
-    dashboard:'📊 仪表盘', editor:'✏️ 录制编辑器', flows:'📋 流程管理',
-    monitor:'👁️ 实时监控', security:'🛡️ 安全审计'
+    dashboard:'📊 仪表盘', desktop:'🖥️ 桌面操作台', editor:'✏️ 录制编辑器', flows:'📋 流程管理',
+    monitor:'👁️ 实时监控', security:'🛡️ 安全审计', memory:'🧠 记忆浏览'
   }[name];
   render();
+}
+
+/* ═══════════ DESKTOP (操作台) ═══════════ */
+async function renderDesktop() {
+  const div = document.createElement('div'); div.className = 'page-enter';
+  let data = { windows: [], engine: 'offline' };
+  try { const d = await api('/api/windows'); if (d) data = d; } catch (e) {}
+  const online = data.engine === 'online';
+  const winRows = data.windows.length ? data.windows.map((w, i) => `
+    <div class="window-item">
+      <span class="window-icon">🪟</span>
+      <span class="window-title" title="${String(w.title).replace(/"/g, '&quot;')}">${w.title || '(无标题)'}</span>
+      <span class="perm-tag ${w.visible ? 'allow' : 'prompt'}">${w.visible ? '可见' : '隐藏'}</span>
+      <div class="window-actions">
+        <button class="btn btn-success btn-xs" onclick="focusWindow('${String(w.title).replace(/'/g, "\\'")}')">聚焦</button>
+      </div>
+    </div>
+  `).join('') : `<div class="empty-state"><div class="empty-icon">🖥️</div><p>${online ? '没有检测到窗口' : '引擎离线'}</p><p style="font-size:12px;">${online ? '' : 'Rust 核心未编译,窗口列表不可用(纯 Python 模式)'}</p></div>`;
+  div.innerHTML = `
+    <div class="card">
+      <div class="card-header">
+        <h3>🖥️ 窗口列表</h3>
+        <span class="card-badge ${online ? 'success' : 'warning'}">${online ? '引擎在线' : '引擎离线'}</span>
+      </div>
+      <div class="window-list">${winRows}</div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>🎯 坐标操作</h3><span class="card-badge info">经 /api/execute</span></div>
+      <div class="desktop-toolbar">
+        <input class="coord-input" id="clickX" type="number" placeholder="X" value="500">
+        <input class="coord-input" id="clickY" type="number" placeholder="Y" value="300">
+        <button class="btn btn-primary btn-sm" onclick="desktopClick()">🖱️ 点击</button>
+        <button class="btn btn-outline btn-sm" onclick="desktopMove()">➡️ 移动</button>
+      </div>
+      <p style="font-size:12px;color:var(--text-tertiary);">${online ? '点击后自动执行并记录审计。' : '引擎离线:操作不会真正执行(避免误操作),仅记录日志。'}</p>
+    </div>
+  `;
+  return div;
+}
+
+async function focusWindow(title) {
+  const res = await api('/api/execute', { method: 'POST', body: JSON.stringify({ action: 'focus', params: { title } }) });
+  if (res && res.success) toast('已聚焦: ' + title, 'success');
+  else toast('聚焦失败: ' + ((res && res.error) || '引擎离线'), 'error');
+}
+
+async function desktopClick() {
+  const x = parseInt(document.getElementById('clickX').value || '0', 10);
+  const y = parseInt(document.getElementById('clickY').value || '0', 10);
+  const res = await api('/api/execute', { method: 'POST', body: JSON.stringify({ action: 'click', params: { x, y } }) });
+  if (res && res.success) toast(`已点击 (${x}, ${y})`, 'success');
+  else toast('执行失败: ' + ((res && res.error) || '未知'), 'error');
+  render();
+}
+
+async function desktopMove() {
+  const x = parseInt(document.getElementById('clickX').value || '0', 10);
+  const y = parseInt(document.getElementById('clickY').value || '0', 10);
+  await api('/api/execute', { method: 'POST', body: JSON.stringify({ action: 'move', params: { x, y } }) });
+  toast(`已移动至 (${x}, ${y})`, 'info');
+}
+
+/* ═══════════ MEMORY (记忆) ═══════════ */
+async function renderMemory() {
+  const div = document.createElement('div'); div.className = 'page-enter';
+  let data = { learned_actions: [], permissions: [], available: false };
+  try { const d = await api('/api/memory'); if (d) data = d; } catch (e) {}
+  if (!data.available) {
+    div.innerHTML = `<div class="card"><div class="empty-state"><div class="empty-icon">🧠</div><p>记忆库不可用</p><p style="font-size:12px;">${data.db || ''} 不存在 — 使用 MCP 技能执行过操作后自动创建</p></div></div>`;
+    return div;
+  }
+  const actions = data.learned_actions || [];
+  const perms = data.permissions || [];
+  const actionCards = actions.length ? actions.map(a => `
+    <div class="memory-item">
+      <div class="memory-head">
+        <span class="memory-app">${a.app}</span>
+        <span class="memory-task">${a.task}</span>
+        <span class="memory-meta">使用 ${a.used_count} 次 · ${a.success ? '成功' : '失败'}</span>
+      </div>
+      <div class="steps-list">${(a.steps || []).map(s => `<div class="step-line">${typeof s === 'string' ? s : JSON.stringify(s)}</div>`).join('')}</div>
+    </div>
+  `).join('') : `<div class="empty-state"><div class="empty-icon">📭</div><p>暂无已学习的操作</p></div>`;
+  const permCards = perms.length ? perms.map(pm => `
+    <div class="perm-card">
+      <div class="app-name">${pm.app}</div>
+      <span class="perm-tag ${pm.policy === 'allow' ? 'allow' : pm.policy === 'deny' ? 'deny' : 'prompt'}">${pm.policy}</span>
+      ${pm.reason ? `<div style="font-size:11px;color:var(--text-tertiary);margin-top:4px;">${pm.reason}</div>` : ''}
+    </div>
+  `).join('') : `<div class="empty-state"><div class="empty-icon">🔒</div><p>暂无权限配置</p></div>`;
+  div.innerHTML = `
+    <div class="card"><div class="card-header"><h3>🧠 已学习操作</h3><span class="card-badge info">${actions.length} 条</span></div><div class="memory-list">${actionCards}</div></div>
+    <div class="card"><div class="card-header"><h3>🔒 应用权限</h3><span class="card-badge info">${perms.length} 项</span></div><div class="perm-grid">${permCards}</div></div>
+  `;
+  return div;
 }
 
 /* ═══════════ DASHBOARD ═══════════ */
@@ -418,5 +513,16 @@ async function renderSecurity() {
 }
 // ── Init ──
 loadFlows();
+updateEngineStatus();
 render();
 updateBadges();
+
+async function updateEngineStatus() {
+  const el = document.getElementById('engineStatus');
+  if (!el) return;
+  try {
+    const s = await api('/api/status');
+    const online = !s.error && s.rust_core;
+    el.innerHTML = `<span class="status-dot ${online ? 'online' : 'offline'}"></span><span>${online ? 'Rust 引擎在线' : '纯 Python 模式(引擎离线)'}</span>`;
+  } catch (e) { /* keep default */ }
+}

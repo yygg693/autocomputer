@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>autocomputer — AI Desktop Automation</title>
+<title>autocomputer — AI 桌面自动化控制台</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,29 +16,44 @@
       <h1>autocomputer</h1>
     </div>
     <div class="sidebar-subtitle">AI Desktop Automation · v0.8</div>
+    <div class="logo-line"></div>
   </div>
   <nav class="sidebar-nav">
-    <button class="nav-item active" data-tab="dashboard">
-      <span class="nav-icon">📊</span><span>仪表盘</span>
-    </button>
-    <button class="nav-item" data-tab="editor">
-      <span class="nav-icon">✏️</span><span>录制编辑器</span>
-      <span class="nav-badge">New</span>
-    </button>
-    <button class="nav-item" data-tab="flows">
-      <span class="nav-icon">📋</span><span>流程管理</span>
-      <span class="nav-badge" id="flowCount">0</span>
-    </button>
-    <button class="nav-item" data-tab="monitor">
-      <span class="nav-icon">👁️</span><span>实时监控</span>
-    </button>
-    <button class="nav-item" data-tab="security">
-      <span class="nav-icon">🛡️</span><span>安全审计</span>
-    </button>
+    <div class="nav-section">
+      <div class="nav-label">总览</div>
+      <button class="nav-item active" data-tab="dashboard">
+        <span class="nav-icon">📊</span><span>仪表盘</span>
+      </button>
+      <button class="nav-item" data-tab="desktop">
+        <span class="nav-icon">🖥️</span><span>桌面操作台</span>
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">自动化</div>
+      <button class="nav-item" data-tab="editor">
+        <span class="nav-icon">✏️</span><span>录制编辑器</span>
+      </button>
+      <button class="nav-item" data-tab="flows">
+        <span class="nav-icon">📋</span><span>流程管理</span>
+        <span class="nav-badge" id="flowCount">0</span>
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">洞察</div>
+      <button class="nav-item" data-tab="monitor">
+        <span class="nav-icon">👁️</span><span>实时监控</span>
+      </button>
+      <button class="nav-item" data-tab="security">
+        <span class="nav-icon">🛡️</span><span>安全审计</span>
+      </button>
+      <button class="nav-item" data-tab="memory">
+        <span class="nav-icon">🧠</span><span>记忆浏览</span>
+      </button>
+    </div>
   </nav>
   <div class="sidebar-footer">
-    <div style="display:flex;align-items:center;font-size:12px;color:var(--text-muted);">
-      <span class="status-dot online"></span>Core Engine Active
+    <div class="engine-status" id="engineStatus">
+      <span class="status-dot"></span><span>引擎状态检测中…</span>
     </div>
   </div>
 </aside>
@@ -47,7 +62,9 @@
 <main class="main">
   <div class="topbar">
     <h2 id="pageTitle">📊 仪表盘</h2>
-    <button class="btn btn-ghost btn-sm" onclick="refreshAll()">⟳ Refresh</button>
+    <div class="topbar-actions">
+      <button class="btn btn-ghost btn-sm" onclick="refreshAll()">⟳ 刷新</button>
+    </div>
   </div>
   <div class="content" id="content"></div>
 </main>

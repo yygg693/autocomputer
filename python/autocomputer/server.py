@@ -118,6 +118,10 @@ class APIHandler(BaseHTTPRequestHandler):
             return self.json_response(self._logs())
         elif path == "/api/security":
             return self.json_response(self._security())
+        elif path == "/api/windows":
+            return self.json_response(self._windows())
+        elif path == "/api/memory":
+            return self.json_response(self._memory())
 
         # ── Static Files (GUI) ──
         if path == "/" or path == "":
@@ -319,6 +323,74 @@ class APIHandler(BaseHTTPRequestHandler):
             },
         }
 
+    def _windows(self):
+        """List open windows via the bridge (empty in pure-Python fallback)."""
+        try:
+            from autocomputer.core._bridge import _get_rust_attr
+            fn = _get_rust_attr("window_list")
+            if fn is None:
+                return {"windows": [], "engine": "offline"}
+            wins = fn(None)
+            return {
+                "engine": "online",
+                "windows": [
+                    {
+                        "title": getattr(w, "title", ""),
+                        "visible": bool(getattr(w, "is_visible", False)),
+                    }
+                    for w in (wins or [])
+                ],
+            }
+        except Exception as e:
+            return {"windows": [], "engine": "error", "message": str(e)}
+
+    def _memory(self):
+        """Read the MCP-side unified state DB (audit/permissions/learned actions)."""
+        db = Path.home() / ".qclaw" / "autocomputer" / "unified_state.db"
+        out = {"learned_actions": [], "permissions": [], "audit": [], "db": str(db)}
+        if not db.exists():
+            out["available"] = False
+            return out
+        import sqlite3
+        try:
+            conn = sqlite3.connect(db)
+            try:
+                for r in conn.execute(
+                    "SELECT app, task, steps, success, used_count FROM learned_actions "
+                    "ORDER BY used_count DESC LIMIT 50"
+                ):
+                    steps = r[2]
+                    out["learned_actions"].append({
+                        "app": r[0], "task": r[1], "success": bool(r[3]),
+                        "used_count": r[4],
+                        "steps": json.loads(steps) if steps else [],
+                    })
+            except Exception:
+                pass
+            try:
+                for r in conn.execute("SELECT app, policy, granted_at, reason FROM permissions"):
+                    out["permissions"].append({
+                        "app": r[0], "policy": r[1], "granted_at": r[2], "reason": r[3] or "",
+                    })
+            except Exception:
+                pass
+            try:
+                for r in conn.execute(
+                    "SELECT timestamp, app, action_type, risk_level, detail FROM audit_log "
+                    "ORDER BY id DESC LIMIT 50"
+                ):
+                    out["audit"].append({
+                        "time": r[0], "app": r[1] or "", "action": r[2],
+                        "risk": r[3], "detail": r[4] or "",
+                    })
+            except Exception:
+                pass
+            conn.close()
+            out["available"] = True
+        except Exception:
+            out["available"] = False
+        return out
+
     def _execute(self, data):
         action = data.get("action", "")
         params = data.get("params", {})
@@ -346,6 +418,13 @@ class APIHandler(BaseHTTPRequestHandler):
                 if fn:
                     fn(params.get("x", 0), params.get("y", 0), None)
                 result = {"success": True, "action": "move", "detail": f"移动至 ({params.get('x', 0)}, {params.get('y', 0)})"}
+            elif action == "focus":
+                fn = _get_rust_attr("window_focus")
+                if fn is None:
+                    result = {"success": False, "action": "focus", "error": "引擎离线:无法聚焦窗口(纯 Python 模式)"}
+                else:
+                    fn(params.get("title", ""))
+                    result = {"success": True, "action": "focus", "detail": f"聚焦: {params.get('title', '')}"}
             elif action == "scroll":
                 fn = _get_rust_attr("mouse_scroll")
                 if fn:
