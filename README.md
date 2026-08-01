@@ -57,6 +57,22 @@ HTML5 single-page app — no build step, open in browser directly:
 | 👁️ Monitor | Live operation log with severity coloring (info/ok/warn/error) |
 | 🛡️ Security | Hotkey blocklist, loop thresholds, rate limit config, audit stats |
 
+### MCP Server (`mcp-server/`)
+
+AI-agent-ready desktop control via the [Model Context Protocol](https://modelcontextprotocol.io) —
+8 tools (`see` / `find` / `act` / `verify_target` / `apps` / `audit` / `permissions` / `memory`)
+that any MCP-capable agent (Reasonix, Claude Code, Cursor…) can call directly. Pure Python +
+**Windows built-in OCR** (zero downloads, Chinese `zh-Hans-CN`), independent of the Rust core.
+
+| Tool | What it does |
+|------|-------------|
+| `see` | Screenshot + OCR lines (with coords) + active window title + change detection |
+| `act` | Click / type / press / scroll / move — auto before/after diff, `expect` check, audit log |
+| `verify_target` | **Hard gate before any send**: verifies focused window title; send-class keys refused within 90s if it fails |
+| `find` / `apps` / `audit` / `permissions` / `memory` | OCR locate → candidates, window list/focus, audit query, per-app ask/allow/deny policy, cross-session action recipes |
+
+See [`mcp-server/README.md`](mcp-server/README.md) for setup and the full safety model.
+
 ---
 
 ## 🚀 Quick Start
@@ -292,6 +308,12 @@ autocomputer/
 │   └── tests/                # Python test suite (27 tests)
 ├── gui/
 │   └── index.html            # HTML5 Dashboard (5 pages)
+├── mcp-server/               # MCP server (8 tools, Windows built-in OCR)
+│   ├── autocomputer_mcp.py   # MCP stdio server entry
+│   ├── cua.py / state.py / ocr.py / ocr.ps1
+│   ├── acp.py.legacy         # design reference
+│   ├── SKILL.md              # Reasonix skill definition
+│   └── README.md
 ├── .github/workflows/        # CI + repo metadata
 ├── examples/
 │   └── security.toml         # Security policy template
