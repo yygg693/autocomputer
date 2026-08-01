@@ -191,7 +191,7 @@ function renderEditor() {
     const list = document.getElementById('stepList');
     if (list && state.editing.length > 0) {
       list.innerHTML = state.editing.map((s, i) => `
-        <div class="step-item" draggable="true">
+        <div class="step-item" draggable="true" ondragstart="dragStart(${i}, event)" ondragover="dragOver(event)" ondrop="dropReorder(${i}, event)">
           <span class="step-icon ${s.cls}">${s.emoji}</span>
           <div class="step-info">
             <div class="step-title">#${i+1} ${s.action.toUpperCase()}</div>
@@ -206,11 +206,28 @@ function renderEditor() {
   return div;
 }
 
+let _dragIndex = null;
+
+function dragStart(i, ev) {
+  _dragIndex = i;
+  if (ev.dataTransfer) ev.dataTransfer.effectAllowed = 'move';
+}
+function dragOver(ev) { ev.preventDefault(); }
+function dropReorder(i, ev) {
+  ev.preventDefault();
+  if (_dragIndex === null || _dragIndex === i) { _dragIndex = null; return; }
+  const [item] = state.editing.splice(_dragIndex, 1);
+  state.editing.splice(i, 0, item);
+  _dragIndex = null;
+  render();
+  toast('步骤已重排', 'info');
+}
+
 function addStep(action) {
   const def = ACTION_DEFS[action];
   state.editing.push({ action, params: {...def.defaults}, emoji: def.emoji, cls: def.cls });
   render();
-  toast(`Added: ${def.desc}`, 'success');
+  toast(`已添加: ${def.desc}`, 'success');
 }
 
 function removeStep(i) { state.editing.splice(i, 1); render(); }
@@ -232,8 +249,11 @@ async function saveFlow() {
   }
 }
 
+let _running = false;
 async function testFlow() {
+  if (_running) return toast('正在执行,请稍候...', 'info');
   if (!state.editing.length) return toast('没有可执行的步骤', 'error');
+  _running = true;
   toast(`正在执行 ${state.editing.length} 个步骤...`, 'info');
   for (let i = 0; i < state.editing.length; i++) {
     const s = state.editing[i];
@@ -243,10 +263,12 @@ async function testFlow() {
     });
     if (!result.success) {
       toast(`第 ${i+1} 步失败: ${result.error}`, 'error');
+      _running = false;
       return;
     }
   }
   toast(`全部 ${state.editing.length} 个步骤执行成功!`, 'success');
+  _running = false;
 }
 
 function exportFlowJSON() {

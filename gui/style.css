@@ -311,3 +311,22 @@ td:first-child { color: var(--text-primary); font-weight: 500; }
 .bar-track { flex: 1; height: 14px; background: var(--bg-hover); border-radius: 7px; overflow: hidden; }
 .bar-fill { height: 100%; background: var(--accent); border-radius: 7px; transition: width .3s; }
 .bar-count { width: 36px; font-size: 12px; color: var(--text-muted); }
+
+
+/* ── drag & drop ── */
+.step-item.dragging { opacity: 0.5; border-style: dashed; border-color: var(--accent); }
+.step-item[draggable="true"] { cursor: grab; }
+
+/* ── responsive ── */
+@media (max-width: 860px) {
+  body { flex-direction: column; overflow: auto; }
+  .sidebar { width: 100%; flex-direction: row; align-items: center; border-right: none; border-bottom: 1px solid var(--border); }
+  .sidebar-header { padding: 10px 14px; border-bottom: none; }
+  .sidebar-subtitle { display: none; }
+  .sidebar-nav { flex-direction: row; overflow-x: auto; padding: 8px; }
+  .nav-item { flex-shrink: 0; }
+  .editor-layout { flex-direction: column; height: auto; }
+  .step-sidebar { width: 100%; max-height: 300px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .main { padding: 14px; }
+}
