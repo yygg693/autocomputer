@@ -69,6 +69,11 @@ for d in (ACP_DIR, SHOT_DIR):
 
 VERIFY_FILE = ACP_DIR / "verified_target.json"
 LAST_FRAME_FILE = ACP_DIR / "last_frame.md5"
+# Send-class keys are the highest-risk actions (they confirm/transmit something),
+# so they are gated behind verify_target. click/type/press are NOT gated by design:
+# they rely on the see -> act -> see audit loop, and accidental clicks can be aborted
+# via pyautogui FAILSAFE (mouse to screen corner). A configurable allowlist may be
+# added later if needed.
 SEND_CLASSES = {"enter", "ctrl+enter", "send", "submit", "return"}
 VERIFY_TTL_SECONDS = 90
 

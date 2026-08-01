@@ -223,7 +223,13 @@ impl SecurityGuard {
                     return Err(format!("Denied {action} on {app}"));
                 }
                 if perm.prompt.iter().any(|a| a == action) {
-                    return Err(format!("Prompt required: {action}"));
+                    // "prompt" = user-confirmation required. Interactive prompting
+                    // is not implemented in the Rust core, so we fail closed with a
+                    // distinct error so callers can distinguish "needs confirmation"
+                    // from a hard "deny" and route to a UI flow later.
+                    return Err(format!(
+                        "Action '{action}' on '{app}' requires user prompt (interactive confirm not yet implemented — treated as denied)"
+                    ));
                 }
                 if perm.allow.iter().any(|a| a == action) || perm.allow.is_empty() {
                     return Ok(());

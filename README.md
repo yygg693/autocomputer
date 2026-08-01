@@ -224,6 +224,23 @@ autocomputer/
 
 ---
 
+## ⚠️ Known Limitations
+
+- **Two input implementations**: the MCP server (`mcp-server/`) drives input via
+  `pyautogui`, while the Rust core uses `enigo`. Behavior may differ slightly
+  (speed, modifier handling); new Rust capabilities don't automatically appear
+  in the MCP server.
+- **`prompt` permissions**: per-app `prompt` policy fails closed (treated as
+  denied) — interactive user confirmation is not yet implemented in the Rust core.
+  It is reported distinctly from a hard `deny` so callers can route it later.
+- **`verify_target` scope**: only send-class keys (`enter` / `ctrl+enter` /
+  `send` / `submit` / `return`) are gated before sending. Click/type rely on the
+  see→act→see audit loop + fail-safe corner instead.
+- **Hotkey blocklist matching**: blocked combos are normalized (sorted + joined),
+  so order swaps are handled; loop detection only counts same-position clicks
+  (drag+click combos are not caught).
+- **Windows-only**: window management uses Win32; macOS/Linux are stubs.
+
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE).
