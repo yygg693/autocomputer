@@ -56,18 +56,18 @@ async function api(path, opts = {}) {
     const resp = await fetch(API + path, { headers: { 'Content-Type': 'application/json' }, ...opts });
     return await resp.json();
   } catch (e) {
-    return { error: 'API offline — start: python -m autocomputer serve' };
+    return { error: 'API 离线 — 请启动: python -m autocomputer serve' };
   }
 }
 
 // ── Refresh ──
-function refreshAll() { render(); toast('Refreshed', 'info'); }
+function refreshAll() { render(); toast('已刷新', 'info'); }
 
 function switchTab(name) {
   state.tab = name;
   document.querySelectorAll('.nav-item').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
   document.getElementById('pageTitle').textContent = {
-    dashboard:'📊 Dashboard', editor:'✏️ 录制编辑器', flows:'📋 流程管理',
+    dashboard:'📊 仪表盘', editor:'✏️ 录制编辑器', flows:'📋 流程管理',
     monitor:'👁️ 实时监控', security:'🛡️ 安全审计'
   }[name];
   render();
@@ -79,7 +79,7 @@ async function renderDashboard() {
   const status = await api('/api/status');
   const monitors = await api('/api/monitors');
   const online = !status.error && status.rust_core;
-  const screen = status.screen || 'Unknown';
+  const screen = status.screen || '未知';
   const modules = status.modules || [];
   const pyPackages = status.python_packages || [];
 
@@ -106,14 +106,14 @@ async function renderDashboard() {
     <div class="card">
       <div class="card-header">
         <h3>系统概览</h3>
-        <span class="card-badge ${online ? 'success' : 'warning'}">${online ? 'Online' : 'Offline'}</span>
+        <span class="card-badge ${online ? 'success' : 'warning'}">${online ? '在线' : '离线'}</span>
       </div>
       <table>
         <tr><td>架构</td><td>Rust (ac-core) + Python SDK + HTML5 GUI</td></tr>
-        <tr><td>引擎状态</td><td>${online ? '✅ Connected — Rust core active' : '⚠️ Offline — start server first'}</td></tr>
+        <tr><td>引擎状态</td><td>${online ? '✅ 已连接 — Rust 核心运行中' : '⚠️ 离线 — 请先启动 server'}</td></tr>
         <tr><td>Rust 模块</td><td>capture · input · window · security · image_proc</td></tr>
         <tr><td>截图性能</td><td>~8ms (DXGI · xcap)</td></tr>
-        <tr><td>显示器</td><td>${monitors.count || 0} monitor(s) @ ${screen}</td></tr>
+        <tr><td>显示器</td><td>${monitors.count || 0} 个显示器 @ ${screen}</td></tr>
       </table>
     </div>
 
@@ -162,19 +162,19 @@ function renderEditor() {
         `<button class="btn btn-outline btn-sm" onclick="addStep('${action}')">${def.emoji} ${def.desc}</button>`
       ).join('')}
       <div style="flex:1"></div>
-      <button class="btn btn-success btn-sm" onclick="saveFlow()">💾 Save Flow</button>
-      <button class="btn btn-warning btn-sm" onclick="testFlow()">▶️ Test Run</button>
-      <button class="btn btn-primary btn-sm" onclick="exportFlowJSON()">📋 Export JSON</button>
-      <button class="btn btn-ghost btn-sm" onclick="clearEditor()">🗑 Clear</button>
+      <button class="btn btn-success btn-sm" onclick="saveFlow()">💾 保存流程</button>
+      <button class="btn btn-warning btn-sm" onclick="testFlow()">▶️ 试运行</button>
+      <button class="btn btn-primary btn-sm" onclick="exportFlowJSON()">📋 导出 JSON</button>
+      <button class="btn btn-ghost btn-sm" onclick="clearEditor()">🗑 清空</button>
     </div>
     <div class="editor-layout">
       <div class="step-sidebar">
         <div class="step-sidebar-header">
-          Steps <span style="color:var(--text-muted);font-size:12px;">${state.editing.length} total</span>
+          步骤 <span style="color:var(--text-muted);font-size:12px;">共 ${state.editing.length} 个</span>
         </div>
         <div class="step-list" id="stepList">
           ${state.editing.length === 0
-            ? '<div class="empty-state"><div class="empty-icon">🎬</div><p>No steps yet</p><p style="font-size:11px;">Click action buttons above to build a flow</p></div>'
+            ? '<div class="empty-state"><div class="empty-icon">🎬</div><p>暂无步骤</p><p style="font-size:11px;">点击上方动作按钮添加步骤</p></div>'
             : ''}
         </div>
       </div>
@@ -215,7 +215,7 @@ function addStep(action) {
 
 function removeStep(i) { state.editing.splice(i, 1); render(); }
 
-function clearEditor() { state.editing = []; render(); toast('Editor cleared', 'info'); }
+function clearEditor() { state.editing = []; render(); toast('已清空编辑器', 'info'); }
 
 async function saveFlow() {
   const name = prompt('流程名称:', `flow_${Date.now()}`);
@@ -233,8 +233,8 @@ async function saveFlow() {
 }
 
 async function testFlow() {
-  if (!state.editing.length) return toast('No steps to test', 'error');
-  toast(`Executing ${state.editing.length} steps...`, 'info');
+  if (!state.editing.length) return toast('没有可执行的步骤', 'error');
+  toast(`正在执行 ${state.editing.length} 个步骤...`, 'info');
   for (let i = 0; i < state.editing.length; i++) {
     const s = state.editing[i];
     const result = await api('/api/execute', {
@@ -242,18 +242,18 @@ async function testFlow() {
       body: JSON.stringify({ action: s.action, params: s.params }),
     });
     if (!result.success) {
-      toast(`Step ${i+1} failed: ${result.error}`, 'error');
+      toast(`第 ${i+1} 步失败: ${result.error}`, 'error');
       return;
     }
   }
-  toast(`All ${state.editing.length} steps executed!`, 'success');
+  toast(`全部 ${state.editing.length} 个步骤执行成功!`, 'success');
 }
 
 function exportFlowJSON() {
   const json = JSON.stringify({ version:'1.0', steps: state.editing.map(s => ({action:s.action, params:s.params})) }, null, 2);
   const blob = new Blob([json], {type:'application/json'});
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'flow.json'; a.click();
-  toast('Exported as flow.json', 'success');
+  toast('已导出为 flow.json', 'success');
 }
 
 /* ═══════════ FLOWS ═══════════ */
@@ -313,7 +313,7 @@ function renderFlows() {
 
 async function replayFlow(i) {
   const flow = state.flows[i];
-  toast(`Replaying: ${flow.name} (${flow.steps.length} steps)...`, 'info');
+  toast(`正在回放: ${flow.name} (共 ${flow.steps.length} 步)...`, 'info');
   for (let j = 0; j < flow.steps.length; j++) {
     const s = flow.steps[j];
     const result = await api('/api/execute', {
@@ -321,7 +321,7 @@ async function replayFlow(i) {
       body: JSON.stringify({ action: s.action, params: s.params }),
     });
     if (!result.success) {
-      toast(`Step ${j+1} failed: ${result.error}`, 'error');
+      toast(`第 ${j+1} 步失败: ${result.error}`, 'error');
       return;
     }
   }
@@ -344,7 +344,7 @@ function deleteFlow(i) {
     state.flows.splice(i, 1);
     localStorage.setItem('ac_flows', JSON.stringify(state.flows));
     render();
-    toast('Flow deleted', 'info');
+    toast('流程已删除', 'info');
   }
 }
 
