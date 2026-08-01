@@ -9,6 +9,7 @@ const state = {
   flows: [],
   editing: [],
   lastCapture: null,
+  selectedStep: null,
 };
 
 // ── Navigation ──
@@ -259,12 +260,12 @@ const ACTION_DEFS = {
 
 function renderEditor() {
   const div = document.createElement('div'); div.className = 'page-enter';
+  const sel = state.selectedStep;
+  const cur = (sel !== null && state.editing[sel]) ? state.editing[sel] : null;
 
   div.innerHTML = `
     <div class="editor-toolbar">
-      ${Object.entries(ACTION_DEFS).map(([action, def]) =>
-        `<button class="btn btn-outline btn-sm" onclick="addStep('${action}')">${def.emoji} ${def.desc}</button>`
-      ).join('')}
+      <div style="font-size:13px;color:var(--text-tertiary);">🎬 流程录制器</div>
       <div style="flex:1"></div>
       <button class="btn btn-success btn-sm" onclick="saveFlow()">💾 保存流程</button>
       <button class="btn btn-warning btn-sm" onclick="testFlow()">▶️ 试运行</button>
@@ -272,43 +273,109 @@ function renderEditor() {
       <button class="btn btn-ghost btn-sm" onclick="clearEditor()">🗑 清空</button>
     </div>
     <div class="editor-layout">
-      <div class="step-sidebar">
-        <div class="step-sidebar-header">
-          步骤 <span style="color:var(--text-muted);font-size:12px;">共 ${state.editing.length} 个</span>
-        </div>
-        <div class="step-list" id="stepList">
-          ${state.editing.length === 0
-            ? '<div class="empty-state"><div class="empty-icon">🎬</div><p>暂无步骤</p><p style="font-size:11px;">点击上方动作按钮添加步骤</p></div>'
-            : ''}
+      <!-- 动作库 -->
+      <div class="editor-panel">
+        <div class="editor-panel-header">📦 动作库</div>
+        <div class="action-grid">
+          ${Object.entries(ACTION_DEFS).map(([action, def]) => `
+            <button class="action-card" onclick="addStep('${action}')" title="点击添加">
+              <span class="step-icon ${def.cls}">${def.emoji}</span>
+              <span class="action-name">${def.desc}</span>
+            </button>`).join('')}
         </div>
       </div>
-      <div class="step-preview">
-        ${state.editing.length === 0
-          ? '<div class="preview-icon">✏️</div><p style="font-size:13px;">添加步骤来构建自动化流程</p><p style="font-size:11px;">拖拽步骤可调整顺序</p>'
-          : `<div class="preview-icon">🤖</div><p style="font-size:14px;color:var(--text-primary);">${state.editing.length} 个步骤就绪</p><p style="font-size:12px;">点击 ▶️ Test Run 执行</p>`
-        }
+      <!-- 步骤时间线 -->
+      <div class="editor-panel">
+        <div class="editor-panel-header">📋 步骤时间线 <span class="card-badge info">${state.editing.length} 步</span></div>
+        <div class="step-list">
+          ${state.editing.length === 0
+            ? '<div class="empty-state"><div class="empty-icon">🎬</div><p>暂无步骤</p><p style="font-size:11px;">点击左侧动作添加步骤</p></div>'
+            : state.editing.map((s, i) => `
+              <div class="step-item ${i === sel ? 'selected' : ''}" draggable="true"
+                   ondragstart="dragStart(${i}, event)" ondragover="dragOver(event)" ondrop="dropReorder(${i}, event)"
+                   onclick="selectStep(${i})">
+                <span class="step-icon ${s.cls}">${s.emoji}</span>
+                <div class="step-info">
+                  <div class="step-title">#${i+1} ${ACTION_DEFS[s.action] ? ACTION_DEFS[s.action].desc : s.action}</div>
+                  <div class="step-detail" id="step-detail-${i}">${JSON.stringify(s.params)}</div>
+                </div>
+                <span class="step-remove" onclick="event.stopPropagation(); removeStep(${i})" title="删除">×</span>
+              </div>`).join('')}
+        </div>
+      </div>
+      <!-- 属性面板 -->
+      <div class="editor-panel">
+        <div class="editor-panel-header">⚙️ 属性面板</div>
+        <div class="prop-body">
+          ${cur ? propForm(cur, sel) : '<div class="empty-state"><div class="empty-icon">⚙️</div><p>选择步骤编辑参数</p><p style="font-size:11px;">点击时间线中的步骤</p></div>'}
+          ${cur ? `<div class="sim-screen" id="step-preview-canvas">${previewMarkup(cur)}</div>` : ''}
+        </div>
       </div>
     </div>
   `;
-
-  setTimeout(() => {
-    const list = document.getElementById('stepList');
-    if (list && state.editing.length > 0) {
-      list.innerHTML = state.editing.map((s, i) => `
-        <div class="step-item" draggable="true" ondragstart="dragStart(${i}, event)" ondragover="dragOver(event)" ondrop="dropReorder(${i}, event)">
-          <span class="step-icon ${s.cls}">${s.emoji}</span>
-          <div class="step-info">
-            <div class="step-title">#${i+1} ${s.action.toUpperCase()}</div>
-            <div class="step-detail">${JSON.stringify(s.params)}</div>
-          </div>
-          <span class="step-remove" onclick="removeStep(${i})">×</span>
-        </div>
-      `).join('');
-    }
-  }, 0);
-
   return div;
 }
+
+// 选中步骤
+function selectStep(i) { state.selectedStep = i; render(); }
+
+// 属性表单
+function propForm(s, i) {
+  const def = ACTION_DEFS[s.action];
+  const fields = {
+    click: [['x', 'X 坐标', 'number'], ['y', 'Y 坐标', 'number'], ['button', '鼠标按键', 'select:left,right,middle']],
+    move:  [['x', 'X 坐标', 'number'], ['y', 'Y 坐标', 'number']],
+    type:  [['text', '输入内容', 'text'], ['method', '输入方式', 'select:auto,clipboard']],
+    press: [['key', '按键名称', 'text']],
+    wait:  [['ms', '等待毫秒', 'number']],
+    scroll:[['clicks', '滚动格数', 'number']],
+  }[s.action] || [];
+  return `
+    <div class="prop-form">
+      <div class="prop-title">${s.emoji} ${def ? def.desc : s.action}</div>
+      ${fields.map(([key, label, type]) => {
+        const val = s.params[key] ?? '';
+        if (type.startsWith('select:')) {
+          const opts = type.slice(7).split(',');
+          return `<div class="prop-field"><label>${label}</label><select onchange="updateParamLive(${i},'${key}',this.value)">
+            ${opts.map(o => `<option value="${o}" ${String(val) === o ? 'selected' : ''}>${o}</option>`).join('')}
+          </select></div>`;
+        }
+        return `<div class="prop-field"><label>${label}</label><input type="${type}" value="${val}" oninput="updateParamLive(${i},'${key}',this.value)"></div>`;
+      }).join('')}
+      <div class="prop-actions">
+        <button class="btn btn-danger btn-xs" onclick="removeStep(${i})">🗑 删除该步骤</button>
+      </div>
+    </div>`;
+}
+
+// 实时更新参数(不重渲染,保持输入焦点)
+function updateParamLive(i, key, value) {
+  const s = state.editing[i];
+  if (!s) return;
+  if (key === 'x' || key === 'y' || key === 'ms' || key === 'clicks') value = parseInt(value || '0', 10);
+  s.params[key] = value;
+  const el = document.getElementById('step-detail-' + i);
+  if (el) el.textContent = JSON.stringify(s.params);
+  const pv = document.getElementById('step-preview-canvas');
+  if (pv && state.selectedStep === i) pv.innerHTML = previewMarkup(s);
+}
+
+// 可视化预览(模拟屏幕)
+function previewMarkup(s) {
+  const pct = (v, max) => Math.min(100, Math.max(0, (v / max) * 100));
+  if (s.action === 'click' || s.action === 'move') {
+    return `
+      <div class="sim-dot" style="left:${pct(s.params.x || 0, 1920)}%;top:${pct(s.params.y || 0, 1080)}%;"></div>
+      <div class="sim-coord">${s.action === 'click' ? '🖱️' : '➡️'} (${s.params.x || 0}, ${s.params.y || 0})</div>`;
+  }
+  if (s.action === 'type') return `<div class="sim-center">⌨️ 输入: <b>${s.params.text || ''}</b></div>`;
+  if (s.action === 'press') return `<div class="sim-center">🔑 按键: <b>${s.params.key || ''}</b></div>`;
+  if (s.action === 'wait') return `<div class="sim-center">⏳ 等待 <b>${s.params.ms || 0}</b> ms</div>`;
+  if (s.action === 'scroll') return `<div class="sim-center">📜 滚动 <b>${s.params.clicks || 0}</b> 格</div>`;
+  return '<div class="sim-center">选择步骤查看预览</div>';
+}
+
 
 let _dragIndex = null;
 
@@ -330,13 +397,21 @@ function dropReorder(i, ev) {
 function addStep(action) {
   const def = ACTION_DEFS[action];
   state.editing.push({ action, params: {...def.defaults}, emoji: def.emoji, cls: def.cls });
+  state.selectedStep = state.editing.length - 1;
   render();
   toast(`已添加: ${def.desc}`, 'success');
 }
 
-function removeStep(i) { state.editing.splice(i, 1); render(); }
+function removeStep(i) {
+  state.editing.splice(i, 1);
+  if (state.selectedStep !== null) {
+    if (state.selectedStep === i) state.selectedStep = null;
+    else if (state.selectedStep > i) state.selectedStep--;
+  }
+  render();
+}
 
-function clearEditor() { state.editing = []; render(); toast('已清空编辑器', 'info'); }
+function clearEditor() { state.editing = []; state.selectedStep = null; render(); toast('已清空编辑器', 'info'); }
 
 async function saveFlow() {
   const name = prompt('流程名称:', `flow_${Date.now()}`);
@@ -454,6 +529,7 @@ async function replayFlow(i) {
   toast(`${flow.name} replay complete!`, 'success');
 }
 function editFlow(i) {
+  state.selectedStep = null;
   state.editing = state.flows[i].steps.map(s => {
     const def = ACTION_DEFS[s.action] || { emoji:'❓', cls:'click' };
     return { ...s, emoji: def.emoji, cls: def.cls };
@@ -465,15 +541,6 @@ function exportSingle(i) {
   const blob = new Blob([json], {type:'application/json'});
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = state.flows[i].name + '.json'; a.click();
 }
-function deleteFlow(i) {
-  if (confirm(`Delete "${state.flows[i].name}"?`)) {
-    state.flows.splice(i, 1);
-    localStorage.setItem('ac_flows', JSON.stringify(state.flows));
-    render();
-    toast('流程已删除', 'info');
-  }
-}
-
 /* ═══════════ MONITOR ═══════════ */
 async function renderMonitor() {
   const div = document.createElement('div'); div.className = 'page-enter';
