@@ -349,3 +349,19 @@ tbody tr:last-child td { border-bottom: none; }
 @media (prefers-reduced-motion: reduce) {
   #fx-canvas { display: none; }
 }
+
+
+/* ═══════════ Dashboard 两栏概览 ═══════════ */
+.overview-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; align-items: start; }
+.overview-table { width: 100%; }
+.overview-table td { padding: 8px 10px; }
+.overview-table td:first-child { width: 30%; color: var(--text-tertiary); white-space: nowrap; }
+.overview-table td:last-child { color: var(--text-primary); }
+.overview-side { display: flex; flex-direction: column; gap: 14px; }
+.quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.quick-actions .btn { justify-content: center; padding: 12px 10px; }
+.engine-hint { text-align: center; padding: 18px 10px; background: var(--bg-surface); border: 1px dashed var(--border-default); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 13px; }
+
+@media (max-width: 860px) {
+  .overview-grid { grid-template-columns: 1fr; }
+}

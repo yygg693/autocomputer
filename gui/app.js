@@ -202,33 +202,38 @@ async function renderDashboard() {
     <div class="card">
       <div class="card-header">
         <h3>系统概览</h3>
-        <span class="card-badge ${online ? 'success' : 'warning'}">${online ? '在线' : '离线'}</span>
+        <span class="card-badge ${online ? 'success' : 'warning'}">${online ? '引擎在线' : '引擎离线'}</span>
       </div>
-      <table>
-        <tr><td>架构</td><td>Rust (ac-core) + Python SDK + HTML5 GUI</td></tr>
-        <tr><td>引擎状态</td><td>${online ? '✅ 已连接 — Rust 核心运行中' : '⚠️ 离线 — 纯 Python 模式'}</td></tr>
-        <tr><td>Rust 模块</td><td>capture · input · window · security · image_proc</td></tr>
-        <tr><td>版本</td><td>${status.version || '-'} (${status.tests_passed ?? '?'} 项测试)</td></tr>
-        <tr><td>截图性能</td><td>~8ms (DXGI · xcap)</td></tr>
-        <tr><td>显示器</td><td>${monitors.count || 0} 个显示器 @ ${screen}</td></tr>
-        <tr><td>运行时长</td><td>${status.uptime_seconds ? Math.floor(status.uptime_seconds / 60) + ' 分钟' : '-'}</td></tr>
-        <tr><td>Python 包</td><td>${(pyPackages || []).join(' · ')}</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><h3>快速操作</h3></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <button class="btn btn-primary" onclick="quickCapture()">📸 截取屏幕</button>
-        <button class="btn btn-success" onclick="switchTab('editor')">✏️ 新建录制</button>
-        <button class="btn btn-outline" onclick="switchTab('flows')">▶️ 回放流程</button>
-        <button class="btn btn-ghost" onclick="window.open('https://github.com/yygg693/autocomputer')">📖 GitHub →</button>
+      <div class="overview-grid">
+        <table class="overview-table">
+          <tr><td>架构</td><td>Rust (ac-core) + Python SDK</td></tr>
+          <tr><td>引擎状态</td><td>${online ? '✅ 已连接 — Rust 核心运行中' : '⚠️ 离线 — 纯 Python 模式'}</td></tr>
+          <tr><td>Rust 模块</td><td>capture · input · window · security · image_proc</td></tr>
+          <tr><td>版本</td><td>${status.version || '-'} (${status.tests_passed ?? '?'} 项测试)</td></tr>
+          <tr><td>截图性能</td><td>~8ms (DXGI · xcap)</td></tr>
+          <tr><td>显示器</td><td>${monitors.count || 0} 个显示器 @ ${screen}</td></tr>
+          <tr><td>运行时长</td><td>${status.uptime_seconds ? Math.floor(status.uptime_seconds / 60) + ' 分钟' : '-'}</td></tr>
+          <tr><td>Python 包</td><td>${(pyPackages || []).join(' · ')}</td></tr>
+        </table>
+        <div class="overview-side">
+          <div class="quick-actions">
+            <button class="btn btn-primary" onclick="quickCapture()">📸 截取屏幕</button>
+            <button class="btn btn-success" onclick="switchTab('editor')">✏️ 新建录制</button>
+            <button class="btn btn-outline" onclick="switchTab('flows')">▶️ 回放流程</button>
+            <button class="btn btn-ghost" onclick="window.open('https://github.com/yygg693/autocomputer')">📖 GitHub</button>
+          </div>
+          ${state.lastCapture ? `
+          <div class="capture-preview">
+            <img src="data:image/png;base64,${state.lastCapture.png_b64}" alt="截图预览"/>
+            <div class="capture-meta">${state.lastCapture.width}×${state.lastCapture.height} · ${(state.lastCapture.png_size/1024).toFixed(0)}KB</div>
+          </div>` : `
+          <div class="engine-hint">
+            <div class="empty-icon">🦀</div>
+            <p>Rust 引擎 ${online ? '运行中' : '离线'}</p>
+            <p style="font-size:12px;">${online ? '窗口列表 / 点击 / 聚焦 / 记忆均可用' : '请编译 _core.pyd 或使用纯 Python 模式'}</p>
+          </div>`}
+        </div>
       </div>
-      ${state.lastCapture ? `
-      <div class="capture-preview">
-        <img src="data:image/png;base64,${state.lastCapture.png_b64}" alt="截图预览"/>
-        <div class="capture-meta">${state.lastCapture.width}×${state.lastCapture.height} · ${(state.lastCapture.png_size/1024).toFixed(0)}KB</div>
-      </div>` : ''}
     </div>
   `;
   return div;
