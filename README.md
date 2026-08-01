@@ -47,15 +47,18 @@ Most GUI automation tools fall into two camps: **proprietary cloud services** th
 
 ### Dashboard (`gui/`)
 
-HTML5 single-page app — no build step, open in browser directly:
+Pure static HTML/CSS/JS — no build step, open in browser directly
+(served by `server.py` at `http://127.0.0.1:8765`):
 
 | Page | What it shows |
 |------|--------------|
-| 📊 Dashboard | Real-time system status, Rust core health, quick actions |
-| ✏️ Editor | Drag-and-drop step builder: Click / Type / Press / Wait / Scroll / Move |
-| 📋 Flows | Saved flow library, replay, JSON export/import |
-| 👁️ Monitor | Live operation log with severity coloring (info/ok/warn/error) |
-| 🛡️ Security | Hotkey blocklist, loop thresholds, rate limit config, audit stats |
+| 📊 仪表盘 | Real-time status (dynamic test counts), live screenshot preview, quick actions |
+| ✏️ 录制编辑器 | Drag-and-drop step builder: Click / Type / Press / Wait / Scroll / Move |
+| 📋 流程管理 | Flows persisted to `%APPDATA%/autocomputer/flows.json`, replay, delete, JSON export |
+| 👁️ 实时监控 | Real operation log from `/api/logs` (ring buffer of executed actions) |
+| 🛡️ 安全审计 | Real audit stats from the SQLite audit DB + hotkey blocklist + CSS bar chart |
+
+All UI text is Chinese; flows survive browser refresh via the server-side JSON store.
 
 ### MCP Server (`mcp-server/`)
 
