@@ -49,7 +49,11 @@ python "$SC\ocr.py" read "C:\path\shot.png" --lines   # 独立 OCR
 python "$SC\autocomputer_mcp.py" --selftest            # MCP 自检
 ```
 
-## 文件映射（单一来源：~/.agents/skills/autocomputer/scripts/）
+## 文件映射（单一来源：%USERPROFILE%/autocomputer/mcp-server/）
+
+> `scripts/` 是指向仓库 `mcp-server/` 的 junction 软链 —— 技能与 GitHub 仓库
+> (yygg693/autocomputer) 共用同一份代码，改仓库即改技能，无双份维护。
+> 仓库地址：https://github.com/yygg693/autocomputer
 
 ```
 autocomputer_mcp.py  MCP server（Reasonix 通过它调用，见 config.toml [[plugins]]）
